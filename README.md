@@ -1,6 +1,6 @@
-# Goobi Administration Plugin: Catalogue Poller
+# Goobi Administration Plugin: Google books harvester
 
-This is the Goobi Plugin to automatically update records inside of Goobi with up to date information from a library catalogue.
+This is a plugin to periodically poll GRIN and import books to Goobi.
 
 ## Plugin details
 
@@ -8,9 +8,9 @@ More information about the functionality of this plugin and the complete documen
 
 Detail | Description
 --- | ---
-**Plugin identifier**       | plugin_intranda_administration_catalogue_poller
+**Plugin identifier**       | plugin_intranda_administration_googlebooks_harvester
 **Plugin type**             | Administration plugin
-**Documentation (German)**  | https://docs.intranda.com/goobi-workflow-plugins-de/administration-plugins/catalogue-poller
+**Documentation (German)**  | https://docs.intranda.com/goobi-workflow-plugins-de/administration-plugins/googelebooks-harvester
 **Documentation (English)** | - still to be translated -
 
 ## Goobi details
