@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config_plugin>
+
+	<!-- multiple different rules can be defined for individual use cases -->
+	<rule title="SampleProject">
+
+		<!-- filter which items to run through (can be more then one, otherwise use *) please notice that blanks inside of the 
+			filter query need to be surrounded by quotation marks -->
+		<filter>project:SampleProject</filter>
+		<filter>"project:Manuscript items"</filter>
+
+		<!-- which catalogue to use (GBV, Wiener, CBL Adlib ...) -->
+		<catalogue>Wiener</catalogue>
+
+		<!-- which identifier to use for the catalogue request (use standard variable replacer compatible value here) -->
+		<catalogueIdentifier>$(meta.CatalogIDDigital)</catalogueIdentifier>
+
+		<!-- define if existing structure subelements shall be kept (true), otherwise a complete new mets file is created and overwrites 
+			the existing one (false) -->
+		<mergeRecords>true</mergeRecords>
+
+		<!-- execute an automatic export of updated records; this is only executed if mergeRecords is set to true -->
+		<exportUpdatedRecords>false</exportUpdatedRecords>
+
+		<!-- if records shall be merged: which existing fields shall not be replace with new values? (use the metadatatypes from 
+			ruleset) -->
+		<skipField>viewerinstance</skipField>
+		<skipField>singleDigCollection</skipField>
+		<skipField>pathimagefiles</skipField>
+		<skipField>_urn</skipField>
+		<skipField>_representative</skipField>
+
+	</rule>
+
+
+	<rule title="Archive project">
+		<!-- filter which items to run through (can be more then one, otherwise use *) please notice that blanks inside of the 
+			filter query need to be surrounded by quotation marks -->
+		<filter>project:Archive</filter>
+		<!-- which catalogue to use (GBV, Wiener, CBL Adlib ...) -->
+		<catalogue>GBV</catalogue>
+		<!-- which identifier to use for the catalogue request (use standard variable replacer compatible value here) -->
+		<catalogueIdentifier>$(meta.CatalogIDDigital)</catalogueIdentifier>
+		<!-- define if existing structure subelements shall be kept (true), otherwise a complete new mets file is created and overwrites 
+			the existing one (false) -->
+		<mergeRecords>true</mergeRecords>
+		<!-- execute an automatic export of updated records; this is only executed if mergeRecords is set to true -->
+		<exportUpdatedRecords>false</exportUpdatedRecords>
+		<!-- if records shall be merged: which existing fields shall not be replace with new values? (use the metadatatypes from 
+			ruleset) -->
+		<skipField>TitleDocMain</skipField>
+		<skipField>CatalogueIDDigital</skipField>
+		<skipField>DocLanguage</skipField>
+		<skipField>_urn</skipField>
+		<skipField>_representative</skipField>
+	</rule>
+
+	<rule title="Manuscript project">
+		<!-- filter which items to run through (can be more then one, otherwise use *) please notice that blanks inside of the 
+			filter query need to be surrounded by quotation marks -->
+		<filter>"project:Manuscript items"</filter>
+		<!-- which catalogue to use (GBV, Wiener, CBL Adlib ...) -->
+		<catalogue>GBV</catalogue>
+		<!-- which identifier to use for the catalogue request (use standard variable replacer compatible value here) -->
+		<catalogueIdentifier>$(meta.CatalogIDDigital)</catalogueIdentifier>
+		<!-- define if existing structure subelements shall be kept (true), otherwise a complete new mets file is created and overwrites 
+			the existing one (false) -->
+		<mergeRecords>true</mergeRecords>
+		<!-- execute an automatic export of updated records; this is only executed if mergeRecords is set to true -->
+		<exportUpdatedRecords>false</exportUpdatedRecords>
+		<!-- if records shall be merged: which existing fields shall not be replace with new values? (use the metadatatypes from 
+			ruleset) -->
+		<skipField>TitleDocMain</skipField>
+		<skipField>CatalogueIDDigital</skipField>
+		<skipField>DocLanguage</skipField>
+	</rule>
+
+	<lastRun>1537117476547</lastRun>
+</config_plugin>
