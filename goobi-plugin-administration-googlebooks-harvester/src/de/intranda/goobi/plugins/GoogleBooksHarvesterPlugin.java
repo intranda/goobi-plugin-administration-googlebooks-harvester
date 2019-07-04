@@ -1,6 +1,5 @@
 package de.intranda.goobi.plugins;
 
-import org.apache.commons.configuration.XMLConfiguration;
 import org.goobi.production.enums.PluginType;
 import org.goobi.production.plugin.interfaces.IAdministrationPlugin;
 import org.goobi.production.plugin.interfaces.IPlugin;
@@ -9,7 +8,6 @@ import org.quartz.SchedulerException;
 import org.quartz.SchedulerFactory;
 import org.quartz.impl.StdSchedulerFactory;
 
-import de.sub.goobi.config.ConfigPlugins;
 import lombok.Data;
 import lombok.extern.log4j.Log4j;
 import net.xeoh.plugins.base.annotations.PluginImplementation;
@@ -22,13 +20,11 @@ public class GoogleBooksHarvesterPlugin implements IAdministrationPlugin, IPlugi
     private static final String PLUGIN_NAME = "intranda_administration_googlebooks_harvester";
     private static final String GUI = "/uii/administration_googlebooksHarvester.xhtml";
 
-    private XMLConfiguration config;
-
     /**
      * Constructor for parameter initialisation from config file
      */
     public GoogleBooksHarvesterPlugin() {
-        config = ConfigPlugins.getPluginConfig("intranda_administration_googlebooks_harvester");
+
     }
 
     @Override
