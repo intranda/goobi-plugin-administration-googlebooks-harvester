@@ -2,6 +2,7 @@ package de.intranda.goobi.plugins;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -10,19 +11,44 @@ import java.util.zip.GZIPInputStream;
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 import org.apache.commons.configuration.XMLConfiguration;
+import org.goobi.beans.LogEntry;
+import org.goobi.beans.Step;
+import org.goobi.production.enums.LogType;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.Namespace;
+import org.jdom2.filter.Filters;
+import org.jdom2.input.SAXBuilder;
+import org.jdom2.xpath.XPathExpression;
+import org.jdom2.xpath.XPathFactory;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 
 import de.sub.goobi.config.ConfigPlugins;
 import de.sub.goobi.config.ConfigurationHelper;
 import de.sub.goobi.helper.BeanHelper;
+import de.sub.goobi.helper.enums.StepStatus;
 import de.sub.goobi.helper.exceptions.DAOException;
 import de.sub.goobi.helper.exceptions.SwapException;
 import de.sub.goobi.persistence.managers.ProcessManager;
+import de.sub.goobi.persistence.managers.StepManager;
 import lombok.extern.log4j.Log4j;
+import ugh.dl.Fileformat;
+import ugh.dl.Metadata;
+import ugh.dl.Prefs;
+import ugh.exceptions.MetadataTypeNotAllowedException;
+import ugh.exceptions.PreferencesException;
+import ugh.exceptions.ReadException;
+import ugh.exceptions.WriteException;
 
 @Log4j
 public class QuartzJob implements Job {
+    private static XPathFactory xFactory = XPathFactory.instance();
+    private static Namespace metsNs = Namespace.getNamespace("METS", "http://www.loc.gov/METS/");
+    private static Namespace marcNs = Namespace.getNamespace("marc", "http://www.loc.gov/MARC21/slim");
+    private static XPathExpression<Element> identifierXpath = xFactory.compile("//METS:xmlData/marc:record/marc:controlfield[@tag='001']", Filters
+            .element(), null, metsNs, marcNs);
 
     private final static long G = 1073741824;
     private final static long M = 1048576;
@@ -75,7 +101,8 @@ public class QuartzJob implements Job {
             DAOException, SwapException {
         org.goobi.beans.Process goobiProcess = createProcess(processTitle, config);
         String scriptDir = config.getString("scriptDir", "/opt/digiverso/goobi/scripts/googlebooks/");
-        Path downloadPath = Paths.get(goobiProcess.getSourceDirectory(), convertedBook);
+        Path goobiImagesSourceDir = Paths.get(goobiProcess.getSourceDirectory());
+        Path downloadPath = goobiImagesSourceDir.resolve(convertedBook);
         ProcessBuilder pb = new ProcessBuilder("/usr/bin/env/", "python", "grin_oath.py", "--directory", "NLI", "--resource", convertedBook,
                 "-o", downloadPath.toAbsolutePath().toString());
         pb.directory(new File(scriptDir));
@@ -99,7 +126,7 @@ public class QuartzJob implements Job {
 
         //decrypt stuff...
         String outputName = convertedBook.replace(".gpg", "");
-        Path decryptPath = Paths.get(goobiProcess.getSourceDirectory(), outputName);
+        Path decryptPath = goobiImagesSourceDir.resolve(outputName);
         Process gpgProcess = new ProcessBuilder("/usr/bin/gpg",
                 "--passphrase", config.getString("passphrase"),
                 "--output", decryptPath.toAbsolutePath().toString(),
@@ -124,6 +151,7 @@ public class QuartzJob implements Job {
         if (!Files.exists(ocrTxtFolder)) {
             Files.createDirectories(ocrTxtFolder);
         }
+        Path googleMetsFile = null;
         try (GZIPInputStream gzIn = new GZIPInputStream(Files.newInputStream(decryptPath)); TarArchiveInputStream tarIn = new TarArchiveInputStream(
                 gzIn)) {
             TarArchiveEntry currEntry = null;
@@ -138,11 +166,57 @@ public class QuartzJob implements Job {
                 } else if (name.endsWith("txt")) {
                     //copy to OCR txt folder
                     Files.copy(tarIn, ocrTxtFolder.resolve(name));
+                } else if (name.endsWith("xml")) {
+                    googleMetsFile = goobiImagesSourceDir.resolve(name);
+                    Files.copy(tarIn, googleMetsFile);
                 }
             }
         }
 
-        //TODO (maybe check checksums) (and maybe get metadata from the catalog?) 
+        String idFromMarc = null;
+        try (InputStream metsIn = Files.newInputStream(googleMetsFile)) {
+            Document doc = new SAXBuilder().build(metsIn);
+            Element idEl = identifierXpath.evaluateFirst(doc);
+            if (idEl != null) {
+                idFromMarc = idEl.getText().trim();
+            }
+        } catch (JDOMException e) {
+            log.error(e);
+            writeLogEntry(goobiProcess, "Could not read identifier from google METS file. See log for details");
+            Step firstStep = goobiProcess.getSchritte().get(0);
+            firstStep.setBearbeitungsstatusEnum(StepStatus.ERROR);
+            StepManager.saveStep(firstStep);
+            return;
+        }
+
+        if (idFromMarc == null) {
+            writeLogEntry(goobiProcess, "Could not read identifier from google METS file.");
+            Step firstStep = goobiProcess.getSchritte().get(0);
+            firstStep.setBearbeitungsstatusEnum(StepStatus.ERROR);
+            StepManager.saveStep(firstStep);
+            return;
+        }
+
+        try {
+            Prefs prefs = goobiProcess.getRegelsatz().getPreferences();
+            Metadata catalogidMd = new Metadata(prefs.getMetadataTypeByName("CatalogIDDigital"));
+            catalogidMd.setValue(idFromMarc);
+            Fileformat ff = goobiProcess.readMetadataFile();
+            ff.getDigitalDocument().getLogicalDocStruct().addMetadata(catalogidMd);
+            goobiProcess.writeMetadataFile(ff);
+        } catch (MetadataTypeNotAllowedException | ReadException | PreferencesException | WriteException e) {
+            log.error(e);
+        }
+
+        //TODO (maybe check checksums) 
+    }
+
+    public void writeLogEntry(org.goobi.beans.Process goobiProcess, String message) {
+        LogEntry entry = new LogEntry();
+        entry.setContent(message);
+        entry.setProcessId(goobiProcess.getId());
+        entry.setType(LogType.ERROR);
+        ProcessManager.saveLogEntry(entry);
     }
 
     private org.goobi.beans.Process createProcess(String processTitle, XMLConfiguration config) throws DAOException {
