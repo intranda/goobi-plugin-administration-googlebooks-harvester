@@ -32,7 +32,7 @@ public class QuartzJob implements Job {
         log.debug("Execute job: " + context.getJobDetail().getName() + " - " + context.getRefireCount());
 
         int numberHarvested = 0;
-        XMLConfiguration config = ConfigPlugins.getPluginConfig("intranda_administration_googlebooks_harvester");
+        XMLConfiguration config = ConfigPlugins.getPluginConfig("intranda_administration_googlebooks-harvester");
 
         boolean bufferFree = checkBufferFree(config);
 
@@ -138,7 +138,7 @@ public class QuartzJob implements Job {
             }
         }
 
-        //TODO (maybe check checksums)
+        //TODO (maybe check checksums) (and maybe get metadata from the catalog?) 
     }
 
     private org.goobi.beans.Process createProcess(String processTitle, XMLConfiguration config) throws DAOException {
