@@ -34,9 +34,7 @@ public class QuartzJob implements Job {
         int numberHarvested = 0;
         XMLConfiguration config = ConfigPlugins.getPluginConfig("intranda_administration_googlebooks-harvester");
 
-        boolean bufferFree = checkBufferFree(config);
-
-        if (!bufferFree) {
+        if (!checkBufferFree(config)) {
             log.warn("Googlebooks harvester: not enough free space in metadata dir. Aborting.");
             return;
         }
@@ -60,6 +58,12 @@ public class QuartzJob implements Job {
                 downloadAndImportBook(convertedBook, processTitle, config);
             } catch (IOException | InterruptedException | DAOException | SwapException e) {
                 log.error("Googlebooks harvester: error downloading book:", e);
+            }
+
+            //check for free space after each book
+            if (!checkBufferFree(config)) {
+                log.warn("Googlebooks harvester: not enough free space in metadata dir. Aborting.");
+                return;
             }
         }
 
