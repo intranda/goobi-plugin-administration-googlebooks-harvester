@@ -1,7 +1,5 @@
 package de.intranda.goobi.plugins;
 
-import java.util.Date;
-
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
@@ -46,19 +44,11 @@ public class QuartzListener implements ServletContextListener {
 
             // configure time to start 
             java.util.Calendar startTime = java.util.Calendar.getInstance();
-            startTime.set(java.util.Calendar.HOUR_OF_DAY, 22);
-            startTime.set(java.util.Calendar.MINUTE, 0);
-            startTime.set(java.util.Calendar.SECOND, 0);
-            startTime.set(java.util.Calendar.MILLISECOND, 0);
-
-            //if the startTime will be before the current time, move to next day
-            if (startTime.getTime().before(new Date())) {
-                startTime.add(java.util.Calendar.DAY_OF_MONTH, 1);
-            }
+            startTime.add(java.util.Calendar.MINUTE, 1);
 
             // create new job 
             JobDetail jobDetail = new JobDetail("Googlebooks Harvester", "Goobi Admin Plugin", QuartzJob.class);
-            Trigger trigger = TriggerUtils.makeHourlyTrigger(24);
+            Trigger trigger = TriggerUtils.makeHourlyTrigger(1);
             trigger.setName("Googlebooks Harvester");
             trigger.setStartTime(startTime.getTime());
 
