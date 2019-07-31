@@ -1,0 +1,6 @@
+<config>
+	<scriptDir>/opt/digiverso/goobi/scripts/googlebooks/</scriptDir>
+	<passphrase>The passphrase we got from Ben</passphrase>
+	<templateTitle>google books workflow</templateTitle>
+	<buffer>100G</buffer>
+</config>
