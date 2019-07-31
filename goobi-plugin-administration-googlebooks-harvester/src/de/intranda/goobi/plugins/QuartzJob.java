@@ -28,6 +28,7 @@ import org.quartz.JobExecutionContext;
 import de.sub.goobi.config.ConfigPlugins;
 import de.sub.goobi.config.ConfigurationHelper;
 import de.sub.goobi.helper.BeanHelper;
+import de.sub.goobi.helper.HelperSchritte;
 import de.sub.goobi.helper.enums.StepStatus;
 import de.sub.goobi.helper.exceptions.DAOException;
 import de.sub.goobi.helper.exceptions.SwapException;
@@ -81,7 +82,24 @@ public class QuartzJob implements Job {
             }
             try {
                 log.debug(String.format("Googlebooks harvester: Downloading %s", convertedBook));
-                downloadAndImportBook(convertedBook, processTitle, config);
+                org.goobi.beans.Process goobiProcess = downloadAndImportBook(convertedBook, processTitle, config);
+                if (goobiProcess == null) {
+                    continue;
+                }
+                Step myStep = null;
+                for (Step step : goobiProcess.getSchritte()) {
+                    if (step.getBearbeitungsstatusEnum() == StepStatus.OPEN) {
+                        myStep = step;
+                        break;
+                    }
+                }
+                if (myStep == null) {
+                    String message = "Could not find first open step. Aborting.";
+                    log.error(message);
+                    writeLogEntry(goobiProcess, message);
+                    continue;
+                }
+                new HelperSchritte().CloseStepObjectAutomatic(myStep);
             } catch (IOException | InterruptedException | DAOException | SwapException e) {
                 log.error("Googlebooks harvester: error downloading book:", e);
             }
@@ -97,7 +115,8 @@ public class QuartzJob implements Job {
 
     }
 
-    private void downloadAndImportBook(String convertedBook, String processTitle, XMLConfiguration config) throws IOException, InterruptedException,
+    private org.goobi.beans.Process downloadAndImportBook(String convertedBook, String processTitle, XMLConfiguration config) throws IOException,
+            InterruptedException,
             DAOException, SwapException {
         org.goobi.beans.Process goobiProcess = createProcess(processTitle, config);
         String scriptDir = config.getString("scriptDir", "/opt/digiverso/goobi/scripts/googlebooks/");
@@ -186,7 +205,7 @@ public class QuartzJob implements Job {
             Step firstStep = goobiProcess.getSchritte().get(0);
             firstStep.setBearbeitungsstatusEnum(StepStatus.ERROR);
             StepManager.saveStep(firstStep);
-            return;
+            return null;
         }
 
         if (idFromMarc == null) {
@@ -194,7 +213,7 @@ public class QuartzJob implements Job {
             Step firstStep = goobiProcess.getSchritte().get(0);
             firstStep.setBearbeitungsstatusEnum(StepStatus.ERROR);
             StepManager.saveStep(firstStep);
-            return;
+            return null;
         }
 
         try {
@@ -208,6 +227,7 @@ public class QuartzJob implements Job {
             log.error(e);
         }
 
+        return goobiProcess;
         //TODO (maybe check checksums) 
     }
 
