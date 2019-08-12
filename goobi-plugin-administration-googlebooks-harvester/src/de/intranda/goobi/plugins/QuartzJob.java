@@ -166,7 +166,7 @@ public class QuartzJob implements Job {
         stderrThread.join(1000);
 
         if (result != 0) {
-            throw new IOException(String.format("GRIN script exited with code $d. Stderr was: %s", result, stderrReader.getOutput()));
+            throw new IOException(String.format("GRIN script exited with code %d. Stderr was: %s", result, stderrReader.getOutput()));
         }
 
         //decrypt stuff...
@@ -306,7 +306,7 @@ public class QuartzJob implements Job {
         stderrThread.join(1000);
 
         if (result != 0) {
-            throw new IOException(String.format("GRIN script exited with code $d. Stderr was: %s", result, stderrReader.getOutput()));
+            throw new IOException(String.format("GRIN script exited with code %d. Stderr was: %s", result, stderrReader.getOutput()));
         }
 
         return stdoutReader.getOutput().split("\n");
