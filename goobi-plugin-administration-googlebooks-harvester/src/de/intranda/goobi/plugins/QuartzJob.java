@@ -48,9 +48,11 @@ public class QuartzJob implements Job {
     private static XPathFactory xFactory = XPathFactory.instance();
     private static Namespace metsNs = Namespace.getNamespace("METS", "http://www.loc.gov/METS/");
     private static Namespace marcNs = Namespace.getNamespace("marc", "http://www.loc.gov/MARC21/slim");
-    private static XPathExpression<Element> identifierXpath = xFactory.compile("//METS:xmlData/marc:record/marc:controlfield[@tag='001']", Filters
-            .element(), null, metsNs, marcNs);
+    private static XPathExpression<Element> identifierXpath =
+            xFactory.compile("//METS:xmlData/marc:record/marc:controlfield[@tag='001']", Filters.element(), null, metsNs, marcNs);
 
+    private static Path runningPath = Paths.get("/tmp/gbooksharvester_running");
+    private static Path stopPath = Paths.get("/tmp/gbooksharvester_stop");
     private final static long G = 1073741824;
     private final static long M = 1048576;
 
@@ -61,6 +63,14 @@ public class QuartzJob implements Job {
         int numberHarvested = 0;
         XMLConfiguration config = ConfigPlugins.getPluginConfig("intranda_administration_googlebooks-harvester");
 
+        if (Files.exists(stopPath)) {
+            log.warn("Googlebooks harvester: File '/tmp/gbooksharvester_stop' exists. Will not run.");
+            return;
+        }
+        if (Files.exists(runningPath)) {
+            log.warn("Googlebooks harvester: File '/tmp/gbooksharvester_running' exists. Will not run.");
+            return;
+        }
         if (!checkBufferFree(config)) {
             log.warn("Googlebooks harvester: not enough free space in metadata dir. Aborting.");
             return;
@@ -74,40 +84,58 @@ public class QuartzJob implements Job {
             return;
         }
 
-        for (String convertedBook : convertedBooks) {
-            String processTitle = "Google-" + convertedBook.replace("NLI_", "").replace(".tar.gz.gpg", "");
-            int count = ProcessManager.countProcessTitle(processTitle);
-            if (count != 0) {
-                continue;
-            }
-            try {
-                log.debug(String.format("Googlebooks harvester: Downloading %s", convertedBook));
-                org.goobi.beans.Process goobiProcess = downloadAndImportBook(convertedBook, processTitle, config);
-                if (goobiProcess == null) {
+        try {
+            Files.createFile(runningPath);
+            for (String convertedBook : convertedBooks) {
+                String processTitle = "Google-" + convertedBook.replace("NLI_", "").replace(".tar.gz.gpg", "");
+                int count = ProcessManager.countProcessTitle(processTitle);
+                if (count != 0) {
                     continue;
                 }
-                Step myStep = null;
-                for (Step step : goobiProcess.getSchritte()) {
-                    if (step.getBearbeitungsstatusEnum() == StepStatus.OPEN) {
-                        myStep = step;
-                        break;
+                try {
+                    log.debug(String.format("Googlebooks harvester: Downloading %s", convertedBook));
+                    org.goobi.beans.Process goobiProcess = downloadAndImportBook(convertedBook, processTitle, config);
+                    if (goobiProcess == null) {
+                        continue;
                     }
+                    Step myStep = null;
+                    for (Step step : goobiProcess.getSchritte()) {
+                        if (step.getBearbeitungsstatusEnum() == StepStatus.OPEN) {
+                            myStep = step;
+                            break;
+                        }
+                    }
+                    if (myStep == null) {
+                        String message = "Could not find first open step. Aborting.";
+                        log.error(message);
+                        writeLogEntry(goobiProcess, message);
+                        continue;
+                    }
+                    new HelperSchritte().CloseStepObjectAutomatic(myStep);
+                } catch (IOException | InterruptedException | DAOException | SwapException e) {
+                    log.error("Googlebooks harvester: error downloading book:", e);
                 }
-                if (myStep == null) {
-                    String message = "Could not find first open step. Aborting.";
-                    log.error(message);
-                    writeLogEntry(goobiProcess, message);
-                    continue;
-                }
-                new HelperSchritte().CloseStepObjectAutomatic(myStep);
-            } catch (IOException | InterruptedException | DAOException | SwapException e) {
-                log.error("Googlebooks harvester: error downloading book:", e);
-            }
 
-            //check for free space after each book
-            if (!checkBufferFree(config)) {
-                log.warn("Googlebooks harvester: not enough free space in metadata dir. Aborting.");
-                return;
+                //check for free space after each book
+                if (!checkBufferFree(config)) {
+                    log.warn("Googlebooks harvester: not enough free space in metadata dir. Aborting.");
+                    return;
+                }
+                if (Files.exists(stopPath)) {
+                    log.warn("Googlebooks harvester: File '/tmp/gbooksharvester_stop' exists. Will not run.");
+                    return;
+                }
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            log.error(e);
+        } finally {
+            if (Files.exists(runningPath)) {
+                try {
+                    Files.delete(runningPath);
+                } catch (IOException e) {
+                    log.error("trying to delete running file:", e);
+                }
             }
         }
 
@@ -115,15 +143,14 @@ public class QuartzJob implements Job {
 
     }
 
-    private org.goobi.beans.Process downloadAndImportBook(String convertedBook, String processTitle, XMLConfiguration config) throws IOException,
-            InterruptedException,
-            DAOException, SwapException {
+    private org.goobi.beans.Process downloadAndImportBook(String convertedBook, String processTitle, XMLConfiguration config)
+            throws IOException, InterruptedException, DAOException, SwapException {
         org.goobi.beans.Process goobiProcess = createProcess(processTitle, config);
         String scriptDir = config.getString("scriptDir", "/opt/digiverso/goobi/scripts/googlebooks/");
         Path goobiImagesSourceDir = Paths.get(goobiProcess.getSourceDirectory());
         Path downloadPath = goobiImagesSourceDir.resolve(convertedBook);
-        ProcessBuilder pb = new ProcessBuilder("/usr/bin/env/", "python", "grin_oath.py", "--directory", "NLI", "--resource", convertedBook,
-                "-o", downloadPath.toAbsolutePath().toString());
+        ProcessBuilder pb = new ProcessBuilder("/usr/bin/env/", "python", "grin_oath.py", "--directory", "NLI", "--resource", convertedBook, "-o",
+                downloadPath.toAbsolutePath().toString());
         pb.directory(new File(scriptDir));
         Process p = pb.start();
         ProcessOutputReader stdoutReader = new ProcessOutputReader(p.getInputStream());
@@ -139,17 +166,14 @@ public class QuartzJob implements Job {
         stderrThread.join(1000);
 
         if (result != 0) {
-            throw new IOException(String.format("GRIN script exited with code $d. Stderr was: %s", result, stderrReader
-                    .getOutput()));
+            throw new IOException(String.format("GRIN script exited with code $d. Stderr was: %s", result, stderrReader.getOutput()));
         }
 
         //decrypt stuff...
         String outputName = convertedBook.replace(".gpg", "");
         Path decryptPath = goobiImagesSourceDir.resolve(outputName);
-        Process gpgProcess = new ProcessBuilder("/usr/bin/gpg",
-                "--passphrase", config.getString("passphrase"),
-                "--output", decryptPath.toAbsolutePath().toString(),
-                "-d", downloadPath.toAbsolutePath().toString()).start();
+        Process gpgProcess = new ProcessBuilder("/usr/bin/gpg", "--passphrase", config.getString("passphrase"), "--output",
+                decryptPath.toAbsolutePath().toString(), "-d", downloadPath.toAbsolutePath().toString()).start();
         gpgProcess.waitFor();
         if (gpgProcess.exitValue() != 0) {
             throw new IOException("could not decrypt gpg file: " + downloadPath.toAbsolutePath().toString());
@@ -171,8 +195,8 @@ public class QuartzJob implements Job {
             Files.createDirectories(ocrTxtFolder);
         }
         Path googleMetsFile = null;
-        try (GZIPInputStream gzIn = new GZIPInputStream(Files.newInputStream(decryptPath)); TarArchiveInputStream tarIn = new TarArchiveInputStream(
-                gzIn)) {
+        try (GZIPInputStream gzIn = new GZIPInputStream(Files.newInputStream(decryptPath));
+                TarArchiveInputStream tarIn = new TarArchiveInputStream(gzIn)) {
             TarArchiveEntry currEntry = null;
             while ((currEntry = tarIn.getNextTarEntry()) != null) {
                 String name = currEntry.getName();
@@ -265,8 +289,8 @@ public class QuartzJob implements Job {
 
     public String[] getConvertedBooks(XMLConfiguration config) throws IOException, InterruptedException {
         String scriptDir = config.getString("scriptDir", "/opt/digiverso/goobi/scripts/googlebooks/");
-        ProcessBuilder pb = new ProcessBuilder("/usr/bin/env/", "python", "grin_oath.py", "--directory", "NLI", "--resource",
-                "'_converted?format=text'");
+        ProcessBuilder pb =
+                new ProcessBuilder("/usr/bin/env/", "python", "grin_oath.py", "--directory", "NLI", "--resource", "'_converted?format=text'");
         pb.directory(new File(scriptDir));
         Process p = pb.start();
         ProcessOutputReader stdoutReader = new ProcessOutputReader(p.getInputStream());
@@ -282,8 +306,7 @@ public class QuartzJob implements Job {
         stderrThread.join(1000);
 
         if (result != 0) {
-            throw new IOException(String.format("GRIN script exited with code $d. Stderr was: %s", result, stderrReader
-                    .getOutput()));
+            throw new IOException(String.format("GRIN script exited with code $d. Stderr was: %s", result, stderrReader.getOutput()));
         }
 
         return stdoutReader.getOutput().split("\n");
