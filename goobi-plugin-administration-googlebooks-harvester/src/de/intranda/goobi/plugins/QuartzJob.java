@@ -149,7 +149,7 @@ public class QuartzJob implements Job {
         String scriptDir = config.getString("scriptDir", "/opt/digiverso/goobi/scripts/googlebooks/");
         Path goobiImagesSourceDir = Paths.get(goobiProcess.getSourceDirectory());
         Path downloadPath = goobiImagesSourceDir.resolve(convertedBook);
-        ProcessBuilder pb = new ProcessBuilder("/usr/bin/env/", "python", "grin_oath.py", "--directory", "NLI", "--resource", convertedBook, "-o",
+        ProcessBuilder pb = new ProcessBuilder("/usr/bin/env", "python", "grin_oath.py", "--directory", "NLI", "--resource", convertedBook, "-o",
                 downloadPath.toAbsolutePath().toString());
         pb.directory(new File(scriptDir));
         Process p = pb.start();
