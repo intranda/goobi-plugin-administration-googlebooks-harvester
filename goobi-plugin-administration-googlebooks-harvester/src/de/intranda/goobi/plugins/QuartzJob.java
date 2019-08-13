@@ -290,7 +290,7 @@ public class QuartzJob implements Job {
     public String[] getConvertedBooks(XMLConfiguration config) throws IOException, InterruptedException {
         String scriptDir = config.getString("scriptDir", "/opt/digiverso/goobi/scripts/googlebooks/");
         ProcessBuilder pb =
-                new ProcessBuilder("/usr/bin/env", "python", "grin_oath.py", "--directory", "NLI", "--resource", "'_converted?format=text'");
+                new ProcessBuilder("/usr/bin/env", "python", "grin_oath.py", "--directory", "NLI", "--resource", "_converted?format=text");
         pb.directory(new File(scriptDir));
         Process p = pb.start();
         ProcessOutputReader stdoutReader = new ProcessOutputReader(p.getInputStream());
