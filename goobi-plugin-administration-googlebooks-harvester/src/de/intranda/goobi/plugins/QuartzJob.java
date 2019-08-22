@@ -11,6 +11,7 @@ import java.util.zip.GZIPInputStream;
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 import org.apache.commons.configuration.XMLConfiguration;
+import org.apache.commons.lang3.StringUtils;
 import org.goobi.beans.LogEntry;
 import org.goobi.beans.Step;
 import org.goobi.production.enums.LogType;
@@ -307,6 +308,10 @@ public class QuartzJob implements Job {
 
         if (result != 0) {
             throw new IOException(String.format("GRIN script exited with code %d. Stderr was: %s", result, stderrReader.getOutput()));
+        }
+
+        if (StringUtils.isBlank(stdoutReader.getOutput())) {
+            return new String[0];
         }
 
         return stdoutReader.getOutput().split("\n");
