@@ -6,6 +6,8 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 import java.util.zip.GZIPInputStream;
 
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
@@ -140,7 +142,93 @@ public class QuartzJob implements Job {
             }
         }
 
+        try {
+            convertBooks(5, config);
+        } catch (IOException | InterruptedException e) {
+            log.error("Googlebooks harvester: error processing books", e);
+            return;
+        }
+
         log.debug(String.format("Googlebooks harvester: %d processes were created.", numberHarvested));
+
+    }
+
+    private void convertBooks(int maxNumberToConvert, XMLConfiguration config) throws IOException, InterruptedException {
+        String scriptDir = config.getString("scriptDir", "/opt/digiverso/goobi/scripts/googlebooks/");
+        ProcessBuilder pb =
+                new ProcessBuilder("/usr/bin/env", "python", "grin_oath.py", "--directory", "NLI", "--resource", "_available?format=text");
+        pb.directory(new File(scriptDir));
+        Process p = pb.start();
+        ProcessOutputReader stdoutReader = new ProcessOutputReader(p.getInputStream());
+        Thread stdoutThread = new Thread(stdoutReader);
+        stdoutThread.start();
+
+        ProcessOutputReader stderrReader = new ProcessOutputReader(p.getErrorStream());
+        Thread stderrThread = new Thread(stderrReader);
+        stderrThread.start();
+
+        int result = p.waitFor();
+        stdoutThread.join(1000);
+        stderrThread.join(1000);
+
+        if (result != 0) {
+            throw new IOException(String.format("GRIN available-script exited with code %d. Stderr was: %s", result, stderrReader.getOutput()));
+        }
+
+        if (StringUtils.isBlank(stdoutReader.getOutput())) {
+            return;
+        }
+
+        String[] books = stdoutReader.getOutput().split("\n");
+
+        int numberToConvert = Math.min(maxNumberToConvert, books.length);
+        String barcodes = Arrays.stream(books).limit(numberToConvert).collect(Collectors.joining(","));
+        pb = new ProcessBuilder("/usr/bin/env", "python", "grin_oath.py", "--directory", "NLI", "--resource", "_process?barcodes=" + barcodes);
+        pb.start();
+
+        stdoutReader = new ProcessOutputReader(p.getInputStream());
+        stdoutThread = new Thread(stdoutReader);
+        stdoutThread.start();
+
+        stderrReader = new ProcessOutputReader(p.getErrorStream());
+        stderrThread = new Thread(stderrReader);
+        stderrThread.start();
+
+        result = p.waitFor();
+        stdoutThread.join(1000);
+        stderrThread.join(1000);
+        if (result != 0) {
+            throw new IOException(String.format("GRIN process-script exited with code %d. Stderr was: %s", result, stderrReader.getOutput()));
+        }
+    }
+
+    public String[] getConvertedBooks(XMLConfiguration config) throws IOException, InterruptedException {
+        String scriptDir = config.getString("scriptDir", "/opt/digiverso/goobi/scripts/googlebooks/");
+        ProcessBuilder pb =
+                new ProcessBuilder("/usr/bin/env", "python", "grin_oath.py", "--directory", "NLI", "--resource", "_converted?format=text");
+        pb.directory(new File(scriptDir));
+        Process p = pb.start();
+        ProcessOutputReader stdoutReader = new ProcessOutputReader(p.getInputStream());
+        Thread stdoutThread = new Thread(stdoutReader);
+        stdoutThread.start();
+
+        ProcessOutputReader stderrReader = new ProcessOutputReader(p.getErrorStream());
+        Thread stderrThread = new Thread(stderrReader);
+        stderrThread.start();
+
+        int result = p.waitFor();
+        stdoutThread.join(1000);
+        stderrThread.join(1000);
+
+        if (result != 0) {
+            throw new IOException(String.format("GRIN script exited with code %d. Stderr was: %s", result, stderrReader.getOutput()));
+        }
+
+        if (StringUtils.isBlank(stdoutReader.getOutput())) {
+            return new String[0];
+        }
+
+        return stdoutReader.getOutput().split("\n");
 
     }
 
@@ -289,36 +377,6 @@ public class QuartzJob implements Job {
         ProcessManager.saveProcess(processCopy);
 
         return processCopy;
-    }
-
-    public String[] getConvertedBooks(XMLConfiguration config) throws IOException, InterruptedException {
-        String scriptDir = config.getString("scriptDir", "/opt/digiverso/goobi/scripts/googlebooks/");
-        ProcessBuilder pb =
-                new ProcessBuilder("/usr/bin/env", "python", "grin_oath.py", "--directory", "NLI", "--resource", "_converted?format=text");
-        pb.directory(new File(scriptDir));
-        Process p = pb.start();
-        ProcessOutputReader stdoutReader = new ProcessOutputReader(p.getInputStream());
-        Thread stdoutThread = new Thread(stdoutReader);
-        stdoutThread.start();
-
-        ProcessOutputReader stderrReader = new ProcessOutputReader(p.getErrorStream());
-        Thread stderrThread = new Thread(stderrReader);
-        stderrThread.start();
-
-        int result = p.waitFor();
-        stdoutThread.join(1000);
-        stderrThread.join(1000);
-
-        if (result != 0) {
-            throw new IOException(String.format("GRIN script exited with code %d. Stderr was: %s", result, stderrReader.getOutput()));
-        }
-
-        if (StringUtils.isBlank(stdoutReader.getOutput())) {
-            return new String[0];
-        }
-
-        return stdoutReader.getOutput().split("\n");
-
     }
 
     public boolean checkBufferFree(XMLConfiguration config) {
