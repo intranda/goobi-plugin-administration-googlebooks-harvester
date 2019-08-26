@@ -174,15 +174,25 @@ public class QuartzJob implements Job {
         if (result != 0) {
             throw new IOException(String.format("GRIN available-script exited with code %d. Stderr was: %s", result, stderrReader.getOutput()));
         }
+        log.debug("Googlebooks harvester: get available books error output:\n\n" + stderrReader.getOutput());
 
         if (StringUtils.isBlank(stdoutReader.getOutput())) {
             return;
         }
 
         String[] books = stdoutReader.getOutput().split("\n");
+        log.debug("Googlebooks harvester: number of available books: " + books.length);
+        if (books.length > 0) {
+            log.debug("Googlebooks harvester: first available book: " + books[0]);
+        }
 
         int numberToConvert = Math.min(maxNumberToConvert, books.length);
         String barcodes = Arrays.stream(books).limit(numberToConvert).collect(Collectors.joining(","));
+
+        String[] command =
+                new String[] { "/usr/bin/env", "python", "grin_oath.py", "--directory", "NLI", "--resource", "_process?barcodes=" + barcodes };
+
+        log.debug("Googlebooks harvester: calling the shell to convert books:" + Arrays.asList(command));
         pb = new ProcessBuilder("/usr/bin/env", "python", "grin_oath.py", "--directory", "NLI", "--resource", "_process?barcodes=" + barcodes);
         pb.start();
 
@@ -197,6 +207,9 @@ public class QuartzJob implements Job {
         result = p.waitFor();
         stdoutThread.join(1000);
         stderrThread.join(1000);
+
+        log.debug("Googlebooks: _process call stdout: " + stdoutReader.getOutput());
+        log.debug("Googlebooks: _process call stderr: " + stderrReader.getOutput());
         if (result != 0) {
             throw new IOException(String.format("GRIN process-script exited with code %d. Stderr was: %s", result, stderrReader.getOutput()));
         }
