@@ -31,7 +31,7 @@ import org.quartz.JobExecutionContext;
 import de.sub.goobi.config.ConfigPlugins;
 import de.sub.goobi.config.ConfigurationHelper;
 import de.sub.goobi.helper.BeanHelper;
-import de.sub.goobi.helper.HelperSchritte;
+import de.sub.goobi.helper.CloseStepHelper;
 import de.sub.goobi.helper.enums.StepStatus;
 import de.sub.goobi.helper.exceptions.DAOException;
 import de.sub.goobi.helper.exceptions.SwapException;
@@ -114,7 +114,7 @@ public class QuartzJob implements Job {
                         writeLogEntry(goobiProcess, message);
                         continue;
                     }
-                    new HelperSchritte().CloseStepObjectAutomatic(myStep);
+                    CloseStepHelper.closeStep(myStep, null);
                 } catch (IOException | InterruptedException | DAOException | SwapException e) {
                     log.error("Googlebooks harvester: error downloading book:", e);
                 }
