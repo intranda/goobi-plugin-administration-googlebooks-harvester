@@ -118,6 +118,7 @@ public class QuartzJob implements Job {
                         continue;
                     }
                     CloseStepHelper.closeStep(myStep, null);
+                    numberHarvested++;
                 } catch (IOException | InterruptedException | DAOException | SwapException e) {
                     log.error("Googlebooks harvester: error downloading book:", e);
                 }
