@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.zip.GZIPInputStream;
 
@@ -56,6 +57,12 @@ public class QuartzJob implements Job {
     private static Namespace marcNs = Namespace.getNamespace("marc", "http://www.loc.gov/MARC21/slim");
     private static XPathExpression<Element> identifierXpath =
             xFactory.compile("//METS:xmlData/marc:record/marc:controlfield[@tag='001']", Filters.element(), null, metsNs, marcNs);
+    private static XPathExpression<Element> titleXpath = xFactory
+            .compile("//METS:xmlData/marc:record/marc:controlfield[@tag='245']/marc:subfield[@code='a']", Filters.element(), null, metsNs, marcNs);
+    private static XPathExpression<Element> languageXpath = xFactory
+            .compile("//METS:xmlData/marc:record/marc:controlfield[@tag='041']/marc:subfield[@code='a']", Filters.element(), null, metsNs, marcNs);
+    private static XPathExpression<Element> publisherXpath = xFactory
+            .compile("//METS:xmlData/marc:record/marc:controlfield[@tag='260']/marc:subfield[@code='b']", Filters.element(), null, metsNs, marcNs);
 
     private static Path runningPath = Paths.get("/tmp/gbooksharvester_running");
     private static Path stopPath = Paths.get("/tmp/gbooksharvester_stop");
@@ -338,12 +345,18 @@ public class QuartzJob implements Job {
         }
 
         String idFromMarc = null;
+        Optional<Element> title = Optional.empty();
+        Optional<Element> language = Optional.empty();
+        Optional<Element> publisher = Optional.empty();
         try (InputStream metsIn = Files.newInputStream(googleMetsFile)) {
             Document doc = new SAXBuilder().build(metsIn);
             Element idEl = identifierXpath.evaluateFirst(doc);
             if (idEl != null) {
                 idFromMarc = idEl.getText().trim();
             }
+            title = Optional.ofNullable(titleXpath.evaluateFirst(doc));
+            language = Optional.ofNullable(languageXpath.evaluateFirst(doc));
+            publisher = Optional.ofNullable(publisherXpath.evaluateFirst(doc));
         } catch (JDOMException e) {
             log.error(e);
             writeLogEntry(goobiProcess, "Could not read identifier from google METS file. See log for details");
@@ -373,6 +386,18 @@ public class QuartzJob implements Job {
             digDoc.setLogicalDocStruct(logical);
             digDoc.setPhysicalDocStruct(physical);
             logical.addMetadata(catalogidMd);
+            if (title.isPresent()) {
+                Metadata titleMd = new Metadata(prefs.getMetadataTypeByName("TitleDocMain"));
+                titleMd.setValue(title.get().getText());
+            }
+            if (language.isPresent()) {
+                Metadata languageMd = new Metadata(prefs.getMetadataTypeByName("DocLanguage"));
+                languageMd.setValue(language.get().getText());
+            }
+            if (publisher.isPresent()) {
+                Metadata publisherMd = new Metadata(prefs.getMetadataTypeByName("PublisherName"));
+                publisherMd.setValue(publisher.get().getText());
+            }
             goobiProcess.writeMetadataFile(ff);
         } catch (MetadataTypeNotAllowedException | PreferencesException | WriteException | TypeNotAllowedForParentException e) {
             log.error(e);
