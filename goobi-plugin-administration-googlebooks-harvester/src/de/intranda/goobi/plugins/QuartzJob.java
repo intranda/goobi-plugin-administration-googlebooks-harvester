@@ -194,7 +194,7 @@ public class QuartzJob implements Job {
 
         log.debug("Googlebooks harvester: calling the shell to convert books:" + Arrays.asList(command));
         pb = new ProcessBuilder("/usr/bin/env", "python", "grin_oath.py", "--directory", "NLI", "--resource", "_process?barcodes=" + barcodes);
-        pb.start();
+        p = pb.start();
 
         stdoutReader = new ProcessOutputReader(p.getInputStream());
         stdoutThread = new Thread(stdoutReader);
@@ -277,10 +277,21 @@ public class QuartzJob implements Job {
         //decrypt stuff...
         String outputName = convertedBook.replace(".gpg", "");
         Path decryptPath = goobiImagesSourceDir.resolve(outputName);
-        Process gpgProcess = new ProcessBuilder("/usr/bin/gpg", "--passphrase", config.getString("passphrase"), "--output",
+        Process gpgProcess = new ProcessBuilder("/usr/bin/gpg", "--no-use-agent", "--passphrase", config.getString("passphrase"), "--output",
                 decryptPath.toAbsolutePath().toString(), "-d", downloadPath.toAbsolutePath().toString()).start();
+
+        stderrReader = new ProcessOutputReader(gpgProcess.getErrorStream());
+        stderrThread = new Thread(stderrReader);
+        stderrThread.start();
+
+        stdoutReader = new ProcessOutputReader(gpgProcess.getInputStream());
+        stdoutThread = new Thread(stdoutReader);
+        stdoutThread.start();
+
         gpgProcess.waitFor();
         if (gpgProcess.exitValue() != 0) {
+            log.error("Googlebooks: gpg stdout: " + stdoutReader.getOutput());
+            log.error("Googlebooks: gpg stderr: " + stderrReader.getOutput());
             throw new IOException("could not decrypt gpg file: " + downloadPath.toAbsolutePath().toString());
         }
 
