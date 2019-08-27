@@ -194,6 +194,7 @@ public class QuartzJob implements Job {
 
         log.debug("Googlebooks harvester: calling the shell to convert books:" + Arrays.asList(command));
         pb = new ProcessBuilder("/usr/bin/env", "python", "grin_oath.py", "--directory", "NLI", "--resource", "_process?barcodes=" + barcodes);
+        pb.directory(new File(scriptDir));
         p = pb.start();
 
         stdoutReader = new ProcessOutputReader(p.getInputStream());
