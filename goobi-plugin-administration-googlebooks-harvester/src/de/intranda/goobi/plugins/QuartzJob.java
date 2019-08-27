@@ -38,13 +38,16 @@ import de.sub.goobi.helper.exceptions.SwapException;
 import de.sub.goobi.persistence.managers.ProcessManager;
 import de.sub.goobi.persistence.managers.StepManager;
 import lombok.extern.log4j.Log4j;
+import ugh.dl.DigitalDocument;
+import ugh.dl.DocStruct;
 import ugh.dl.Fileformat;
 import ugh.dl.Metadata;
 import ugh.dl.Prefs;
 import ugh.exceptions.MetadataTypeNotAllowedException;
 import ugh.exceptions.PreferencesException;
-import ugh.exceptions.ReadException;
+import ugh.exceptions.TypeNotAllowedForParentException;
 import ugh.exceptions.WriteException;
+import ugh.fileformats.mets.MetsMods;
 
 @Log4j
 public class QuartzJob implements Job {
@@ -361,10 +364,16 @@ public class QuartzJob implements Job {
             Prefs prefs = goobiProcess.getRegelsatz().getPreferences();
             Metadata catalogidMd = new Metadata(prefs.getMetadataTypeByName("CatalogIDDigital"));
             catalogidMd.setValue(idFromMarc);
-            Fileformat ff = goobiProcess.readMetadataFile();
-            ff.getDigitalDocument().getLogicalDocStruct().addMetadata(catalogidMd);
+            Fileformat ff = new MetsMods();
+            DigitalDocument digDoc = new DigitalDocument();
+            ff.setDigitalDocument(digDoc);
+            DocStruct logical = digDoc.createDocStruct(prefs.getDocStrctTypeByName("Monograph"));
+            DocStruct physical = digDoc.createDocStruct(prefs.getDocStrctTypeByName("BoundBook"));
+            digDoc.setLogicalDocStruct(logical);
+            digDoc.setPhysicalDocStruct(physical);
+            logical.addMetadata(catalogidMd);
             goobiProcess.writeMetadataFile(ff);
-        } catch (MetadataTypeNotAllowedException | ReadException | PreferencesException | WriteException e) {
+        } catch (MetadataTypeNotAllowedException | PreferencesException | WriteException | TypeNotAllowedForParentException e) {
             log.error(e);
         }
 
