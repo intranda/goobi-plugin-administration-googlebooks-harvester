@@ -7,7 +7,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.zip.GZIPInputStream;
 
@@ -18,6 +17,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.goobi.beans.LogEntry;
 import org.goobi.beans.Step;
 import org.goobi.production.enums.LogType;
+import org.goobi.production.enums.PluginType;
+import org.goobi.production.plugin.PluginLoader;
+import org.goobi.production.plugin.interfaces.IOpacPlugin;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -35,20 +37,20 @@ import de.sub.goobi.helper.BeanHelper;
 import de.sub.goobi.helper.CloseStepHelper;
 import de.sub.goobi.helper.enums.StepStatus;
 import de.sub.goobi.helper.exceptions.DAOException;
+import de.sub.goobi.helper.exceptions.ImportPluginException;
 import de.sub.goobi.helper.exceptions.SwapException;
 import de.sub.goobi.persistence.managers.ProcessManager;
 import de.sub.goobi.persistence.managers.StepManager;
+import de.unigoettingen.sub.search.opac.ConfigOpac;
+import de.unigoettingen.sub.search.opac.ConfigOpacCatalogue;
 import lombok.extern.log4j.Log4j;
 import ugh.dl.DigitalDocument;
 import ugh.dl.DocStruct;
 import ugh.dl.Fileformat;
-import ugh.dl.Metadata;
 import ugh.dl.Prefs;
-import ugh.exceptions.MetadataTypeNotAllowedException;
 import ugh.exceptions.PreferencesException;
 import ugh.exceptions.TypeNotAllowedForParentException;
 import ugh.exceptions.WriteException;
-import ugh.fileformats.mets.MetsMods;
 
 @Log4j
 public class QuartzJob implements Job {
@@ -57,12 +59,6 @@ public class QuartzJob implements Job {
     private static Namespace marcNs = Namespace.getNamespace("marc", "http://www.loc.gov/MARC21/slim");
     private static XPathExpression<Element> identifierXpath =
             xFactory.compile("//METS:xmlData/marc:record/marc:controlfield[@tag='001']", Filters.element(), null, metsNs, marcNs);
-    private static XPathExpression<Element> titleXpath = xFactory
-            .compile("//METS:xmlData/marc:record/marc:controlfield[@tag='245']/marc:subfield[@code='a']", Filters.element(), null, metsNs, marcNs);
-    private static XPathExpression<Element> languageXpath = xFactory
-            .compile("//METS:xmlData/marc:record/marc:controlfield[@tag='041']/marc:subfield[@code='a']", Filters.element(), null, metsNs, marcNs);
-    private static XPathExpression<Element> publisherXpath = xFactory
-            .compile("//METS:xmlData/marc:record/marc:controlfield[@tag='260']/marc:subfield[@code='b']", Filters.element(), null, metsNs, marcNs);
 
     private static Path runningPath = Paths.get("/tmp/gbooksharvester_running");
     private static Path stopPath = Paths.get("/tmp/gbooksharvester_stop");
@@ -345,18 +341,12 @@ public class QuartzJob implements Job {
         }
 
         String idFromMarc = null;
-        Optional<Element> title = Optional.empty();
-        Optional<Element> language = Optional.empty();
-        Optional<Element> publisher = Optional.empty();
         try (InputStream metsIn = Files.newInputStream(googleMetsFile)) {
             Document doc = new SAXBuilder().build(metsIn);
             Element idEl = identifierXpath.evaluateFirst(doc);
             if (idEl != null) {
                 idFromMarc = idEl.getText().trim();
             }
-            title = Optional.ofNullable(titleXpath.evaluateFirst(doc));
-            language = Optional.ofNullable(languageXpath.evaluateFirst(doc));
-            publisher = Optional.ofNullable(publisherXpath.evaluateFirst(doc));
         } catch (JDOMException e) {
             log.error(e);
             writeLogEntry(goobiProcess, "Could not read identifier from google METS file. See log for details");
@@ -376,31 +366,18 @@ public class QuartzJob implements Job {
 
         try {
             Prefs prefs = goobiProcess.getRegelsatz().getPreferences();
-            Metadata catalogidMd = new Metadata(prefs.getMetadataTypeByName("CatalogIDDigital"));
-            catalogidMd.setValue(idFromMarc);
-            Fileformat ff = new MetsMods();
-            DigitalDocument digDoc = new DigitalDocument();
-            ff.setDigitalDocument(digDoc);
-            DocStruct logical = digDoc.createDocStruct(prefs.getDocStrctTypeByName("Monograph"));
+            Fileformat ff = getRecordFromCatalogue(prefs, idFromMarc, "NLI", "12");
+            DigitalDocument digDoc = ff.getDigitalDocument();
             DocStruct physical = digDoc.createDocStruct(prefs.getDocStrctTypeByName("BoundBook"));
-            digDoc.setLogicalDocStruct(logical);
             digDoc.setPhysicalDocStruct(physical);
-            logical.addMetadata(catalogidMd);
-            if (title.isPresent()) {
-                Metadata titleMd = new Metadata(prefs.getMetadataTypeByName("TitleDocMain"));
-                titleMd.setValue(title.get().getText());
-            }
-            if (language.isPresent()) {
-                Metadata languageMd = new Metadata(prefs.getMetadataTypeByName("DocLanguage"));
-                languageMd.setValue(language.get().getText());
-            }
-            if (publisher.isPresent()) {
-                Metadata publisherMd = new Metadata(prefs.getMetadataTypeByName("PublisherName"));
-                publisherMd.setValue(publisher.get().getText());
-            }
             goobiProcess.writeMetadataFile(ff);
-        } catch (MetadataTypeNotAllowedException | PreferencesException | WriteException | TypeNotAllowedForParentException e) {
+        } catch (PreferencesException | WriteException | TypeNotAllowedForParentException | ImportPluginException e) {
             log.error(e);
+            writeLogEntry(goobiProcess, "Could not import metadata from catalogue.");
+            Step firstStep = goobiProcess.getSchritte().get(0);
+            firstStep.setBearbeitungsstatusEnum(StepStatus.ERROR);
+            StepManager.saveStep(firstStep);
+            return null;
         }
 
         return goobiProcess;
@@ -475,4 +452,43 @@ public class QuartzJob implements Job {
         return bufferFree;
     }
 
+    private Fileformat getRecordFromCatalogue(Prefs prefs, String identifier, String opacName, String searchField) throws ImportPluginException {
+        ConfigOpacCatalogue coc = ConfigOpac.getInstance().getCatalogueByName(opacName);
+        if (coc == null) {
+            throw new ImportPluginException("Catalogue with name " + opacName + " not found. Please check goobi_opac.xml");
+        }
+        IOpacPlugin myImportOpac = (IOpacPlugin) PluginLoader.getPluginByTitle(PluginType.Opac, coc.getOpacType());
+        if (myImportOpac == null) {
+            throw new ImportPluginException("Opac plugin " + coc.getOpacType() + " not found. Abort.");
+        }
+        Fileformat myRdf = null;
+        try {
+            myRdf = myImportOpac.search(searchField, identifier, coc, prefs);
+            if (myRdf == null) {
+                throw new ImportPluginException("Could not import record " + identifier
+                        + ". Usually this means a ruleset mapping is not correct or the record can not be found in the catalogue.");
+            }
+        } catch (Exception e1) {
+            throw new ImportPluginException("Could not import record " + identifier
+                    + ". Usually this means a ruleset mapping is not correct or the record can not be found in the catalogue.");
+        }
+        DocStruct ds = null;
+        DocStruct anchor = null;
+        try {
+            ds = myRdf.getDigitalDocument().getLogicalDocStruct();
+            if (ds.getType().isAnchor()) {
+                anchor = ds;
+                if (ds.getAllChildren() == null || ds.getAllChildren().isEmpty()) {
+                    throw new ImportPluginException(
+                            "Could not import record " + identifier + ". Found anchor file, but no children. Try to import the child record.");
+                }
+                ds = ds.getAllChildren().get(0);
+            }
+        } catch (PreferencesException e1) {
+            throw new ImportPluginException("Could not import record " + identifier
+                    + ". Usually this means a ruleset mapping is not correct or the record can not be found in the catalogue.");
+        }
+
+        return myRdf;
+    }
 }
