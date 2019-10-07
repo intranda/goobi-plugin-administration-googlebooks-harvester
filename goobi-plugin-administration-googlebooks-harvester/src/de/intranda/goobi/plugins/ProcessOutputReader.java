@@ -1,21 +1,18 @@
 package de.intranda.goobi.plugins;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.charset.CharacterCodingException;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
-import java.util.Arrays;
-
-import org.apache.log4j.Logger;
 
 public class ProcessOutputReader implements Runnable {
-
-    private Logger logger = Logger.getLogger(ProcessOutputReader.class);
 
     private InputStream inputStream;
     private StringBuilder sb = new StringBuilder();
@@ -28,29 +25,15 @@ public class ProcessOutputReader implements Runnable {
 
     @Override
     public void run() {
-        try {
-            ByteBuffer buffer = ByteBuffer.allocate(1024);
-            while (this.inputStream != null) {
-                int read = inputStream.read(buffer.array(), 0, 1024);
-                if (read <= 0) {
-                    logger.trace("input finished");
-                    break;
-                }
-                if (keepOutput) {
-                    char[] chars = decodeWithCharset(Arrays.copyOf(buffer.array(), read), charset);
-                    sb.append(chars);
-                }
-                buffer.clear();
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    logger.trace("interrupted");
-                }
+        String line = null;
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+            while ((line = reader.readLine()) != null) {
+                sb.append(line);
+                sb.append('\n');
             }
         } catch (IOException e) {
-            logger.warn("Input finished with error: " + e.getMessage());
+            e.printStackTrace(System.err);
         }
-
     }
 
     public static char[] decodeWithCharset(byte[] origBytes, Charset charset) throws CharacterCodingException {
