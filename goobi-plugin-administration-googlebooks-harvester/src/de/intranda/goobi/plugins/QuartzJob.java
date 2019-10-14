@@ -150,7 +150,7 @@ public class QuartzJob implements Job {
         }
 
         try {
-            convertBooks(5, config);
+            convertBooks(config);
         } catch (IOException | InterruptedException e) {
             log.error("Googlebooks harvester: error processing books", e);
             return;
@@ -160,7 +160,8 @@ public class QuartzJob implements Job {
 
     }
 
-    private void convertBooks(int maxNumberToConvert, XMLConfiguration config) throws IOException, InterruptedException {
+    private void convertBooks(XMLConfiguration config) throws IOException, InterruptedException {
+        int maxNumberToConvert = config.getInt("numberToConvertHourly", 5);
         String scriptDir = config.getString("scriptDir", "/opt/digiverso/goobi/scripts/googlebooks/");
         ProcessBuilder pb =
                 new ProcessBuilder("/usr/bin/env", "python", "grin_oath.py", "--directory", "NLI", "--resource", "_available?format=text");
