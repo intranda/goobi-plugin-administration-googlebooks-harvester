@@ -35,6 +35,7 @@ import de.sub.goobi.config.ConfigPlugins;
 import de.sub.goobi.config.ConfigurationHelper;
 import de.sub.goobi.helper.BeanHelper;
 import de.sub.goobi.helper.CloseStepHelper;
+import de.sub.goobi.helper.StorageProvider;
 import de.sub.goobi.helper.enums.StepStatus;
 import de.sub.goobi.helper.exceptions.DAOException;
 import de.sub.goobi.helper.exceptions.ImportPluginException;
@@ -280,6 +281,8 @@ public class QuartzJob implements Job {
         stderrThread.join(1000);
 
         if (result != 0) {
+            StorageProvider.getInstance().deleteDir(Paths.get(goobiProcess.getProcessDataDirectory()));
+            ProcessManager.deleteProcess(goobiProcess);
             throw new IOException(String.format("GRIN script exited with code %d. Stderr was: %s", result, stderrReader.getOutput()));
         }
 
