@@ -2,7 +2,6 @@ package de.intranda.goobi.plugins;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -20,12 +19,9 @@ import org.goobi.production.enums.LogType;
 import org.goobi.production.enums.PluginType;
 import org.goobi.production.plugin.PluginLoader;
 import org.goobi.production.plugin.interfaces.IOpacPlugin;
-import org.jdom2.Document;
 import org.jdom2.Element;
-import org.jdom2.JDOMException;
 import org.jdom2.Namespace;
 import org.jdom2.filter.Filters;
-import org.jdom2.input.SAXBuilder;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
 import org.quartz.Job;
@@ -97,14 +93,15 @@ public class QuartzJob implements Job {
         try {
             Files.createFile(runningPath);
             for (String convertedBook : convertedBooks) {
-                String processTitle = "Google-" + convertedBook.replace("NLI_", "").replace(".tar.gz.gpg", "");
+                String id = convertedBook.replace("NLI_", "").replace(".tar.gz.gpg", "");
+                String processTitle = "Google-" + id;
                 int count = ProcessManager.countProcessTitle(processTitle);
                 if (count != 0) {
                     continue;
                 }
                 try {
                     log.debug(String.format("Googlebooks harvester: Downloading %s", convertedBook));
-                    org.goobi.beans.Process goobiProcess = downloadAndImportBook(convertedBook, processTitle, config);
+                    org.goobi.beans.Process goobiProcess = downloadAndImportBook(convertedBook, processTitle, id, config);
                     if (goobiProcess == null) {
                         continue;
                     }
@@ -255,7 +252,7 @@ public class QuartzJob implements Job {
 
     }
 
-    private org.goobi.beans.Process downloadAndImportBook(String convertedBook, String processTitle, XMLConfiguration config)
+    private org.goobi.beans.Process downloadAndImportBook(String convertedBook, String processTitle, String id, XMLConfiguration config)
             throws IOException, InterruptedException, DAOException, SwapException {
         org.goobi.beans.Process goobiProcess = createProcess(processTitle, config);
         String scriptDir = config.getString("scriptDir", "/opt/digiverso/goobi/scripts/googlebooks/");
@@ -344,7 +341,7 @@ public class QuartzJob implements Job {
             }
         }
 
-        String idFromMarc = null;
+        /*String idFromMarc = null;
         try (InputStream metsIn = Files.newInputStream(googleMetsFile)) {
             Document doc = new SAXBuilder().build(metsIn);
             Element idEl = identifierXpath.evaluateFirst(doc);
@@ -359,18 +356,18 @@ public class QuartzJob implements Job {
             StepManager.saveStep(firstStep);
             return null;
         }
-
+        
         if (idFromMarc == null) {
             writeLogEntry(goobiProcess, "Could not read identifier from google METS file.");
             Step firstStep = goobiProcess.getSchritte().get(0);
             firstStep.setBearbeitungsstatusEnum(StepStatus.ERROR);
             StepManager.saveStep(firstStep);
             return null;
-        }
+        }*/
 
         try {
             Prefs prefs = goobiProcess.getRegelsatz().getPreferences();
-            Fileformat ff = getRecordFromCatalogue(prefs, idFromMarc, "NLI", "12");
+            Fileformat ff = getRecordFromCatalogue(prefs, id, "NLI Alma", "1007");
             DigitalDocument digDoc = ff.getDigitalDocument();
             DocStruct physical = digDoc.createDocStruct(prefs.getDocStrctTypeByName("BoundBook"));
             digDoc.setPhysicalDocStruct(physical);
