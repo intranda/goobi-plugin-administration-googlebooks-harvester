@@ -2,6 +2,7 @@ package de.intranda.goobi.plugins;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -19,9 +20,12 @@ import org.goobi.production.enums.LogType;
 import org.goobi.production.enums.PluginType;
 import org.goobi.production.plugin.PluginLoader;
 import org.goobi.production.plugin.interfaces.IOpacPlugin;
+import org.jdom2.Document;
 import org.jdom2.Element;
+import org.jdom2.JDOMException;
 import org.jdom2.Namespace;
 import org.jdom2.filter.Filters;
+import org.jdom2.input.SAXBuilder;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
 import org.quartz.Job;
@@ -341,7 +345,7 @@ public class QuartzJob implements Job {
             }
         }
 
-        /*String idFromMarc = null;
+        String idFromMarc = null;
         try (InputStream metsIn = Files.newInputStream(googleMetsFile)) {
             Document doc = new SAXBuilder().build(metsIn);
             Element idEl = identifierXpath.evaluateFirst(doc);
@@ -356,18 +360,18 @@ public class QuartzJob implements Job {
             StepManager.saveStep(firstStep);
             return null;
         }
-        
+
         if (idFromMarc == null) {
             writeLogEntry(goobiProcess, "Could not read identifier from google METS file.");
             Step firstStep = goobiProcess.getSchritte().get(0);
             firstStep.setBearbeitungsstatusEnum(StepStatus.ERROR);
             StepManager.saveStep(firstStep);
             return null;
-        }*/
+        }
 
         try {
             Prefs prefs = goobiProcess.getRegelsatz().getPreferences();
-            Fileformat ff = getRecordFromCatalogue(prefs, id, "NLI Alma", "1007");
+            Fileformat ff = getRecordFromCatalogue(prefs, idFromMarc, "NLI Alma", "1007");
             DigitalDocument digDoc = ff.getDigitalDocument();
             DocStruct physical = digDoc.createDocStruct(prefs.getDocStrctTypeByName("BoundBook"));
             digDoc.setPhysicalDocStruct(physical);
