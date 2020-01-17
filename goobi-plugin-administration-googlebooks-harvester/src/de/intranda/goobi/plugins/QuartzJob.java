@@ -59,7 +59,9 @@ public class QuartzJob implements Job {
     private static Namespace metsNs = Namespace.getNamespace("METS", "http://www.loc.gov/METS/");
     private static Namespace marcNs = Namespace.getNamespace("marc", "http://www.loc.gov/MARC21/slim");
     private static XPathExpression<Element> identifierXpath =
-            xFactory.compile("//METS:xmlData/marc:record/marc:controlfield[@tag='001']", Filters.element(), null, metsNs, marcNs);
+            xFactory.compile(
+                    "//METS:xmlData/marc:record/marc:datafield[@tag='955'][./marc:subfield[@code='a'] = 'Stacks']/marc:subfield[@code='b']",
+                    Filters.element(), null, metsNs, marcNs);
 
     private static Path runningPath = Paths.get("/tmp/gbooksharvester_running");
     private static Path stopPath = Paths.get("/tmp/gbooksharvester_stop");
