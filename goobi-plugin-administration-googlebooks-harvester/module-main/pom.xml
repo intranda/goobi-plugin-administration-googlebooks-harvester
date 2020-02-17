@@ -21,7 +21,6 @@
     <build>
         <finalName>${jar.name}</finalName>
         <sourceDirectory>${project.basedir}/../src</sourceDirectory>
-        <testSourceDirectory>${project.basedir}/../test/src</testSourceDirectory>
         <resources>
             <resource>
                 <directory>../src</directory>
