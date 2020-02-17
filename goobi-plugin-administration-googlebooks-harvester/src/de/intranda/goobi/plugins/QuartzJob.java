@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.zip.GZIPInputStream;
 
@@ -58,10 +59,10 @@ public class QuartzJob implements Job {
     private static XPathFactory xFactory = XPathFactory.instance();
     private static Namespace metsNs = Namespace.getNamespace("METS", "http://www.loc.gov/METS/");
     private static Namespace marcNs = Namespace.getNamespace("marc", "http://www.loc.gov/MARC21/slim");
-    private static XPathExpression<Element> identifierXpath =
-            xFactory.compile(
-                    "//METS:xmlData/marc:record/marc:datafield[@tag='955'][./marc:subfield[@code='a'] = 'Stacks']/marc:subfield[@code='b']",
-                    Filters.element(), null, metsNs, marcNs);
+    private static XPathExpression<Element> datafield955Xpath =
+            xFactory.compile("//METS:xmlData/marc:record/marc:datafield[@tag='955']", Filters.element(), null, metsNs, marcNs);
+    private static XPathExpression<Element> subfieldAXpath = xFactory.compile("./marc:subfield[@code='a']", Filters.element(), null, metsNs, marcNs);
+    private static XPathExpression<Element> subfieldBXpath = xFactory.compile("./marc:subfield[@code='b']", Filters.element(), null, metsNs, marcNs);
 
     private static Path runningPath = Paths.get("/tmp/gbooksharvester_running");
     private static Path stopPath = Paths.get("/tmp/gbooksharvester_stop");
@@ -348,12 +349,8 @@ public class QuartzJob implements Job {
         }
 
         String idFromMarc = null;
-        try (InputStream metsIn = Files.newInputStream(googleMetsFile)) {
-            Document doc = new SAXBuilder().build(metsIn);
-            Element idEl = identifierXpath.evaluateFirst(doc);
-            if (idEl != null) {
-                idFromMarc = idEl.getText().trim();
-            }
+        try {
+            idFromMarc = readIdFromMarc(googleMetsFile);
         } catch (JDOMException e) {
             log.error(e);
             writeLogEntry(goobiProcess, "Could not read identifier from google METS file. See log for details");
@@ -391,7 +388,30 @@ public class QuartzJob implements Job {
         //TODO (maybe check checksums) 
     }
 
-    public void writeLogEntry(org.goobi.beans.Process goobiProcess, String message) {
+    public static String readIdFromMarc(Path googleMetsFile) throws IOException, JDOMException {
+        String idFromMarc = null;
+        try (InputStream metsIn = Files.newInputStream(googleMetsFile)) {
+            Document doc = new SAXBuilder().build(metsIn);
+            List<Element> idEls = datafield955Xpath.evaluate(doc);
+            Element idEl = null;
+            for (Element dataField : idEls) {
+                Element subA = subfieldAXpath.evaluateFirst(dataField);
+                Element subB = subfieldBXpath.evaluateFirst(dataField);
+                boolean subAOK = subA.getTextTrim() != null && subA.getTextTrim().toLowerCase().contains("stacks");
+                boolean subBOK = subB.getTextTrim() != null && subB.getTextTrim().contains("-");
+                if (subAOK && subBOK) {
+                    idEl = subB;
+                    break;
+                }
+            }
+            if (idEl != null) {
+                idFromMarc = idEl.getText().trim();
+            }
+        }
+        return idFromMarc;
+    }
+
+    public static void writeLogEntry(org.goobi.beans.Process goobiProcess, String message) {
         LogEntry entry = new LogEntry();
         entry.setContent(message);
         entry.setProcessId(goobiProcess.getId());
