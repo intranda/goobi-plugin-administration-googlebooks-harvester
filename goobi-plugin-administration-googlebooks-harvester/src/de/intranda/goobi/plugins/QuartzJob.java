@@ -102,7 +102,7 @@ public class QuartzJob implements Job {
             for (String convertedBook : convertedBooks) {
                 String id = convertedBook.replace("NLI_", "").replace(".tar.gz.gpg", "");
                 String processTitle = "Google-" + id;
-                int count = ProcessManager.countProcessTitle(processTitle);
+                int count = ProcessManager.countProcessTitle(processTitle, null);
                 if (count != 0) {
                     continue;
                 }
