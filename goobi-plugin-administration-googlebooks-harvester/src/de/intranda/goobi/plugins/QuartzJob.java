@@ -96,7 +96,7 @@ public class QuartzJob implements Job {
             log.error("Googlebooks harvester: error getting converted books", e);
             return;
         }
-
+        int maxNumberToConvert = config.getInt("numberToConvertHourly", 5);
         try {
             Files.createFile(runningPath);
             for (String convertedBook : convertedBooks) {
@@ -139,6 +139,9 @@ public class QuartzJob implements Job {
                 if (Files.exists(stopPath)) {
                     log.warn("Googlebooks harvester: File '/tmp/gbooksharvester_stop' exists. Will not run.");
                     return;
+                }
+                if (numberHarvested >= maxNumberToConvert) {
+                    break;
                 }
             }
         } catch (IOException e) {
