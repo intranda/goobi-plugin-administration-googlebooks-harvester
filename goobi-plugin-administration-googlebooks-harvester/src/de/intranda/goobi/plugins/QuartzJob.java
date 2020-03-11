@@ -63,6 +63,8 @@ public class QuartzJob implements Job {
             xFactory.compile("//METS:xmlData/marc:record/marc:datafield[@tag='955']", Filters.element(), null, metsNs, marcNs);
     private static XPathExpression<Element> subfieldAXpath = xFactory.compile("./marc:subfield[@code='a']", Filters.element(), null, metsNs, marcNs);
     private static XPathExpression<Element> subfieldBXpath = xFactory.compile("./marc:subfield[@code='b']", Filters.element(), null, metsNs, marcNs);
+    private static XPathExpression<Element> identifierXpath =
+            xFactory.compile("//METS:xmlData/marc:record/marc:controlfield[@tag='001']", Filters.element(), null, metsNs, marcNs);
 
     private static Path runningPath = Paths.get("/tmp/gbooksharvester_running");
     private static Path stopPath = Paths.get("/tmp/gbooksharvester_stop");
@@ -351,7 +353,7 @@ public class QuartzJob implements Job {
             }
         }
 
-        String idFromMarc = null;
+        CatalogueIdentifier idFromMarc = null;
         try {
             idFromMarc = readIdFromMarc(googleMetsFile);
         } catch (JDOMException e) {
@@ -373,7 +375,7 @@ public class QuartzJob implements Job {
 
         try {
             Prefs prefs = goobiProcess.getRegelsatz().getPreferences();
-            Fileformat ff = getRecordFromCatalogue(prefs, idFromMarc, "NLI Alma", "1007");
+            Fileformat ff = getRecordFromCatalogue(prefs, idFromMarc.getSearchValue(), "NLI Alma", idFromMarc.getField());
             DigitalDocument digDoc = ff.getDigitalDocument();
             DocStruct physical = digDoc.createDocStruct(prefs.getDocStrctTypeByName("BoundBook"));
             digDoc.setPhysicalDocStruct(physical);
@@ -391,9 +393,9 @@ public class QuartzJob implements Job {
         //TODO (maybe check checksums) 
     }
 
-    public static String readIdFromMarc(Path googleMetsFile) throws IOException, JDOMException {
-        String idFromMarc = null;
+    public static CatalogueIdentifier readIdFromMarc(Path googleMetsFile) throws IOException, JDOMException {
         try (InputStream metsIn = Files.newInputStream(googleMetsFile)) {
+            String barcodeFromMarc = null;
             Document doc = new SAXBuilder().build(metsIn);
             List<Element> idEls = datafield955Xpath.evaluate(doc);
             Element idEl = null;
@@ -408,10 +410,17 @@ public class QuartzJob implements Job {
                 }
             }
             if (idEl != null) {
-                idFromMarc = idEl.getText().trim();
+                barcodeFromMarc = idEl.getText().trim();
             }
+            if (barcodeFromMarc == null) {
+                //try to get standard ID
+                idEl = identifierXpath.evaluateFirst(doc);
+                if (idEl != null) {
+                    return new CatalogueIdentifier("12", idEl.getTextTrim());
+                }
+            }
+            return new CatalogueIdentifier("1007", barcodeFromMarc);
         }
-        return idFromMarc;
     }
 
     public static void writeLogEntry(org.goobi.beans.Process goobiProcess, String message) {

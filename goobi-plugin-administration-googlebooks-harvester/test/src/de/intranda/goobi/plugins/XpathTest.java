@@ -17,8 +17,8 @@ public class XpathTest {
         try (DirectoryStream<Path> dirStream = Files.newDirectoryStream(Paths.get("test/resources/metsFiles"))) {
             for (Path p : dirStream) {
                 System.out.println("reading " + p);
-                String identifer = QuartzJob.readIdFromMarc(p);
-                assertTrue(identifer != null && !identifer.isEmpty());
+                CatalogueIdentifier identifer = QuartzJob.readIdFromMarc(p);
+                assertTrue(identifer != null && !identifer.getSearchValue().isEmpty());
             }
         }
     }
