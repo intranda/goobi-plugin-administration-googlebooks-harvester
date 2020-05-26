@@ -416,7 +416,7 @@ public class QuartzJob implements Job {
                 //try to get standard ID
                 idEl = identifierXpath.evaluateFirst(doc);
                 if (idEl != null) {
-                    return new CatalogueIdentifier("12", idEl.getTextTrim());
+                    return new CatalogueIdentifier("1007", idEl.getTextTrim());
                 }
             }
             return new CatalogueIdentifier("1007", barcodeFromMarc);
