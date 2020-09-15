@@ -50,9 +50,11 @@ import lombok.extern.log4j.Log4j;
 import ugh.dl.DigitalDocument;
 import ugh.dl.DocStruct;
 import ugh.dl.Fileformat;
+import ugh.dl.Metadata;
 import ugh.dl.Prefs;
 import ugh.exceptions.PreferencesException;
 import ugh.exceptions.TypeNotAllowedForParentException;
+import ugh.exceptions.UGHException;
 import ugh.exceptions.WriteException;
 
 @Log4j
@@ -451,7 +453,6 @@ public class QuartzJob implements Job {
         bHelper.WerkstueckeKopieren(template, processCopy);
         bHelper.EigenschaftenKopieren(template, processCopy);
 
-
         Processproperty userDefinedA = new Processproperty();
         userDefinedA.setTitel("UserDefinedA");
         userDefinedA.setWert("Technical_Services");
@@ -542,7 +543,18 @@ public class QuartzJob implements Job {
                 }
                 ds = ds.getAllChildren().get(0);
             }
-        } catch (PreferencesException e1) {
+
+            // asfaf
+            Metadata UserDefinedA = new Metadata(prefs.getMetadataTypeByName("UserDefinedA"));
+            UserDefinedA.setValue("Technical_Services");
+            ds.addMetadata(UserDefinedA);
+            Metadata UserDefinedB = new Metadata(prefs.getMetadataTypeByName("UserDefinedB"));
+            UserDefinedB.setValue("google_books");
+            ds.addMetadata(UserDefinedB);
+            Metadata UserDefinedC = new Metadata(prefs.getMetadataTypeByName("UserDefinedC"));
+            UserDefinedC.setValue("");
+            ds.addMetadata(UserDefinedC);
+        } catch (UGHException e1) {
             throw new ImportPluginException("Could not import record " + identifier
                     + ". Usually this means a ruleset mapping is not correct or the record can not be found in the catalogue.");
         }
