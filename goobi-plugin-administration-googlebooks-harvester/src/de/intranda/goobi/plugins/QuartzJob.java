@@ -453,15 +453,18 @@ public class QuartzJob implements Job {
 
 
         Processproperty userDefinedA = new Processproperty();
+        userDefinedA.setTitel("UserDefinedA");
         userDefinedA.setWert("Technical_Services");
         userDefinedA.setProzess(processCopy);
         processCopy.getEigenschaften().add(userDefinedA);
         Processproperty userDefinedB = new Processproperty();
+        userDefinedB.setTitel("UserDefinedB");
         userDefinedB.setWert("google_books");
         userDefinedB.setProzess(processCopy);
         processCopy.getEigenschaften().add(userDefinedB);
 
         Processproperty userDefinedC = new Processproperty();
+        userDefinedC.setTitel("UserDefinedC");
         userDefinedC.setWert("");
         userDefinedC.setProzess(processCopy);
         processCopy.getEigenschaften().add(userDefinedC);
