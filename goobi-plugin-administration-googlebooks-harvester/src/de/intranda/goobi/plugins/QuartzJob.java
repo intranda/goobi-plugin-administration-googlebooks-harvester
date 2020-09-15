@@ -16,6 +16,7 @@ import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 import org.apache.commons.configuration.XMLConfiguration;
 import org.apache.commons.lang3.StringUtils;
 import org.goobi.beans.LogEntry;
+import org.goobi.beans.Processproperty;
 import org.goobi.beans.Step;
 import org.goobi.production.enums.LogType;
 import org.goobi.production.enums.PluginType;
@@ -390,7 +391,7 @@ public class QuartzJob implements Job {
         }
 
         return goobiProcess;
-        //TODO (maybe check checksums) 
+        //TODO (maybe check checksums)
     }
 
     public static CatalogueIdentifier readIdFromMarc(Path googleMetsFile) throws IOException, JDOMException {
@@ -449,6 +450,21 @@ public class QuartzJob implements Job {
         bHelper.ScanvorlagenKopieren(template, processCopy);
         bHelper.WerkstueckeKopieren(template, processCopy);
         bHelper.EigenschaftenKopieren(template, processCopy);
+
+
+        Processproperty userDefinedA = new Processproperty();
+        userDefinedA.setWert("Technical_Services");
+        userDefinedA.setProzess(processCopy);
+        processCopy.getEigenschaften().add(userDefinedA);
+        Processproperty userDefinedB = new Processproperty();
+        userDefinedB.setWert("google_books");
+        userDefinedB.setProzess(processCopy);
+        processCopy.getEigenschaften().add(userDefinedB);
+
+        Processproperty userDefinedC = new Processproperty();
+        userDefinedC.setWert("");
+        userDefinedC.setProzess(processCopy);
+        processCopy.getEigenschaften().add(userDefinedC);
 
         ProcessManager.saveProcess(processCopy);
 
