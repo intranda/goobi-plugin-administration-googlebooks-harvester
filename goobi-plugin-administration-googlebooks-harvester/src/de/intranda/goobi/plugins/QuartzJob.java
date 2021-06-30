@@ -378,7 +378,12 @@ public class QuartzJob implements Job {
 
         try {
             Prefs prefs = goobiProcess.getRegelsatz().getPreferences();
-            Fileformat ff = getRecordFromCatalogue(prefs, idFromMarc.getSearchValue(), "NLI Alma", idFromMarc.getField());
+            Fileformat ff = null;
+            try {
+                ff = getRecordFromCatalogue(prefs, idFromMarc.getSearchValue(), "NLI Alma", idFromMarc.getField());
+            } catch (ImportPluginException e) {
+                ff = getRecordFromCatalogue(prefs, "12", "NLI Alma", idFromMarc.getField());
+            }
             DigitalDocument digDoc = ff.getDigitalDocument();
             DocStruct physical = digDoc.createDocStruct(prefs.getDocStrctTypeByName("BoundBook"));
             digDoc.setPhysicalDocStruct(physical);
