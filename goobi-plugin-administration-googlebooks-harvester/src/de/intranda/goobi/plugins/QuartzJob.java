@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -356,9 +357,9 @@ public class QuartzJob implements Job {
             }
         }
 
-        CatalogueIdentifier idFromMarc = null;
+        List<CatalogueIdentifier> idsFromMarc = new ArrayList<>();
         try {
-            idFromMarc = readIdFromMarc(googleMetsFile);
+            idsFromMarc = readIdsFromMarc(googleMetsFile);
         } catch (JDOMException e) {
             log.error(e);
             writeLogEntry(goobiProcess, "Could not read identifier from google METS file. See log for details");
@@ -368,7 +369,7 @@ public class QuartzJob implements Job {
             return null;
         }
 
-        if (idFromMarc == null) {
+        if (idsFromMarc.isEmpty()) {
             writeLogEntry(goobiProcess, "Could not read identifier from google METS file.");
             Step firstStep = goobiProcess.getSchritte().get(0);
             firstStep.setBearbeitungsstatusEnum(StepStatus.ERROR);
@@ -379,11 +380,7 @@ public class QuartzJob implements Job {
         try {
             Prefs prefs = goobiProcess.getRegelsatz().getPreferences();
             Fileformat ff = null;
-            try {
-                ff = getRecordFromCatalogue(prefs, idFromMarc.getSearchValue(), "NLI Alma", idFromMarc.getField());
-            } catch (ImportPluginException e) {
-                ff = getRecordFromCatalogue(prefs, "12", "NLI Alma", idFromMarc.getField());
-            }
+            ff = getRecordFromCatalogue(prefs, idsFromMarc, "NLI Alma");
             DigitalDocument digDoc = ff.getDigitalDocument();
             DocStruct physical = digDoc.createDocStruct(prefs.getDocStrctTypeByName("BoundBook"));
             digDoc.setPhysicalDocStruct(physical);
@@ -401,9 +398,9 @@ public class QuartzJob implements Job {
         //TODO (maybe check checksums)
     }
 
-    public static CatalogueIdentifier readIdFromMarc(Path googleMetsFile) throws IOException, JDOMException {
+    public static List<CatalogueIdentifier> readIdsFromMarc(Path googleMetsFile) throws IOException, JDOMException {
+        List<CatalogueIdentifier> foundIds = new ArrayList<CatalogueIdentifier>();
         try (InputStream metsIn = Files.newInputStream(googleMetsFile)) {
-            String barcodeFromMarc = null;
             Document doc = new SAXBuilder().build(metsIn);
             List<Element> idEls = datafield955Xpath.evaluate(doc);
             Element idEl = null;
@@ -418,17 +415,17 @@ public class QuartzJob implements Job {
                 }
             }
             if (idEl != null) {
-                barcodeFromMarc = idEl.getText().trim();
+                foundIds.add(new CatalogueIdentifier("12", idEl.getText().trim()));
+                foundIds.add(new CatalogueIdentifier("1007", idEl.getText().trim()));
             }
-            if (barcodeFromMarc == null) {
-                //try to get standard ID
-                idEl = identifierXpath.evaluateFirst(doc);
-                if (idEl != null) {
-                    return new CatalogueIdentifier("1007", idEl.getTextTrim());
-                }
+            //try to get the barcode
+            idEl = identifierXpath.evaluateFirst(doc);
+            if (idEl != null) {
+                foundIds.add(new CatalogueIdentifier("12", idEl.getTextTrim()));
+                foundIds.add(new CatalogueIdentifier("1007", idEl.getTextTrim()));
             }
-            return new CatalogueIdentifier("1007", barcodeFromMarc);
         }
+        return foundIds;
     }
 
     public static void writeLogEntry(org.goobi.beans.Process goobiProcess, String message) {
@@ -516,7 +513,7 @@ public class QuartzJob implements Job {
         return bufferFree;
     }
 
-    private Fileformat getRecordFromCatalogue(Prefs prefs, String identifier, String opacName, String searchField) throws ImportPluginException {
+    private Fileformat getRecordFromCatalogue(Prefs prefs, List<CatalogueIdentifier> ids, String opacName) throws ImportPluginException {
         ConfigOpacCatalogue coc = ConfigOpac.getInstance().getCatalogueByName(opacName);
         if (coc == null) {
             throw new ImportPluginException("Catalogue with name " + opacName + " not found. Please check goobi_opac.xml");
@@ -526,15 +523,21 @@ public class QuartzJob implements Job {
             throw new ImportPluginException("Opac plugin " + coc.getOpacType() + " not found. Abort.");
         }
         Fileformat myRdf = null;
-        try {
-            myRdf = myImportOpac.search(searchField, identifier, coc, prefs);
-            if (myRdf == null) {
-                throw new ImportPluginException("Could not import record " + identifier
-                        + ". Usually this means a ruleset mapping is not correct or the record can not be found in the catalogue.");
+        CatalogueIdentifier usedId = null;
+        for (CatalogueIdentifier id : ids) {
+            try {
+                myRdf = myImportOpac.search(id.getField(), id.getSearchValue(), coc, prefs);
+                if (myRdf != null) {
+                    usedId = id;
+                    break;
+                }
+            } catch (Exception e1) {
+                log.error(e1);
             }
-        } catch (Exception e1) {
-            throw new ImportPluginException("Could not import record " + identifier
-                    + ". Usually this means a ruleset mapping is not correct or the record can not be found in the catalogue.");
+        }
+        if (myRdf == null) {
+            throw new ImportPluginException("Could not import record. Usually this means a ruleset mapping is not correct or the record "
+                    + "can not be found in the catalogue. Tried with the following values: " + ids);
         }
         DocStruct ds = null;
         DocStruct anchor = null;
@@ -544,7 +547,8 @@ public class QuartzJob implements Job {
                 anchor = ds;
                 if (ds.getAllChildren() == null || ds.getAllChildren().isEmpty()) {
                     throw new ImportPluginException(
-                            "Could not import record " + identifier + ". Found anchor file, but no children. Try to import the child record.");
+                            "Could not import record " + usedId.getSearchValue()
+                                    + ". Found anchor file, but no children. Try to import the child record.");
                 }
                 ds = ds.getAllChildren().get(0);
             }
@@ -560,7 +564,7 @@ public class QuartzJob implements Job {
             UserDefinedC.setValue("");
             ds.addMetadata(UserDefinedC);
         } catch (UGHException e1) {
-            throw new ImportPluginException("Could not import record " + identifier
+            throw new ImportPluginException("Could not import record " + usedId.getSearchValue()
                     + ". Usually this means a ruleset mapping is not correct or the record can not be found in the catalogue.");
         }
 

@@ -7,6 +7,7 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 import org.jdom2.JDOMException;
 import org.junit.Test;
@@ -17,8 +18,8 @@ public class XpathTest {
         try (DirectoryStream<Path> dirStream = Files.newDirectoryStream(Paths.get("test/resources/metsFiles"))) {
             for (Path p : dirStream) {
                 System.out.println("reading " + p);
-                CatalogueIdentifier identifer = QuartzJob.readIdFromMarc(p);
-                assertTrue(identifer != null && !identifer.getSearchValue().isEmpty());
+                List<CatalogueIdentifier> identifers = QuartzJob.readIdsFromMarc(p);
+                assertTrue(identifers != null && !identifers.isEmpty() && !identifers.get(0).getSearchValue().isEmpty());
             }
         }
     }
