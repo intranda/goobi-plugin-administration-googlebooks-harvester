@@ -302,7 +302,7 @@ public class QuartzJob implements Job {
         //decrypt stuff...
         String outputName = convertedBook.replace(".gpg", "");
         Path decryptPath = goobiImagesSourceDir.resolve(outputName);
-        Process gpgProcess = new ProcessBuilder("/usr/bin/gpg", "--no-use-agent", "--passphrase", config.getString("passphrase"), "--output",
+        Process gpgProcess = new ProcessBuilder("/usr/bin/gpg", "--pinentry-mode=loopback", "--passphrase", config.getString("passphrase"), "--output",
                 decryptPath.toAbsolutePath().toString(), "-d", downloadPath.toAbsolutePath().toString()).start();
 
         stderrReader = new ProcessOutputReader(gpgProcess.getErrorStream());
