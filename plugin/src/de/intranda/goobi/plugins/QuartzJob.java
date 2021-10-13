@@ -302,8 +302,9 @@ public class QuartzJob implements Job {
         //decrypt stuff...
         String outputName = convertedBook.replace(".gpg", "");
         Path decryptPath = goobiImagesSourceDir.resolve(outputName);
-        Process gpgProcess = new ProcessBuilder("/usr/bin/gpg", "--pinentry-mode=loopback", "--passphrase", config.getString("passphrase"), "--output",
-                decryptPath.toAbsolutePath().toString(), "-d", downloadPath.toAbsolutePath().toString()).start();
+        Process gpgProcess =
+                new ProcessBuilder("/usr/bin/gpg", "--pinentry-mode=loopback", "--passphrase", config.getString("passphrase"), "--output",
+                        decryptPath.toAbsolutePath().toString(), "-d", downloadPath.toAbsolutePath().toString()).start();
 
         stderrReader = new ProcessOutputReader(gpgProcess.getErrorStream());
         stderrThread = new Thread(stderrReader);
@@ -408,15 +409,15 @@ public class QuartzJob implements Job {
                 Element subA = subfieldAXpath.evaluateFirst(dataField);
                 Element subB = subfieldBXpath.evaluateFirst(dataField);
                 boolean subAOK = subA.getTextTrim() != null && subA.getTextTrim().toLowerCase().contains("stacks");
-                boolean subBOK = subB.getTextTrim() != null && subB.getTextTrim().contains("-");
-                if (subAOK && subBOK) {
+                if (subAOK) {
                     idEl = subB;
                     break;
                 }
-            }
-            if (idEl != null) {
-                foundIds.add(new CatalogueIdentifier("12", idEl.getText().trim()));
-                foundIds.add(new CatalogueIdentifier("1007", idEl.getText().trim()));
+                if (idEl != null) {
+                    foundIds.add(new CatalogueIdentifier("12", idEl.getText().trim()));
+                    foundIds.add(new CatalogueIdentifier("1007", idEl.getText().trim()));
+                    idEl = null;
+                }
             }
             //try to get the barcode
             idEl = identifierXpath.evaluateFirst(doc);

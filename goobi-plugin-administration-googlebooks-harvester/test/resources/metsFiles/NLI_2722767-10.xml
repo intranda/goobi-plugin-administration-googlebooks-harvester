@@ -1,0 +1,1783 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METS:mets xmlns:METS="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gbs="http://books.google.com/gbs" xmlns:PREMIS="info:lc/xmlns/premis-v2" xmlns:marc="http://www.loc.gov/MARC21/slim" xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd                                http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd                                info:lc/xmlns/premis-v2 http://www.loc.gov/standards/premis/premis.xsd" OBJID="NLI_2722767-10" PROFILE="gbs">
+  <METS:metsHdr ID="HDR1" CREATEDATE="2021-07-15T02:17:34" RECORDSTATUS="NEW">
+    <METS:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+      <METS:name>Google</METS:name>
+    </METS:agent>
+  </METS:metsHdr>
+  <METS:dmdSec xmlns="http://www.loc.gov/MARC21/slim" ID="DMDMARC">
+    <METS:mdWrap MIMETYPE="text/xml" MDTYPE="MARC" LABEL="Source MARC record">
+      <METS:xmlData>
+        <record>
+          <leader>01430nam a2200337 a 4500</leader>
+          <controlfield tag="005">20200520082019.0</controlfield>
+          <controlfield tag="008">100620s1927    enk     r     000 0 eng d</controlfield>
+          <controlfield tag="001">990027227670205171</controlfield>
+          <datafield tag="035" ind1=" " ind2=" ">
+            <subfield code="a">(IsJJNL)002722767NNL01-Aleph</subfield>
+          </datafield>
+          <datafield tag="035" ind1=" " ind2=" ">
+            <subfield code="a">(OCoLC)646978885</subfield>
+          </datafield>
+          <datafield tag="041" ind1="0" ind2=" ">
+            <subfield code="a">eng</subfield>
+          </datafield>
+          <datafield tag="082" ind1=" " ind2=" ">
+            <subfield code="a">Y331.259.2</subfield>
+            <subfield code="b">Professional, vocational and rehabilitation training and education; Human resources development; ORT - Jews, Jewish, Judaism</subfield>
+          </datafield>
+          <datafield tag="090" ind1=" " ind2=" ">
+            <subfield code="a">2010 B 4016</subfield>
+          </datafield>
+          <datafield tag="091" ind1=" " ind2=" ">
+            <subfield code="a">OG 1516</subfield>
+          </datafield>
+          <datafield tag="110" ind1="2" ind2=" ">
+            <subfield code="a">ORT Great Britain</subfield>
+            <subfield code="9">lat</subfield>
+            <subfield code="8">PreferredLanguageHeading</subfield>
+          </datafield>
+          <datafield tag="245" ind1="1" ind2="0">
+            <subfield code="a">Ort; society for the promotion of trades and agriculture among Jews :</subfield>
+            <subfield code="b">established 1880.</subfield>
+          </datafield>
+          <datafield tag="300" ind1=" " ind2=" ">
+            <subfield code="a">15 pages ;</subfield>
+            <subfield code="c">22 cm.</subfield>
+          </datafield>
+          <datafield tag="590" ind1=" " ind2=" ">
+            <subfield code="a">Copy 1 was: OG 1516</subfield>
+          </datafield>
+          <datafield tag="590" ind1=" " ind2=" ">
+            <subfield code="a">Book is planned to be digitized by Google.</subfield>
+          </datafield>
+          <datafield tag="610" ind1="2" ind2="7">
+            <subfield code="a">World ORT Union</subfield>
+            <subfield code="9">lat</subfield>
+            <subfield code="2">NLI</subfield>
+            <subfield code="8">PreferredLanguageHeading</subfield>
+          </datafield>
+          <datafield tag="903" ind1=" " ind2=" ">
+            <subfield code="a">Library premises only;</subfield>
+            <subfield code="b">000000008</subfield>
+          </datafield>
+          <datafield tag="906" ind1=" " ind2=" ">
+            <subfield code="a">GEN</subfield>
+          </datafield>
+          <datafield tag="921" ind1=" " ind2=" ">
+            <subfield code="a">cgs 201006</subfield>
+          </datafield>
+          <datafield tag="934" ind1=" " ind2=" ">
+            <subfield code="a">LEV 201006</subfield>
+          </datafield>
+          <datafield tag="939" ind1=" " ind2=" ">
+            <subfield code="a">איסור העתקה</subfield>
+            <subfield code="u">http://web.nli.org.il/sites/NLI/Hebrew/library/items-terms-of-use/Pages/nli-copying-prohibited.aspx</subfield>
+          </datafield>
+          <datafield tag="948" ind1=" " ind2=" ">
+            <subfield code="a">NNL</subfield>
+          </datafield>
+          <datafield tag="952" ind1=" " ind2=" ">
+            <subfield code="a">Copyright status not determined; No contract</subfield>
+            <subfield code="b">No copyright analysis</subfield>
+            <subfield code="c">Automatic profile</subfield>
+            <subfield code="d">No copyright analysis</subfield>
+          </datafield>
+          <datafield tag="999" ind1=" " ind2=" ">
+            <subfield code="a">BOOK</subfield>
+          </datafield>
+          <datafield tag="943" ind1=" " ind2=" ">
+            <subfield code="a">15 pages ;</subfield>
+          </datafield>
+          <datafield tag="260" ind1=" " ind2=" ">
+            <subfield code="a">London :</subfield>
+            <subfield code="b">London Committee,</subfield>
+            <subfield code="c">[1927].</subfield>
+          </datafield>
+          <datafield tag="506" ind1=" " ind2=" ">
+            <subfield code="a">Library premises only;</subfield>
+            <subfield code="0">000000008</subfield>
+          </datafield>
+          <datafield tag="955" ind1=" " ind2=" ">
+            <subfield code="e">2010 B 4016</subfield>
+            <subfield code="b">2722767-10</subfield>
+            <subfield code="a">stacks_s</subfield>
+          </datafield>
+        </record>
+      </METS:xmlData>
+    </METS:mdWrap>
+  </METS:dmdSec>
+  <METS:amdSec>
+    <METS:techMD ID="QUALITY">
+      <METS:mdWrap MDTYPE="OTHER" LABEL="quality data" OTHERMDTYPE="Google Quality Data">
+        <METS:xmlData>
+          <gbs:quality_scores>
+            <gbs:overall_error>0.00</gbs:overall_error>
+            <gbs:material_error>0.00</gbs:material_error>
+            <gbs:rubbish/>
+            <gbs:audit/>
+          </gbs:quality_scores>
+          <gbs:ocr DETECTED_LANGUAGE="eng">
+            <gbs:ocr_volume CONFIDENCE_GTD="91" CONFIDENCE_ANALYSIS="80" DETECTED_LANGUAGE="eng">
+              <gbs:ocr_page FILEID="HTML00000001" CONFIDENCE_GTD="53" CONFIDENCE_ANALYSIS="52"/>
+              <gbs:ocr_page FILEID="HTML00000002" CONFIDENCE_GTD="" CONFIDENCE_ANALYSIS="00"/>
+              <gbs:ocr_page FILEID="HTML00000003" CONFIDENCE_GTD="95" CONFIDENCE_ANALYSIS="95" DETECTED_LANGUAGE="eng"/>
+              <gbs:ocr_page FILEID="HTML00000004" CONFIDENCE_GTD="94" CONFIDENCE_ANALYSIS="94" DETECTED_LANGUAGE="eng"/>
+              <gbs:ocr_page FILEID="HTML00000005" CONFIDENCE_GTD="95" CONFIDENCE_ANALYSIS="95" DETECTED_LANGUAGE="eng"/>
+              <gbs:ocr_page FILEID="HTML00000006" CONFIDENCE_GTD="78" CONFIDENCE_ANALYSIS="77" DETECTED_LANGUAGE="eng"/>
+              <gbs:ocr_page FILEID="HTML00000007" CONFIDENCE_GTD="98" CONFIDENCE_ANALYSIS="98" DETECTED_LANGUAGE="eng"/>
+              <gbs:ocr_page FILEID="HTML00000008" CONFIDENCE_GTD="98" CONFIDENCE_ANALYSIS="98" DETECTED_LANGUAGE="eng"/>
+              <gbs:ocr_page FILEID="HTML00000009" CONFIDENCE_GTD="98" CONFIDENCE_ANALYSIS="98" DETECTED_LANGUAGE="eng"/>
+              <gbs:ocr_page FILEID="HTML00000010" CONFIDENCE_GTD="98" CONFIDENCE_ANALYSIS="98" DETECTED_LANGUAGE="eng"/>
+              <gbs:ocr_page FILEID="HTML00000011" CONFIDENCE_GTD="98" CONFIDENCE_ANALYSIS="98" DETECTED_LANGUAGE="eng"/>
+              <gbs:ocr_page FILEID="HTML00000012" CONFIDENCE_GTD="98" CONFIDENCE_ANALYSIS="98" DETECTED_LANGUAGE="eng"/>
+              <gbs:ocr_page FILEID="HTML00000013" CONFIDENCE_GTD="97" CONFIDENCE_ANALYSIS="97" DETECTED_LANGUAGE="eng"/>
+              <gbs:ocr_page FILEID="HTML00000014" CONFIDENCE_GTD="98" CONFIDENCE_ANALYSIS="98" DETECTED_LANGUAGE="eng"/>
+              <gbs:ocr_page FILEID="HTML00000015" CONFIDENCE_GTD="98" CONFIDENCE_ANALYSIS="98" DETECTED_LANGUAGE="eng"/>
+              <gbs:ocr_page FILEID="HTML00000016" CONFIDENCE_GTD="83" CONFIDENCE_ANALYSIS="83" DETECTED_LANGUAGE="eng"/>
+              <gbs:ocr_page FILEID="HTML00000017" CONFIDENCE_GTD="98" CONFIDENCE_ANALYSIS="98" DETECTED_LANGUAGE="eng"/>
+              <gbs:ocr_page FILEID="HTML00000018" CONFIDENCE_GTD="98" CONFIDENCE_ANALYSIS="98" DETECTED_LANGUAGE="eng"/>
+              <gbs:ocr_page FILEID="HTML00000019" CONFIDENCE_GTD="98" CONFIDENCE_ANALYSIS="98" DETECTED_LANGUAGE="eng"/>
+              <gbs:ocr_page FILEID="HTML00000020" CONFIDENCE_GTD="63" CONFIDENCE_ANALYSIS="63"/>
+              <gbs:ocr_page FILEID="HTML00000021" CONFIDENCE_GTD="97" CONFIDENCE_ANALYSIS="97" DETECTED_LANGUAGE="eng"/>
+              <gbs:ocr_page FILEID="HTML00000022" CONFIDENCE_GTD="" CONFIDENCE_ANALYSIS="00"/>
+              <gbs:ocr_page FILEID="HTML00000023" CONFIDENCE_GTD="" CONFIDENCE_ANALYSIS="00"/>
+              <gbs:ocr_page FILEID="HTML00000024" CONFIDENCE_GTD="94" CONFIDENCE_ANALYSIS="94"/>
+            </gbs:ocr_volume>
+          </gbs:ocr>
+          <gbs:productionNotes>
+            <gbs:badPages>0.00</gbs:badPages>
+            <gbs:missingPages>0.00</gbs:missingPages>
+            <gbs:tightBoundPages>0.00</gbs:tightBoundPages>
+          </gbs:productionNotes>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="IMAGE_METHOD0">
+      <METS:mdWrap LABEL="method of image production" MDTYPE="OTHER" OTHERMDTYPE="Scan Details">
+        <METS:xmlData>
+          <gbs:imageMethod scanner="PHOTOSTATION_V1">non-destructive</gbs:imageMethod>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="CALIB_11420318143344226235">
+      <METS:mdWrap LABEL="calibration target" MDTYPE="OTHER" OTHERMDTYPE="Calibration target">
+        <METS:xmlData>
+          <gbs:focusParameters threshold="40%">
+            <gbs:cameraInfo camera="0">
+              <gbs:focusInfo code="6" focusFrequency="294.706">
+                <gbs:focusMtf frequency="75.000" attenuation="1.000"/>
+                <gbs:focusMtf frequency="77.647" attenuation="1.004"/>
+                <gbs:focusMtf frequency="80.294" attenuation="1.003"/>
+                <gbs:focusMtf frequency="82.941" attenuation="1.002"/>
+                <gbs:focusMtf frequency="85.588" attenuation="1.001"/>
+                <gbs:focusMtf frequency="88.235" attenuation="1.000"/>
+                <gbs:focusMtf frequency="90.882" attenuation="0.999"/>
+                <gbs:focusMtf frequency="93.529" attenuation="1.001"/>
+                <gbs:focusMtf frequency="96.176" attenuation="1.000"/>
+                <gbs:focusMtf frequency="98.824" attenuation="1.000"/>
+                <gbs:focusMtf frequency="101.471" attenuation="1.000"/>
+                <gbs:focusMtf frequency="104.118" attenuation="0.998"/>
+                <gbs:focusMtf frequency="106.765" attenuation="0.992"/>
+                <gbs:focusMtf frequency="109.412" attenuation="0.986"/>
+                <gbs:focusMtf frequency="112.059" attenuation="0.983"/>
+                <gbs:focusMtf frequency="114.706" attenuation="0.978"/>
+                <gbs:focusMtf frequency="117.353" attenuation="0.970"/>
+                <gbs:focusMtf frequency="120.000" attenuation="0.962"/>
+                <gbs:focusMtf frequency="122.647" attenuation="0.955"/>
+                <gbs:focusMtf frequency="125.294" attenuation="0.946"/>
+                <gbs:focusMtf frequency="127.941" attenuation="0.939"/>
+                <gbs:focusMtf frequency="130.588" attenuation="0.933"/>
+                <gbs:focusMtf frequency="133.235" attenuation="0.922"/>
+                <gbs:focusMtf frequency="135.882" attenuation="0.916"/>
+                <gbs:focusMtf frequency="138.529" attenuation="0.908"/>
+                <gbs:focusMtf frequency="141.176" attenuation="0.900"/>
+                <gbs:focusMtf frequency="143.824" attenuation="0.890"/>
+                <gbs:focusMtf frequency="146.471" attenuation="0.882"/>
+                <gbs:focusMtf frequency="149.118" attenuation="0.874"/>
+                <gbs:focusMtf frequency="151.765" attenuation="0.866"/>
+                <gbs:focusMtf frequency="154.412" attenuation="0.857"/>
+                <gbs:focusMtf frequency="157.059" attenuation="0.849"/>
+                <gbs:focusMtf frequency="159.706" attenuation="0.846"/>
+                <gbs:focusMtf frequency="162.353" attenuation="0.837"/>
+                <gbs:focusMtf frequency="165.000" attenuation="0.830"/>
+                <gbs:focusMtf frequency="167.647" attenuation="0.820"/>
+                <gbs:focusMtf frequency="170.294" attenuation="0.812"/>
+                <gbs:focusMtf frequency="172.941" attenuation="0.805"/>
+                <gbs:focusMtf frequency="175.588" attenuation="0.799"/>
+                <gbs:focusMtf frequency="178.235" attenuation="0.793"/>
+                <gbs:focusMtf frequency="180.882" attenuation="0.786"/>
+                <gbs:focusMtf frequency="183.529" attenuation="0.776"/>
+                <gbs:focusMtf frequency="186.176" attenuation="0.772"/>
+                <gbs:focusMtf frequency="188.824" attenuation="0.765"/>
+                <gbs:focusMtf frequency="191.471" attenuation="0.758"/>
+                <gbs:focusMtf frequency="194.118" attenuation="0.751"/>
+                <gbs:focusMtf frequency="196.765" attenuation="0.744"/>
+                <gbs:focusMtf frequency="199.412" attenuation="0.740"/>
+                <gbs:focusMtf frequency="202.059" attenuation="0.732"/>
+                <gbs:focusMtf frequency="204.706" attenuation="0.725"/>
+                <gbs:focusMtf frequency="207.353" attenuation="0.720"/>
+                <gbs:focusMtf frequency="210.000" attenuation="0.713"/>
+                <gbs:focusMtf frequency="212.647" attenuation="0.706"/>
+                <gbs:focusMtf frequency="215.294" attenuation="0.703"/>
+                <gbs:focusMtf frequency="217.941" attenuation="0.695"/>
+                <gbs:focusMtf frequency="220.588" attenuation="0.690"/>
+                <gbs:focusMtf frequency="223.235" attenuation="0.682"/>
+                <gbs:focusMtf frequency="225.882" attenuation="0.677"/>
+                <gbs:focusMtf frequency="228.529" attenuation="0.672"/>
+                <gbs:focusMtf frequency="231.176" attenuation="0.667"/>
+                <gbs:focusMtf frequency="233.824" attenuation="0.661"/>
+                <gbs:focusMtf frequency="236.471" attenuation="0.655"/>
+                <gbs:focusMtf frequency="239.118" attenuation="0.649"/>
+                <gbs:focusMtf frequency="241.765" attenuation="0.642"/>
+                <gbs:focusMtf frequency="244.412" attenuation="0.638"/>
+                <gbs:focusMtf frequency="247.059" attenuation="0.631"/>
+                <gbs:focusMtf frequency="249.706" attenuation="0.621"/>
+                <gbs:focusMtf frequency="252.353" attenuation="0.619"/>
+                <gbs:focusMtf frequency="255.000" attenuation="0.612"/>
+                <gbs:focusMtf frequency="257.647" attenuation="0.607"/>
+                <gbs:focusMtf frequency="260.294" attenuation="0.600"/>
+                <gbs:focusMtf frequency="262.941" attenuation="0.593"/>
+                <gbs:focusMtf frequency="265.588" attenuation="0.588"/>
+                <gbs:focusMtf frequency="268.235" attenuation="0.583"/>
+                <gbs:focusMtf frequency="270.882" attenuation="0.577"/>
+                <gbs:focusMtf frequency="273.529" attenuation="0.573"/>
+                <gbs:focusMtf frequency="276.176" attenuation="0.568"/>
+                <gbs:focusMtf frequency="278.824" attenuation="0.562"/>
+                <gbs:focusMtf frequency="281.471" attenuation="0.557"/>
+                <gbs:focusMtf frequency="284.118" attenuation="0.552"/>
+                <gbs:focusMtf frequency="286.765" attenuation="0.546"/>
+                <gbs:focusMtf frequency="289.412" attenuation="0.540"/>
+                <gbs:focusMtf frequency="292.059" attenuation="0.534"/>
+                <gbs:focusMtf frequency="294.706" attenuation="0.530"/>
+              </gbs:focusInfo>
+              <gbs:focusInfo code="7" focusFrequency="294.706">
+                <gbs:focusMtf frequency="75.000" attenuation="1.000"/>
+                <gbs:focusMtf frequency="77.647" attenuation="1.002"/>
+                <gbs:focusMtf frequency="80.294" attenuation="1.003"/>
+                <gbs:focusMtf frequency="82.941" attenuation="1.003"/>
+                <gbs:focusMtf frequency="85.588" attenuation="1.006"/>
+                <gbs:focusMtf frequency="88.235" attenuation="1.005"/>
+                <gbs:focusMtf frequency="90.882" attenuation="1.008"/>
+                <gbs:focusMtf frequency="93.529" attenuation="1.007"/>
+                <gbs:focusMtf frequency="96.176" attenuation="1.007"/>
+                <gbs:focusMtf frequency="98.824" attenuation="1.006"/>
+                <gbs:focusMtf frequency="101.471" attenuation="1.005"/>
+                <gbs:focusMtf frequency="104.118" attenuation="1.003"/>
+                <gbs:focusMtf frequency="106.765" attenuation="1.002"/>
+                <gbs:focusMtf frequency="109.412" attenuation="1.000"/>
+                <gbs:focusMtf frequency="112.059" attenuation="0.995"/>
+                <gbs:focusMtf frequency="114.706" attenuation="0.991"/>
+                <gbs:focusMtf frequency="117.353" attenuation="0.986"/>
+                <gbs:focusMtf frequency="120.000" attenuation="0.980"/>
+                <gbs:focusMtf frequency="122.647" attenuation="0.974"/>
+                <gbs:focusMtf frequency="125.294" attenuation="0.965"/>
+                <gbs:focusMtf frequency="127.941" attenuation="0.960"/>
+                <gbs:focusMtf frequency="130.588" attenuation="0.953"/>
+                <gbs:focusMtf frequency="133.235" attenuation="0.945"/>
+                <gbs:focusMtf frequency="135.882" attenuation="0.937"/>
+                <gbs:focusMtf frequency="138.529" attenuation="0.928"/>
+                <gbs:focusMtf frequency="141.176" attenuation="0.920"/>
+                <gbs:focusMtf frequency="143.824" attenuation="0.912"/>
+                <gbs:focusMtf frequency="146.471" attenuation="0.904"/>
+                <gbs:focusMtf frequency="149.118" attenuation="0.898"/>
+                <gbs:focusMtf frequency="151.765" attenuation="0.891"/>
+                <gbs:focusMtf frequency="154.412" attenuation="0.883"/>
+                <gbs:focusMtf frequency="157.059" attenuation="0.876"/>
+                <gbs:focusMtf frequency="159.706" attenuation="0.869"/>
+                <gbs:focusMtf frequency="162.353" attenuation="0.863"/>
+                <gbs:focusMtf frequency="165.000" attenuation="0.855"/>
+                <gbs:focusMtf frequency="167.647" attenuation="0.849"/>
+                <gbs:focusMtf frequency="170.294" attenuation="0.841"/>
+                <gbs:focusMtf frequency="172.941" attenuation="0.833"/>
+                <gbs:focusMtf frequency="175.588" attenuation="0.827"/>
+                <gbs:focusMtf frequency="178.235" attenuation="0.819"/>
+                <gbs:focusMtf frequency="180.882" attenuation="0.814"/>
+                <gbs:focusMtf frequency="183.529" attenuation="0.808"/>
+                <gbs:focusMtf frequency="186.176" attenuation="0.802"/>
+                <gbs:focusMtf frequency="188.824" attenuation="0.795"/>
+                <gbs:focusMtf frequency="191.471" attenuation="0.788"/>
+                <gbs:focusMtf frequency="194.118" attenuation="0.784"/>
+                <gbs:focusMtf frequency="196.765" attenuation="0.778"/>
+                <gbs:focusMtf frequency="199.412" attenuation="0.773"/>
+                <gbs:focusMtf frequency="202.059" attenuation="0.767"/>
+                <gbs:focusMtf frequency="204.706" attenuation="0.762"/>
+                <gbs:focusMtf frequency="207.353" attenuation="0.757"/>
+                <gbs:focusMtf frequency="210.000" attenuation="0.750"/>
+                <gbs:focusMtf frequency="212.647" attenuation="0.743"/>
+                <gbs:focusMtf frequency="215.294" attenuation="0.739"/>
+                <gbs:focusMtf frequency="217.941" attenuation="0.733"/>
+                <gbs:focusMtf frequency="220.588" attenuation="0.726"/>
+                <gbs:focusMtf frequency="223.235" attenuation="0.721"/>
+                <gbs:focusMtf frequency="225.882" attenuation="0.716"/>
+                <gbs:focusMtf frequency="228.529" attenuation="0.710"/>
+                <gbs:focusMtf frequency="231.176" attenuation="0.705"/>
+                <gbs:focusMtf frequency="233.824" attenuation="0.700"/>
+                <gbs:focusMtf frequency="236.471" attenuation="0.696"/>
+                <gbs:focusMtf frequency="239.118" attenuation="0.690"/>
+                <gbs:focusMtf frequency="241.765" attenuation="0.685"/>
+                <gbs:focusMtf frequency="244.412" attenuation="0.680"/>
+                <gbs:focusMtf frequency="247.059" attenuation="0.677"/>
+                <gbs:focusMtf frequency="249.706" attenuation="0.674"/>
+                <gbs:focusMtf frequency="252.353" attenuation="0.666"/>
+                <gbs:focusMtf frequency="255.000" attenuation="0.660"/>
+                <gbs:focusMtf frequency="257.647" attenuation="0.656"/>
+                <gbs:focusMtf frequency="260.294" attenuation="0.650"/>
+                <gbs:focusMtf frequency="262.941" attenuation="0.645"/>
+                <gbs:focusMtf frequency="265.588" attenuation="0.640"/>
+                <gbs:focusMtf frequency="268.235" attenuation="0.635"/>
+                <gbs:focusMtf frequency="270.882" attenuation="0.630"/>
+                <gbs:focusMtf frequency="273.529" attenuation="0.625"/>
+                <gbs:focusMtf frequency="276.176" attenuation="0.619"/>
+                <gbs:focusMtf frequency="278.824" attenuation="0.613"/>
+                <gbs:focusMtf frequency="281.471" attenuation="0.606"/>
+                <gbs:focusMtf frequency="284.118" attenuation="0.602"/>
+                <gbs:focusMtf frequency="286.765" attenuation="0.597"/>
+                <gbs:focusMtf frequency="289.412" attenuation="0.594"/>
+                <gbs:focusMtf frequency="292.059" attenuation="0.587"/>
+                <gbs:focusMtf frequency="294.706" attenuation="0.584"/>
+              </gbs:focusInfo>
+              <gbs:focusInfo code="8" focusFrequency="294.706">
+                <gbs:focusMtf frequency="75.000" attenuation="1.000"/>
+                <gbs:focusMtf frequency="77.647" attenuation="1.000"/>
+                <gbs:focusMtf frequency="80.294" attenuation="1.001"/>
+                <gbs:focusMtf frequency="82.941" attenuation="0.997"/>
+                <gbs:focusMtf frequency="85.588" attenuation="0.998"/>
+                <gbs:focusMtf frequency="88.235" attenuation="0.998"/>
+                <gbs:focusMtf frequency="90.882" attenuation="0.996"/>
+                <gbs:focusMtf frequency="93.529" attenuation="0.997"/>
+                <gbs:focusMtf frequency="96.176" attenuation="0.998"/>
+                <gbs:focusMtf frequency="98.824" attenuation="0.996"/>
+                <gbs:focusMtf frequency="101.471" attenuation="0.995"/>
+                <gbs:focusMtf frequency="104.118" attenuation="0.995"/>
+                <gbs:focusMtf frequency="106.765" attenuation="0.992"/>
+                <gbs:focusMtf frequency="109.412" attenuation="0.993"/>
+                <gbs:focusMtf frequency="112.059" attenuation="0.988"/>
+                <gbs:focusMtf frequency="114.706" attenuation="0.987"/>
+                <gbs:focusMtf frequency="117.353" attenuation="0.982"/>
+                <gbs:focusMtf frequency="120.000" attenuation="0.977"/>
+                <gbs:focusMtf frequency="122.647" attenuation="0.971"/>
+                <gbs:focusMtf frequency="125.294" attenuation="0.964"/>
+                <gbs:focusMtf frequency="127.941" attenuation="0.956"/>
+                <gbs:focusMtf frequency="130.588" attenuation="0.948"/>
+                <gbs:focusMtf frequency="133.235" attenuation="0.940"/>
+                <gbs:focusMtf frequency="135.882" attenuation="0.932"/>
+                <gbs:focusMtf frequency="138.529" attenuation="0.925"/>
+                <gbs:focusMtf frequency="141.176" attenuation="0.918"/>
+                <gbs:focusMtf frequency="143.824" attenuation="0.909"/>
+                <gbs:focusMtf frequency="146.471" attenuation="0.903"/>
+                <gbs:focusMtf frequency="149.118" attenuation="0.896"/>
+                <gbs:focusMtf frequency="151.765" attenuation="0.889"/>
+                <gbs:focusMtf frequency="154.412" attenuation="0.885"/>
+                <gbs:focusMtf frequency="157.059" attenuation="0.879"/>
+                <gbs:focusMtf frequency="159.706" attenuation="0.874"/>
+                <gbs:focusMtf frequency="162.353" attenuation="0.867"/>
+                <gbs:focusMtf frequency="165.000" attenuation="0.863"/>
+                <gbs:focusMtf frequency="167.647" attenuation="0.854"/>
+                <gbs:focusMtf frequency="170.294" attenuation="0.850"/>
+                <gbs:focusMtf frequency="172.941" attenuation="0.845"/>
+                <gbs:focusMtf frequency="175.588" attenuation="0.837"/>
+                <gbs:focusMtf frequency="178.235" attenuation="0.833"/>
+                <gbs:focusMtf frequency="180.882" attenuation="0.824"/>
+                <gbs:focusMtf frequency="183.529" attenuation="0.818"/>
+                <gbs:focusMtf frequency="186.176" attenuation="0.811"/>
+                <gbs:focusMtf frequency="188.824" attenuation="0.805"/>
+                <gbs:focusMtf frequency="191.471" attenuation="0.800"/>
+                <gbs:focusMtf frequency="194.118" attenuation="0.793"/>
+                <gbs:focusMtf frequency="196.765" attenuation="0.786"/>
+                <gbs:focusMtf frequency="199.412" attenuation="0.779"/>
+                <gbs:focusMtf frequency="202.059" attenuation="0.774"/>
+                <gbs:focusMtf frequency="204.706" attenuation="0.768"/>
+                <gbs:focusMtf frequency="207.353" attenuation="0.762"/>
+                <gbs:focusMtf frequency="210.000" attenuation="0.754"/>
+                <gbs:focusMtf frequency="212.647" attenuation="0.748"/>
+                <gbs:focusMtf frequency="215.294" attenuation="0.743"/>
+                <gbs:focusMtf frequency="217.941" attenuation="0.739"/>
+                <gbs:focusMtf frequency="220.588" attenuation="0.731"/>
+                <gbs:focusMtf frequency="223.235" attenuation="0.724"/>
+                <gbs:focusMtf frequency="225.882" attenuation="0.718"/>
+                <gbs:focusMtf frequency="228.529" attenuation="0.712"/>
+                <gbs:focusMtf frequency="231.176" attenuation="0.707"/>
+                <gbs:focusMtf frequency="233.824" attenuation="0.700"/>
+                <gbs:focusMtf frequency="236.471" attenuation="0.693"/>
+                <gbs:focusMtf frequency="239.118" attenuation="0.687"/>
+                <gbs:focusMtf frequency="241.765" attenuation="0.681"/>
+                <gbs:focusMtf frequency="244.412" attenuation="0.676"/>
+                <gbs:focusMtf frequency="247.059" attenuation="0.670"/>
+                <gbs:focusMtf frequency="249.706" attenuation="0.663"/>
+                <gbs:focusMtf frequency="252.353" attenuation="0.657"/>
+                <gbs:focusMtf frequency="255.000" attenuation="0.649"/>
+                <gbs:focusMtf frequency="257.647" attenuation="0.644"/>
+                <gbs:focusMtf frequency="260.294" attenuation="0.639"/>
+                <gbs:focusMtf frequency="262.941" attenuation="0.633"/>
+                <gbs:focusMtf frequency="265.588" attenuation="0.625"/>
+                <gbs:focusMtf frequency="268.235" attenuation="0.618"/>
+                <gbs:focusMtf frequency="270.882" attenuation="0.613"/>
+                <gbs:focusMtf frequency="273.529" attenuation="0.607"/>
+                <gbs:focusMtf frequency="276.176" attenuation="0.601"/>
+                <gbs:focusMtf frequency="278.824" attenuation="0.593"/>
+                <gbs:focusMtf frequency="281.471" attenuation="0.588"/>
+                <gbs:focusMtf frequency="284.118" attenuation="0.582"/>
+                <gbs:focusMtf frequency="286.765" attenuation="0.575"/>
+                <gbs:focusMtf frequency="289.412" attenuation="0.569"/>
+                <gbs:focusMtf frequency="292.059" attenuation="0.563"/>
+                <gbs:focusMtf frequency="294.706" attenuation="0.560"/>
+              </gbs:focusInfo>
+              <gbs:focusInfo code="9" focusFrequency="294.706">
+                <gbs:focusMtf frequency="75.000" attenuation="1.000"/>
+                <gbs:focusMtf frequency="77.647" attenuation="1.001"/>
+                <gbs:focusMtf frequency="80.294" attenuation="1.002"/>
+                <gbs:focusMtf frequency="82.941" attenuation="1.002"/>
+                <gbs:focusMtf frequency="85.588" attenuation="0.999"/>
+                <gbs:focusMtf frequency="88.235" attenuation="0.998"/>
+                <gbs:focusMtf frequency="90.882" attenuation="1.000"/>
+                <gbs:focusMtf frequency="93.529" attenuation="0.999"/>
+                <gbs:focusMtf frequency="96.176" attenuation="1.000"/>
+                <gbs:focusMtf frequency="98.824" attenuation="0.999"/>
+                <gbs:focusMtf frequency="101.471" attenuation="0.999"/>
+                <gbs:focusMtf frequency="104.118" attenuation="0.999"/>
+                <gbs:focusMtf frequency="106.765" attenuation="0.996"/>
+                <gbs:focusMtf frequency="109.412" attenuation="0.997"/>
+                <gbs:focusMtf frequency="112.059" attenuation="0.994"/>
+                <gbs:focusMtf frequency="114.706" attenuation="0.990"/>
+                <gbs:focusMtf frequency="117.353" attenuation="0.984"/>
+                <gbs:focusMtf frequency="120.000" attenuation="0.980"/>
+                <gbs:focusMtf frequency="122.647" attenuation="0.975"/>
+                <gbs:focusMtf frequency="125.294" attenuation="0.968"/>
+                <gbs:focusMtf frequency="127.941" attenuation="0.959"/>
+                <gbs:focusMtf frequency="130.588" attenuation="0.951"/>
+                <gbs:focusMtf frequency="133.235" attenuation="0.943"/>
+                <gbs:focusMtf frequency="135.882" attenuation="0.934"/>
+                <gbs:focusMtf frequency="138.529" attenuation="0.926"/>
+                <gbs:focusMtf frequency="141.176" attenuation="0.920"/>
+                <gbs:focusMtf frequency="143.824" attenuation="0.912"/>
+                <gbs:focusMtf frequency="146.471" attenuation="0.907"/>
+                <gbs:focusMtf frequency="149.118" attenuation="0.902"/>
+                <gbs:focusMtf frequency="151.765" attenuation="0.896"/>
+                <gbs:focusMtf frequency="154.412" attenuation="0.889"/>
+                <gbs:focusMtf frequency="157.059" attenuation="0.884"/>
+                <gbs:focusMtf frequency="159.706" attenuation="0.878"/>
+                <gbs:focusMtf frequency="162.353" attenuation="0.872"/>
+                <gbs:focusMtf frequency="165.000" attenuation="0.867"/>
+                <gbs:focusMtf frequency="167.647" attenuation="0.858"/>
+                <gbs:focusMtf frequency="170.294" attenuation="0.856"/>
+                <gbs:focusMtf frequency="172.941" attenuation="0.851"/>
+                <gbs:focusMtf frequency="175.588" attenuation="0.845"/>
+                <gbs:focusMtf frequency="178.235" attenuation="0.840"/>
+                <gbs:focusMtf frequency="180.882" attenuation="0.835"/>
+                <gbs:focusMtf frequency="183.529" attenuation="0.831"/>
+                <gbs:focusMtf frequency="186.176" attenuation="0.826"/>
+                <gbs:focusMtf frequency="188.824" attenuation="0.821"/>
+                <gbs:focusMtf frequency="191.471" attenuation="0.816"/>
+                <gbs:focusMtf frequency="194.118" attenuation="0.809"/>
+                <gbs:focusMtf frequency="196.765" attenuation="0.803"/>
+                <gbs:focusMtf frequency="199.412" attenuation="0.799"/>
+                <gbs:focusMtf frequency="202.059" attenuation="0.794"/>
+                <gbs:focusMtf frequency="204.706" attenuation="0.790"/>
+                <gbs:focusMtf frequency="207.353" attenuation="0.785"/>
+                <gbs:focusMtf frequency="210.000" attenuation="0.779"/>
+                <gbs:focusMtf frequency="212.647" attenuation="0.771"/>
+                <gbs:focusMtf frequency="215.294" attenuation="0.766"/>
+                <gbs:focusMtf frequency="217.941" attenuation="0.762"/>
+                <gbs:focusMtf frequency="220.588" attenuation="0.756"/>
+                <gbs:focusMtf frequency="223.235" attenuation="0.749"/>
+                <gbs:focusMtf frequency="225.882" attenuation="0.745"/>
+                <gbs:focusMtf frequency="228.529" attenuation="0.741"/>
+                <gbs:focusMtf frequency="231.176" attenuation="0.737"/>
+                <gbs:focusMtf frequency="233.824" attenuation="0.733"/>
+                <gbs:focusMtf frequency="236.471" attenuation="0.729"/>
+                <gbs:focusMtf frequency="239.118" attenuation="0.725"/>
+                <gbs:focusMtf frequency="241.765" attenuation="0.719"/>
+                <gbs:focusMtf frequency="244.412" attenuation="0.716"/>
+                <gbs:focusMtf frequency="247.059" attenuation="0.711"/>
+                <gbs:focusMtf frequency="249.706" attenuation="0.704"/>
+                <gbs:focusMtf frequency="252.353" attenuation="0.693"/>
+                <gbs:focusMtf frequency="255.000" attenuation="0.698"/>
+                <gbs:focusMtf frequency="257.647" attenuation="0.692"/>
+                <gbs:focusMtf frequency="260.294" attenuation="0.687"/>
+                <gbs:focusMtf frequency="262.941" attenuation="0.682"/>
+                <gbs:focusMtf frequency="265.588" attenuation="0.677"/>
+                <gbs:focusMtf frequency="268.235" attenuation="0.672"/>
+                <gbs:focusMtf frequency="270.882" attenuation="0.666"/>
+                <gbs:focusMtf frequency="273.529" attenuation="0.664"/>
+                <gbs:focusMtf frequency="276.176" attenuation="0.660"/>
+                <gbs:focusMtf frequency="278.824" attenuation="0.653"/>
+                <gbs:focusMtf frequency="281.471" attenuation="0.650"/>
+                <gbs:focusMtf frequency="284.118" attenuation="0.646"/>
+                <gbs:focusMtf frequency="286.765" attenuation="0.641"/>
+                <gbs:focusMtf frequency="289.412" attenuation="0.637"/>
+                <gbs:focusMtf frequency="292.059" attenuation="0.631"/>
+                <gbs:focusMtf frequency="294.706" attenuation="0.628"/>
+              </gbs:focusInfo>
+              <gbs:focusInfo code="10" focusFrequency="294.706">
+                <gbs:focusMtf frequency="75.000" attenuation="1.000"/>
+                <gbs:focusMtf frequency="77.647" attenuation="1.001"/>
+                <gbs:focusMtf frequency="80.294" attenuation="1.000"/>
+                <gbs:focusMtf frequency="82.941" attenuation="1.002"/>
+                <gbs:focusMtf frequency="85.588" attenuation="1.001"/>
+                <gbs:focusMtf frequency="88.235" attenuation="0.999"/>
+                <gbs:focusMtf frequency="90.882" attenuation="0.999"/>
+                <gbs:focusMtf frequency="93.529" attenuation="0.998"/>
+                <gbs:focusMtf frequency="96.176" attenuation="0.999"/>
+                <gbs:focusMtf frequency="98.824" attenuation="0.998"/>
+                <gbs:focusMtf frequency="101.471" attenuation="0.994"/>
+                <gbs:focusMtf frequency="104.118" attenuation="0.991"/>
+                <gbs:focusMtf frequency="106.765" attenuation="0.990"/>
+                <gbs:focusMtf frequency="109.412" attenuation="0.988"/>
+                <gbs:focusMtf frequency="112.059" attenuation="0.982"/>
+                <gbs:focusMtf frequency="114.706" attenuation="0.977"/>
+                <gbs:focusMtf frequency="117.353" attenuation="0.971"/>
+                <gbs:focusMtf frequency="120.000" attenuation="0.965"/>
+                <gbs:focusMtf frequency="122.647" attenuation="0.958"/>
+                <gbs:focusMtf frequency="125.294" attenuation="0.951"/>
+                <gbs:focusMtf frequency="127.941" attenuation="0.944"/>
+                <gbs:focusMtf frequency="130.588" attenuation="0.938"/>
+                <gbs:focusMtf frequency="133.235" attenuation="0.929"/>
+                <gbs:focusMtf frequency="135.882" attenuation="0.922"/>
+                <gbs:focusMtf frequency="138.529" attenuation="0.913"/>
+                <gbs:focusMtf frequency="141.176" attenuation="0.906"/>
+                <gbs:focusMtf frequency="143.824" attenuation="0.897"/>
+                <gbs:focusMtf frequency="146.471" attenuation="0.891"/>
+                <gbs:focusMtf frequency="149.118" attenuation="0.883"/>
+                <gbs:focusMtf frequency="151.765" attenuation="0.875"/>
+                <gbs:focusMtf frequency="154.412" attenuation="0.869"/>
+                <gbs:focusMtf frequency="157.059" attenuation="0.861"/>
+                <gbs:focusMtf frequency="159.706" attenuation="0.853"/>
+                <gbs:focusMtf frequency="162.353" attenuation="0.846"/>
+                <gbs:focusMtf frequency="165.000" attenuation="0.840"/>
+                <gbs:focusMtf frequency="167.647" attenuation="0.837"/>
+                <gbs:focusMtf frequency="170.294" attenuation="0.826"/>
+                <gbs:focusMtf frequency="172.941" attenuation="0.819"/>
+                <gbs:focusMtf frequency="175.588" attenuation="0.812"/>
+                <gbs:focusMtf frequency="178.235" attenuation="0.804"/>
+                <gbs:focusMtf frequency="180.882" attenuation="0.798"/>
+                <gbs:focusMtf frequency="183.529" attenuation="0.792"/>
+                <gbs:focusMtf frequency="186.176" attenuation="0.787"/>
+                <gbs:focusMtf frequency="188.824" attenuation="0.781"/>
+                <gbs:focusMtf frequency="191.471" attenuation="0.772"/>
+                <gbs:focusMtf frequency="194.118" attenuation="0.765"/>
+                <gbs:focusMtf frequency="196.765" attenuation="0.759"/>
+                <gbs:focusMtf frequency="199.412" attenuation="0.755"/>
+                <gbs:focusMtf frequency="202.059" attenuation="0.750"/>
+                <gbs:focusMtf frequency="204.706" attenuation="0.745"/>
+                <gbs:focusMtf frequency="207.353" attenuation="0.739"/>
+                <gbs:focusMtf frequency="210.000" attenuation="0.733"/>
+                <gbs:focusMtf frequency="212.647" attenuation="0.727"/>
+                <gbs:focusMtf frequency="215.294" attenuation="0.721"/>
+                <gbs:focusMtf frequency="217.941" attenuation="0.717"/>
+                <gbs:focusMtf frequency="220.588" attenuation="0.711"/>
+                <gbs:focusMtf frequency="223.235" attenuation="0.705"/>
+                <gbs:focusMtf frequency="225.882" attenuation="0.701"/>
+                <gbs:focusMtf frequency="228.529" attenuation="0.694"/>
+                <gbs:focusMtf frequency="231.176" attenuation="0.691"/>
+                <gbs:focusMtf frequency="233.824" attenuation="0.685"/>
+                <gbs:focusMtf frequency="236.471" attenuation="0.679"/>
+                <gbs:focusMtf frequency="239.118" attenuation="0.674"/>
+                <gbs:focusMtf frequency="241.765" attenuation="0.668"/>
+                <gbs:focusMtf frequency="244.412" attenuation="0.663"/>
+                <gbs:focusMtf frequency="247.059" attenuation="0.659"/>
+                <gbs:focusMtf frequency="249.706" attenuation="0.643"/>
+                <gbs:focusMtf frequency="252.353" attenuation="0.642"/>
+                <gbs:focusMtf frequency="255.000" attenuation="0.641"/>
+                <gbs:focusMtf frequency="257.647" attenuation="0.637"/>
+                <gbs:focusMtf frequency="260.294" attenuation="0.630"/>
+                <gbs:focusMtf frequency="262.941" attenuation="0.627"/>
+                <gbs:focusMtf frequency="265.588" attenuation="0.621"/>
+                <gbs:focusMtf frequency="268.235" attenuation="0.619"/>
+                <gbs:focusMtf frequency="270.882" attenuation="0.615"/>
+                <gbs:focusMtf frequency="273.529" attenuation="0.611"/>
+                <gbs:focusMtf frequency="276.176" attenuation="0.606"/>
+                <gbs:focusMtf frequency="278.824" attenuation="0.603"/>
+                <gbs:focusMtf frequency="281.471" attenuation="0.599"/>
+                <gbs:focusMtf frequency="284.118" attenuation="0.595"/>
+                <gbs:focusMtf frequency="286.765" attenuation="0.591"/>
+                <gbs:focusMtf frequency="289.412" attenuation="0.590"/>
+                <gbs:focusMtf frequency="292.059" attenuation="0.585"/>
+                <gbs:focusMtf frequency="294.706" attenuation="0.583"/>
+              </gbs:focusInfo>
+            </gbs:cameraInfo>
+            <gbs:cameraInfo camera="1">
+              <gbs:focusInfo code="6" focusFrequency="294.706">
+                <gbs:focusMtf frequency="75.000" attenuation="1.000"/>
+                <gbs:focusMtf frequency="77.647" attenuation="1.003"/>
+                <gbs:focusMtf frequency="80.294" attenuation="1.002"/>
+                <gbs:focusMtf frequency="82.941" attenuation="1.001"/>
+                <gbs:focusMtf frequency="85.588" attenuation="1.000"/>
+                <gbs:focusMtf frequency="88.235" attenuation="0.999"/>
+                <gbs:focusMtf frequency="90.882" attenuation="1.000"/>
+                <gbs:focusMtf frequency="93.529" attenuation="1.001"/>
+                <gbs:focusMtf frequency="96.176" attenuation="0.999"/>
+                <gbs:focusMtf frequency="98.824" attenuation="0.998"/>
+                <gbs:focusMtf frequency="101.471" attenuation="0.997"/>
+                <gbs:focusMtf frequency="104.118" attenuation="0.993"/>
+                <gbs:focusMtf frequency="106.765" attenuation="0.987"/>
+                <gbs:focusMtf frequency="109.412" attenuation="0.983"/>
+                <gbs:focusMtf frequency="112.059" attenuation="0.977"/>
+                <gbs:focusMtf frequency="114.706" attenuation="0.971"/>
+                <gbs:focusMtf frequency="117.353" attenuation="0.964"/>
+                <gbs:focusMtf frequency="120.000" attenuation="0.954"/>
+                <gbs:focusMtf frequency="122.647" attenuation="0.948"/>
+                <gbs:focusMtf frequency="125.294" attenuation="0.938"/>
+                <gbs:focusMtf frequency="127.941" attenuation="0.932"/>
+                <gbs:focusMtf frequency="130.588" attenuation="0.925"/>
+                <gbs:focusMtf frequency="133.235" attenuation="0.917"/>
+                <gbs:focusMtf frequency="135.882" attenuation="0.909"/>
+                <gbs:focusMtf frequency="138.529" attenuation="0.902"/>
+                <gbs:focusMtf frequency="141.176" attenuation="0.893"/>
+                <gbs:focusMtf frequency="143.824" attenuation="0.883"/>
+                <gbs:focusMtf frequency="146.471" attenuation="0.875"/>
+                <gbs:focusMtf frequency="149.118" attenuation="0.869"/>
+                <gbs:focusMtf frequency="151.765" attenuation="0.860"/>
+                <gbs:focusMtf frequency="154.412" attenuation="0.857"/>
+                <gbs:focusMtf frequency="157.059" attenuation="0.851"/>
+                <gbs:focusMtf frequency="159.706" attenuation="0.843"/>
+                <gbs:focusMtf frequency="162.353" attenuation="0.838"/>
+                <gbs:focusMtf frequency="165.000" attenuation="0.828"/>
+                <gbs:focusMtf frequency="167.647" attenuation="0.825"/>
+                <gbs:focusMtf frequency="170.294" attenuation="0.816"/>
+                <gbs:focusMtf frequency="172.941" attenuation="0.809"/>
+                <gbs:focusMtf frequency="175.588" attenuation="0.803"/>
+                <gbs:focusMtf frequency="178.235" attenuation="0.801"/>
+                <gbs:focusMtf frequency="180.882" attenuation="0.794"/>
+                <gbs:focusMtf frequency="183.529" attenuation="0.786"/>
+                <gbs:focusMtf frequency="186.176" attenuation="0.782"/>
+                <gbs:focusMtf frequency="188.824" attenuation="0.777"/>
+                <gbs:focusMtf frequency="191.471" attenuation="0.770"/>
+                <gbs:focusMtf frequency="194.118" attenuation="0.764"/>
+                <gbs:focusMtf frequency="196.765" attenuation="0.758"/>
+                <gbs:focusMtf frequency="199.412" attenuation="0.758"/>
+                <gbs:focusMtf frequency="202.059" attenuation="0.750"/>
+                <gbs:focusMtf frequency="204.706" attenuation="0.743"/>
+                <gbs:focusMtf frequency="207.353" attenuation="0.741"/>
+                <gbs:focusMtf frequency="210.000" attenuation="0.735"/>
+                <gbs:focusMtf frequency="212.647" attenuation="0.730"/>
+                <gbs:focusMtf frequency="215.294" attenuation="0.726"/>
+                <gbs:focusMtf frequency="217.941" attenuation="0.720"/>
+                <gbs:focusMtf frequency="220.588" attenuation="0.716"/>
+                <gbs:focusMtf frequency="223.235" attenuation="0.710"/>
+                <gbs:focusMtf frequency="225.882" attenuation="0.706"/>
+                <gbs:focusMtf frequency="228.529" attenuation="0.701"/>
+                <gbs:focusMtf frequency="231.176" attenuation="0.698"/>
+                <gbs:focusMtf frequency="233.824" attenuation="0.694"/>
+                <gbs:focusMtf frequency="236.471" attenuation="0.689"/>
+                <gbs:focusMtf frequency="239.118" attenuation="0.683"/>
+                <gbs:focusMtf frequency="241.765" attenuation="0.679"/>
+                <gbs:focusMtf frequency="244.412" attenuation="0.675"/>
+                <gbs:focusMtf frequency="247.059" attenuation="0.678"/>
+                <gbs:focusMtf frequency="249.706" attenuation="0.672"/>
+                <gbs:focusMtf frequency="252.353" attenuation="0.661"/>
+                <gbs:focusMtf frequency="255.000" attenuation="0.655"/>
+                <gbs:focusMtf frequency="257.647" attenuation="0.649"/>
+                <gbs:focusMtf frequency="260.294" attenuation="0.644"/>
+                <gbs:focusMtf frequency="262.941" attenuation="0.638"/>
+                <gbs:focusMtf frequency="265.588" attenuation="0.634"/>
+                <gbs:focusMtf frequency="268.235" attenuation="0.631"/>
+                <gbs:focusMtf frequency="270.882" attenuation="0.628"/>
+                <gbs:focusMtf frequency="273.529" attenuation="0.624"/>
+                <gbs:focusMtf frequency="276.176" attenuation="0.619"/>
+                <gbs:focusMtf frequency="278.824" attenuation="0.615"/>
+                <gbs:focusMtf frequency="281.471" attenuation="0.613"/>
+                <gbs:focusMtf frequency="284.118" attenuation="0.607"/>
+                <gbs:focusMtf frequency="286.765" attenuation="0.604"/>
+                <gbs:focusMtf frequency="289.412" attenuation="0.599"/>
+                <gbs:focusMtf frequency="292.059" attenuation="0.594"/>
+                <gbs:focusMtf frequency="294.706" attenuation="0.590"/>
+              </gbs:focusInfo>
+              <gbs:focusInfo code="7" focusFrequency="294.706">
+                <gbs:focusMtf frequency="75.000" attenuation="1.000"/>
+                <gbs:focusMtf frequency="77.647" attenuation="1.002"/>
+                <gbs:focusMtf frequency="80.294" attenuation="1.005"/>
+                <gbs:focusMtf frequency="82.941" attenuation="1.007"/>
+                <gbs:focusMtf frequency="85.588" attenuation="1.008"/>
+                <gbs:focusMtf frequency="88.235" attenuation="1.006"/>
+                <gbs:focusMtf frequency="90.882" attenuation="1.009"/>
+                <gbs:focusMtf frequency="93.529" attenuation="1.009"/>
+                <gbs:focusMtf frequency="96.176" attenuation="1.010"/>
+                <gbs:focusMtf frequency="98.824" attenuation="1.009"/>
+                <gbs:focusMtf frequency="101.471" attenuation="1.007"/>
+                <gbs:focusMtf frequency="104.118" attenuation="1.005"/>
+                <gbs:focusMtf frequency="106.765" attenuation="1.001"/>
+                <gbs:focusMtf frequency="109.412" attenuation="0.999"/>
+                <gbs:focusMtf frequency="112.059" attenuation="0.995"/>
+                <gbs:focusMtf frequency="114.706" attenuation="0.991"/>
+                <gbs:focusMtf frequency="117.353" attenuation="0.986"/>
+                <gbs:focusMtf frequency="120.000" attenuation="0.980"/>
+                <gbs:focusMtf frequency="122.647" attenuation="0.975"/>
+                <gbs:focusMtf frequency="125.294" attenuation="0.968"/>
+                <gbs:focusMtf frequency="127.941" attenuation="0.962"/>
+                <gbs:focusMtf frequency="130.588" attenuation="0.956"/>
+                <gbs:focusMtf frequency="133.235" attenuation="0.949"/>
+                <gbs:focusMtf frequency="135.882" attenuation="0.941"/>
+                <gbs:focusMtf frequency="138.529" attenuation="0.932"/>
+                <gbs:focusMtf frequency="141.176" attenuation="0.925"/>
+                <gbs:focusMtf frequency="143.824" attenuation="0.918"/>
+                <gbs:focusMtf frequency="146.471" attenuation="0.911"/>
+                <gbs:focusMtf frequency="149.118" attenuation="0.903"/>
+                <gbs:focusMtf frequency="151.765" attenuation="0.898"/>
+                <gbs:focusMtf frequency="154.412" attenuation="0.892"/>
+                <gbs:focusMtf frequency="157.059" attenuation="0.883"/>
+                <gbs:focusMtf frequency="159.706" attenuation="0.879"/>
+                <gbs:focusMtf frequency="162.353" attenuation="0.873"/>
+                <gbs:focusMtf frequency="165.000" attenuation="0.870"/>
+                <gbs:focusMtf frequency="167.647" attenuation="0.861"/>
+                <gbs:focusMtf frequency="170.294" attenuation="0.855"/>
+                <gbs:focusMtf frequency="172.941" attenuation="0.849"/>
+                <gbs:focusMtf frequency="175.588" attenuation="0.843"/>
+                <gbs:focusMtf frequency="178.235" attenuation="0.837"/>
+                <gbs:focusMtf frequency="180.882" attenuation="0.832"/>
+                <gbs:focusMtf frequency="183.529" attenuation="0.826"/>
+                <gbs:focusMtf frequency="186.176" attenuation="0.821"/>
+                <gbs:focusMtf frequency="188.824" attenuation="0.815"/>
+                <gbs:focusMtf frequency="191.471" attenuation="0.810"/>
+                <gbs:focusMtf frequency="194.118" attenuation="0.806"/>
+                <gbs:focusMtf frequency="196.765" attenuation="0.802"/>
+                <gbs:focusMtf frequency="199.412" attenuation="0.796"/>
+                <gbs:focusMtf frequency="202.059" attenuation="0.792"/>
+                <gbs:focusMtf frequency="204.706" attenuation="0.789"/>
+                <gbs:focusMtf frequency="207.353" attenuation="0.783"/>
+                <gbs:focusMtf frequency="210.000" attenuation="0.779"/>
+                <gbs:focusMtf frequency="212.647" attenuation="0.774"/>
+                <gbs:focusMtf frequency="215.294" attenuation="0.768"/>
+                <gbs:focusMtf frequency="217.941" attenuation="0.766"/>
+                <gbs:focusMtf frequency="220.588" attenuation="0.760"/>
+                <gbs:focusMtf frequency="223.235" attenuation="0.755"/>
+                <gbs:focusMtf frequency="225.882" attenuation="0.751"/>
+                <gbs:focusMtf frequency="228.529" attenuation="0.744"/>
+                <gbs:focusMtf frequency="231.176" attenuation="0.742"/>
+                <gbs:focusMtf frequency="233.824" attenuation="0.737"/>
+                <gbs:focusMtf frequency="236.471" attenuation="0.733"/>
+                <gbs:focusMtf frequency="239.118" attenuation="0.730"/>
+                <gbs:focusMtf frequency="241.765" attenuation="0.725"/>
+                <gbs:focusMtf frequency="244.412" attenuation="0.720"/>
+                <gbs:focusMtf frequency="247.059" attenuation="0.712"/>
+                <gbs:focusMtf frequency="249.706" attenuation="0.723"/>
+                <gbs:focusMtf frequency="252.353" attenuation="0.706"/>
+                <gbs:focusMtf frequency="255.000" attenuation="0.700"/>
+                <gbs:focusMtf frequency="257.647" attenuation="0.696"/>
+                <gbs:focusMtf frequency="260.294" attenuation="0.693"/>
+                <gbs:focusMtf frequency="262.941" attenuation="0.688"/>
+                <gbs:focusMtf frequency="265.588" attenuation="0.683"/>
+                <gbs:focusMtf frequency="268.235" attenuation="0.677"/>
+                <gbs:focusMtf frequency="270.882" attenuation="0.673"/>
+                <gbs:focusMtf frequency="273.529" attenuation="0.668"/>
+                <gbs:focusMtf frequency="276.176" attenuation="0.662"/>
+                <gbs:focusMtf frequency="278.824" attenuation="0.656"/>
+                <gbs:focusMtf frequency="281.471" attenuation="0.650"/>
+                <gbs:focusMtf frequency="284.118" attenuation="0.644"/>
+                <gbs:focusMtf frequency="286.765" attenuation="0.639"/>
+                <gbs:focusMtf frequency="289.412" attenuation="0.633"/>
+                <gbs:focusMtf frequency="292.059" attenuation="0.628"/>
+                <gbs:focusMtf frequency="294.706" attenuation="0.625"/>
+              </gbs:focusInfo>
+              <gbs:focusInfo code="8" focusFrequency="294.706">
+                <gbs:focusMtf frequency="75.000" attenuation="1.000"/>
+                <gbs:focusMtf frequency="77.647" attenuation="1.000"/>
+                <gbs:focusMtf frequency="80.294" attenuation="1.000"/>
+                <gbs:focusMtf frequency="82.941" attenuation="0.998"/>
+                <gbs:focusMtf frequency="85.588" attenuation="0.997"/>
+                <gbs:focusMtf frequency="88.235" attenuation="0.997"/>
+                <gbs:focusMtf frequency="90.882" attenuation="0.996"/>
+                <gbs:focusMtf frequency="93.529" attenuation="0.996"/>
+                <gbs:focusMtf frequency="96.176" attenuation="0.997"/>
+                <gbs:focusMtf frequency="98.824" attenuation="0.995"/>
+                <gbs:focusMtf frequency="101.471" attenuation="0.994"/>
+                <gbs:focusMtf frequency="104.118" attenuation="0.994"/>
+                <gbs:focusMtf frequency="106.765" attenuation="0.990"/>
+                <gbs:focusMtf frequency="109.412" attenuation="0.991"/>
+                <gbs:focusMtf frequency="112.059" attenuation="0.985"/>
+                <gbs:focusMtf frequency="114.706" attenuation="0.981"/>
+                <gbs:focusMtf frequency="117.353" attenuation="0.977"/>
+                <gbs:focusMtf frequency="120.000" attenuation="0.968"/>
+                <gbs:focusMtf frequency="122.647" attenuation="0.960"/>
+                <gbs:focusMtf frequency="125.294" attenuation="0.952"/>
+                <gbs:focusMtf frequency="127.941" attenuation="0.945"/>
+                <gbs:focusMtf frequency="130.588" attenuation="0.937"/>
+                <gbs:focusMtf frequency="133.235" attenuation="0.928"/>
+                <gbs:focusMtf frequency="135.882" attenuation="0.920"/>
+                <gbs:focusMtf frequency="138.529" attenuation="0.911"/>
+                <gbs:focusMtf frequency="141.176" attenuation="0.905"/>
+                <gbs:focusMtf frequency="143.824" attenuation="0.895"/>
+                <gbs:focusMtf frequency="146.471" attenuation="0.888"/>
+                <gbs:focusMtf frequency="149.118" attenuation="0.880"/>
+                <gbs:focusMtf frequency="151.765" attenuation="0.873"/>
+                <gbs:focusMtf frequency="154.412" attenuation="0.869"/>
+                <gbs:focusMtf frequency="157.059" attenuation="0.863"/>
+                <gbs:focusMtf frequency="159.706" attenuation="0.856"/>
+                <gbs:focusMtf frequency="162.353" attenuation="0.850"/>
+                <gbs:focusMtf frequency="165.000" attenuation="0.844"/>
+                <gbs:focusMtf frequency="167.647" attenuation="0.836"/>
+                <gbs:focusMtf frequency="170.294" attenuation="0.831"/>
+                <gbs:focusMtf frequency="172.941" attenuation="0.824"/>
+                <gbs:focusMtf frequency="175.588" attenuation="0.817"/>
+                <gbs:focusMtf frequency="178.235" attenuation="0.810"/>
+                <gbs:focusMtf frequency="180.882" attenuation="0.803"/>
+                <gbs:focusMtf frequency="183.529" attenuation="0.794"/>
+                <gbs:focusMtf frequency="186.176" attenuation="0.787"/>
+                <gbs:focusMtf frequency="188.824" attenuation="0.782"/>
+                <gbs:focusMtf frequency="191.471" attenuation="0.776"/>
+                <gbs:focusMtf frequency="194.118" attenuation="0.770"/>
+                <gbs:focusMtf frequency="196.765" attenuation="0.763"/>
+                <gbs:focusMtf frequency="199.412" attenuation="0.757"/>
+                <gbs:focusMtf frequency="202.059" attenuation="0.751"/>
+                <gbs:focusMtf frequency="204.706" attenuation="0.746"/>
+                <gbs:focusMtf frequency="207.353" attenuation="0.740"/>
+                <gbs:focusMtf frequency="210.000" attenuation="0.734"/>
+                <gbs:focusMtf frequency="212.647" attenuation="0.728"/>
+                <gbs:focusMtf frequency="215.294" attenuation="0.724"/>
+                <gbs:focusMtf frequency="217.941" attenuation="0.717"/>
+                <gbs:focusMtf frequency="220.588" attenuation="0.711"/>
+                <gbs:focusMtf frequency="223.235" attenuation="0.705"/>
+                <gbs:focusMtf frequency="225.882" attenuation="0.700"/>
+                <gbs:focusMtf frequency="228.529" attenuation="0.694"/>
+                <gbs:focusMtf frequency="231.176" attenuation="0.688"/>
+                <gbs:focusMtf frequency="233.824" attenuation="0.681"/>
+                <gbs:focusMtf frequency="236.471" attenuation="0.678"/>
+                <gbs:focusMtf frequency="239.118" attenuation="0.672"/>
+                <gbs:focusMtf frequency="241.765" attenuation="0.666"/>
+                <gbs:focusMtf frequency="244.412" attenuation="0.661"/>
+                <gbs:focusMtf frequency="247.059" attenuation="0.657"/>
+                <gbs:focusMtf frequency="249.706" attenuation="0.659"/>
+                <gbs:focusMtf frequency="252.353" attenuation="0.646"/>
+                <gbs:focusMtf frequency="255.000" attenuation="0.639"/>
+                <gbs:focusMtf frequency="257.647" attenuation="0.634"/>
+                <gbs:focusMtf frequency="260.294" attenuation="0.629"/>
+                <gbs:focusMtf frequency="262.941" attenuation="0.624"/>
+                <gbs:focusMtf frequency="265.588" attenuation="0.619"/>
+                <gbs:focusMtf frequency="268.235" attenuation="0.613"/>
+                <gbs:focusMtf frequency="270.882" attenuation="0.608"/>
+                <gbs:focusMtf frequency="273.529" attenuation="0.603"/>
+                <gbs:focusMtf frequency="276.176" attenuation="0.598"/>
+                <gbs:focusMtf frequency="278.824" attenuation="0.592"/>
+                <gbs:focusMtf frequency="281.471" attenuation="0.587"/>
+                <gbs:focusMtf frequency="284.118" attenuation="0.582"/>
+                <gbs:focusMtf frequency="286.765" attenuation="0.578"/>
+                <gbs:focusMtf frequency="289.412" attenuation="0.573"/>
+                <gbs:focusMtf frequency="292.059" attenuation="0.568"/>
+                <gbs:focusMtf frequency="294.706" attenuation="0.563"/>
+              </gbs:focusInfo>
+              <gbs:focusInfo code="9" focusFrequency="294.706">
+                <gbs:focusMtf frequency="75.000" attenuation="1.000"/>
+                <gbs:focusMtf frequency="77.647" attenuation="1.001"/>
+                <gbs:focusMtf frequency="80.294" attenuation="1.000"/>
+                <gbs:focusMtf frequency="82.941" attenuation="0.998"/>
+                <gbs:focusMtf frequency="85.588" attenuation="0.995"/>
+                <gbs:focusMtf frequency="88.235" attenuation="0.995"/>
+                <gbs:focusMtf frequency="90.882" attenuation="0.996"/>
+                <gbs:focusMtf frequency="93.529" attenuation="0.996"/>
+                <gbs:focusMtf frequency="96.176" attenuation="0.995"/>
+                <gbs:focusMtf frequency="98.824" attenuation="0.991"/>
+                <gbs:focusMtf frequency="101.471" attenuation="0.991"/>
+                <gbs:focusMtf frequency="104.118" attenuation="0.990"/>
+                <gbs:focusMtf frequency="106.765" attenuation="0.984"/>
+                <gbs:focusMtf frequency="109.412" attenuation="0.985"/>
+                <gbs:focusMtf frequency="112.059" attenuation="0.979"/>
+                <gbs:focusMtf frequency="114.706" attenuation="0.974"/>
+                <gbs:focusMtf frequency="117.353" attenuation="0.967"/>
+                <gbs:focusMtf frequency="120.000" attenuation="0.961"/>
+                <gbs:focusMtf frequency="122.647" attenuation="0.955"/>
+                <gbs:focusMtf frequency="125.294" attenuation="0.944"/>
+                <gbs:focusMtf frequency="127.941" attenuation="0.939"/>
+                <gbs:focusMtf frequency="130.588" attenuation="0.930"/>
+                <gbs:focusMtf frequency="133.235" attenuation="0.922"/>
+                <gbs:focusMtf frequency="135.882" attenuation="0.913"/>
+                <gbs:focusMtf frequency="138.529" attenuation="0.904"/>
+                <gbs:focusMtf frequency="141.176" attenuation="0.897"/>
+                <gbs:focusMtf frequency="143.824" attenuation="0.889"/>
+                <gbs:focusMtf frequency="146.471" attenuation="0.882"/>
+                <gbs:focusMtf frequency="149.118" attenuation="0.875"/>
+                <gbs:focusMtf frequency="151.765" attenuation="0.868"/>
+                <gbs:focusMtf frequency="154.412" attenuation="0.862"/>
+                <gbs:focusMtf frequency="157.059" attenuation="0.855"/>
+                <gbs:focusMtf frequency="159.706" attenuation="0.847"/>
+                <gbs:focusMtf frequency="162.353" attenuation="0.840"/>
+                <gbs:focusMtf frequency="165.000" attenuation="0.838"/>
+                <gbs:focusMtf frequency="167.647" attenuation="0.830"/>
+                <gbs:focusMtf frequency="170.294" attenuation="0.823"/>
+                <gbs:focusMtf frequency="172.941" attenuation="0.817"/>
+                <gbs:focusMtf frequency="175.588" attenuation="0.811"/>
+                <gbs:focusMtf frequency="178.235" attenuation="0.805"/>
+                <gbs:focusMtf frequency="180.882" attenuation="0.798"/>
+                <gbs:focusMtf frequency="183.529" attenuation="0.792"/>
+                <gbs:focusMtf frequency="186.176" attenuation="0.788"/>
+                <gbs:focusMtf frequency="188.824" attenuation="0.782"/>
+                <gbs:focusMtf frequency="191.471" attenuation="0.777"/>
+                <gbs:focusMtf frequency="194.118" attenuation="0.770"/>
+                <gbs:focusMtf frequency="196.765" attenuation="0.763"/>
+                <gbs:focusMtf frequency="199.412" attenuation="0.758"/>
+                <gbs:focusMtf frequency="202.059" attenuation="0.752"/>
+                <gbs:focusMtf frequency="204.706" attenuation="0.747"/>
+                <gbs:focusMtf frequency="207.353" attenuation="0.738"/>
+                <gbs:focusMtf frequency="210.000" attenuation="0.734"/>
+                <gbs:focusMtf frequency="212.647" attenuation="0.728"/>
+                <gbs:focusMtf frequency="215.294" attenuation="0.723"/>
+                <gbs:focusMtf frequency="217.941" attenuation="0.718"/>
+                <gbs:focusMtf frequency="220.588" attenuation="0.712"/>
+                <gbs:focusMtf frequency="223.235" attenuation="0.706"/>
+                <gbs:focusMtf frequency="225.882" attenuation="0.699"/>
+                <gbs:focusMtf frequency="228.529" attenuation="0.695"/>
+                <gbs:focusMtf frequency="231.176" attenuation="0.692"/>
+                <gbs:focusMtf frequency="233.824" attenuation="0.688"/>
+                <gbs:focusMtf frequency="236.471" attenuation="0.684"/>
+                <gbs:focusMtf frequency="239.118" attenuation="0.681"/>
+                <gbs:focusMtf frequency="241.765" attenuation="0.677"/>
+                <gbs:focusMtf frequency="244.412" attenuation="0.671"/>
+                <gbs:focusMtf frequency="247.059" attenuation="0.663"/>
+                <gbs:focusMtf frequency="249.706" attenuation="0.677"/>
+                <gbs:focusMtf frequency="252.353" attenuation="0.659"/>
+                <gbs:focusMtf frequency="255.000" attenuation="0.654"/>
+                <gbs:focusMtf frequency="257.647" attenuation="0.651"/>
+                <gbs:focusMtf frequency="260.294" attenuation="0.645"/>
+                <gbs:focusMtf frequency="262.941" attenuation="0.640"/>
+                <gbs:focusMtf frequency="265.588" attenuation="0.636"/>
+                <gbs:focusMtf frequency="268.235" attenuation="0.632"/>
+                <gbs:focusMtf frequency="270.882" attenuation="0.629"/>
+                <gbs:focusMtf frequency="273.529" attenuation="0.623"/>
+                <gbs:focusMtf frequency="276.176" attenuation="0.620"/>
+                <gbs:focusMtf frequency="278.824" attenuation="0.615"/>
+                <gbs:focusMtf frequency="281.471" attenuation="0.611"/>
+                <gbs:focusMtf frequency="284.118" attenuation="0.607"/>
+                <gbs:focusMtf frequency="286.765" attenuation="0.604"/>
+                <gbs:focusMtf frequency="289.412" attenuation="0.602"/>
+                <gbs:focusMtf frequency="292.059" attenuation="0.596"/>
+                <gbs:focusMtf frequency="294.706" attenuation="0.594"/>
+              </gbs:focusInfo>
+              <gbs:focusInfo code="10" focusFrequency="294.706">
+                <gbs:focusMtf frequency="75.000" attenuation="1.000"/>
+                <gbs:focusMtf frequency="77.647" attenuation="1.000"/>
+                <gbs:focusMtf frequency="80.294" attenuation="0.999"/>
+                <gbs:focusMtf frequency="82.941" attenuation="1.002"/>
+                <gbs:focusMtf frequency="85.588" attenuation="0.999"/>
+                <gbs:focusMtf frequency="88.235" attenuation="0.998"/>
+                <gbs:focusMtf frequency="90.882" attenuation="0.999"/>
+                <gbs:focusMtf frequency="93.529" attenuation="0.996"/>
+                <gbs:focusMtf frequency="96.176" attenuation="0.997"/>
+                <gbs:focusMtf frequency="98.824" attenuation="0.995"/>
+                <gbs:focusMtf frequency="101.471" attenuation="0.992"/>
+                <gbs:focusMtf frequency="104.118" attenuation="0.989"/>
+                <gbs:focusMtf frequency="106.765" attenuation="0.985"/>
+                <gbs:focusMtf frequency="109.412" attenuation="0.982"/>
+                <gbs:focusMtf frequency="112.059" attenuation="0.973"/>
+                <gbs:focusMtf frequency="114.706" attenuation="0.969"/>
+                <gbs:focusMtf frequency="117.353" attenuation="0.963"/>
+                <gbs:focusMtf frequency="120.000" attenuation="0.956"/>
+                <gbs:focusMtf frequency="122.647" attenuation="0.950"/>
+                <gbs:focusMtf frequency="125.294" attenuation="0.939"/>
+                <gbs:focusMtf frequency="127.941" attenuation="0.932"/>
+                <gbs:focusMtf frequency="130.588" attenuation="0.926"/>
+                <gbs:focusMtf frequency="133.235" attenuation="0.919"/>
+                <gbs:focusMtf frequency="135.882" attenuation="0.912"/>
+                <gbs:focusMtf frequency="138.529" attenuation="0.904"/>
+                <gbs:focusMtf frequency="141.176" attenuation="0.897"/>
+                <gbs:focusMtf frequency="143.824" attenuation="0.888"/>
+                <gbs:focusMtf frequency="146.471" attenuation="0.882"/>
+                <gbs:focusMtf frequency="149.118" attenuation="0.874"/>
+                <gbs:focusMtf frequency="151.765" attenuation="0.867"/>
+                <gbs:focusMtf frequency="154.412" attenuation="0.860"/>
+                <gbs:focusMtf frequency="157.059" attenuation="0.853"/>
+                <gbs:focusMtf frequency="159.706" attenuation="0.848"/>
+                <gbs:focusMtf frequency="162.353" attenuation="0.840"/>
+                <gbs:focusMtf frequency="165.000" attenuation="0.834"/>
+                <gbs:focusMtf frequency="167.647" attenuation="0.828"/>
+                <gbs:focusMtf frequency="170.294" attenuation="0.820"/>
+                <gbs:focusMtf frequency="172.941" attenuation="0.813"/>
+                <gbs:focusMtf frequency="175.588" attenuation="0.807"/>
+                <gbs:focusMtf frequency="178.235" attenuation="0.801"/>
+                <gbs:focusMtf frequency="180.882" attenuation="0.795"/>
+                <gbs:focusMtf frequency="183.529" attenuation="0.790"/>
+                <gbs:focusMtf frequency="186.176" attenuation="0.784"/>
+                <gbs:focusMtf frequency="188.824" attenuation="0.778"/>
+                <gbs:focusMtf frequency="191.471" attenuation="0.771"/>
+                <gbs:focusMtf frequency="194.118" attenuation="0.766"/>
+                <gbs:focusMtf frequency="196.765" attenuation="0.761"/>
+                <gbs:focusMtf frequency="199.412" attenuation="0.758"/>
+                <gbs:focusMtf frequency="202.059" attenuation="0.750"/>
+                <gbs:focusMtf frequency="204.706" attenuation="0.746"/>
+                <gbs:focusMtf frequency="207.353" attenuation="0.740"/>
+                <gbs:focusMtf frequency="210.000" attenuation="0.735"/>
+                <gbs:focusMtf frequency="212.647" attenuation="0.730"/>
+                <gbs:focusMtf frequency="215.294" attenuation="0.725"/>
+                <gbs:focusMtf frequency="217.941" attenuation="0.721"/>
+                <gbs:focusMtf frequency="220.588" attenuation="0.716"/>
+                <gbs:focusMtf frequency="223.235" attenuation="0.711"/>
+                <gbs:focusMtf frequency="225.882" attenuation="0.706"/>
+                <gbs:focusMtf frequency="228.529" attenuation="0.700"/>
+                <gbs:focusMtf frequency="231.176" attenuation="0.696"/>
+                <gbs:focusMtf frequency="233.824" attenuation="0.692"/>
+                <gbs:focusMtf frequency="236.471" attenuation="0.687"/>
+                <gbs:focusMtf frequency="239.118" attenuation="0.681"/>
+                <gbs:focusMtf frequency="241.765" attenuation="0.676"/>
+                <gbs:focusMtf frequency="244.412" attenuation="0.673"/>
+                <gbs:focusMtf frequency="247.059" attenuation="0.667"/>
+                <gbs:focusMtf frequency="249.706" attenuation="0.659"/>
+                <gbs:focusMtf frequency="252.353" attenuation="0.659"/>
+                <gbs:focusMtf frequency="255.000" attenuation="0.654"/>
+                <gbs:focusMtf frequency="257.647" attenuation="0.646"/>
+                <gbs:focusMtf frequency="260.294" attenuation="0.641"/>
+                <gbs:focusMtf frequency="262.941" attenuation="0.636"/>
+                <gbs:focusMtf frequency="265.588" attenuation="0.634"/>
+                <gbs:focusMtf frequency="268.235" attenuation="0.630"/>
+                <gbs:focusMtf frequency="270.882" attenuation="0.625"/>
+                <gbs:focusMtf frequency="273.529" attenuation="0.623"/>
+                <gbs:focusMtf frequency="276.176" attenuation="0.617"/>
+                <gbs:focusMtf frequency="278.824" attenuation="0.614"/>
+                <gbs:focusMtf frequency="281.471" attenuation="0.611"/>
+                <gbs:focusMtf frequency="284.118" attenuation="0.606"/>
+                <gbs:focusMtf frequency="286.765" attenuation="0.603"/>
+                <gbs:focusMtf frequency="289.412" attenuation="0.600"/>
+                <gbs:focusMtf frequency="292.059" attenuation="0.597"/>
+                <gbs:focusMtf frequency="294.706" attenuation="0.594"/>
+              </gbs:focusInfo>
+            </gbs:cameraInfo>
+          </gbs:focusParameters>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="BACK_COVER">
+      <METS:mdWrap LABEL="page tags" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageTag>BACK_COVER</gbs:pageTag>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="CHAPTER_START">
+      <METS:mdWrap LABEL="page tags" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageTag>CHAPTER_START</gbs:pageTag>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="FIRST_CONTENT_CHAPTER_START">
+      <METS:mdWrap LABEL="page tags" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageTag>FIRST_CONTENT_CHAPTER_START</gbs:pageTag>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="FRONT_COVER">
+      <METS:mdWrap LABEL="page tags" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageTag>FRONT_COVER</gbs:pageTag>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="IMAGE_ON_PAGE">
+      <METS:mdWrap LABEL="page tags" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageTag>IMAGE_ON_PAGE</gbs:pageTag>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="INDEX">
+      <METS:mdWrap LABEL="page tags" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageTag>INDEX</gbs:pageTag>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="TITLE">
+      <METS:mdWrap LABEL="page tags" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageTag>TITLE</gbs:pageTag>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="UNTYPICAL_PAGE">
+      <METS:mdWrap LABEL="page tags" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageTag>UNTYPICAL_PAGE</gbs:pageTag>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000001">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP1</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-5</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000002">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP2</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-6</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000003">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP3</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-7</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000004">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP4</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-8</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000005">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP5</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-9</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000006">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP6</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-10</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000007">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP7</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-11</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000008">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP8</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-12</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000009">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP9</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-13</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000010">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP10</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-14</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000011">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP11</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-15</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000012">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP12</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-16</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000013">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP13</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-17</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000014">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP14</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-18</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000015">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP15</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-19</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000016">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP16</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-20</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000017">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP17</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-21</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000018">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP18</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-22</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000019">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP19</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-23</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000020">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP20</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-24</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000021">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP21</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-25</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000022">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP22</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-26</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000023">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP23</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-27</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="ADD_PAGE_DATA_IMG00000024">
+      <METS:mdWrap LABEL="candidates" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:pageNo>PP24</gbs:pageNo>
+          <gbs:scanIDwrap>
+            <gbs:ownerID>116791770-28</gbs:ownerID>
+          </gbs:scanIDwrap>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:techMD ID="PD1">
+      <METS:mdWrap LABEL="reading order" MDTYPE="OTHER" OTHERMDTYPE="Google">
+        <METS:xmlData>
+          <gbs:scanningOrder>left-to-right</gbs:scanningOrder>
+          <gbs:readingOrder>left-to-right</gbs:readingOrder>
+          <gbs:coverTag>follows-reading-order</gbs:coverTag>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:techMD>
+    <METS:sourceMD ID="S1">
+      <METS:mdWrap MDTYPE="OTHER" OTHERMDTYPE="Google" LABEL="DESCMDRecord_Source_Library">
+        <METS:xmlData>
+          <gbs:sourceLibrary>NLI</gbs:sourceLibrary>
+          <gbs:sourceIdentifier>2722767-10</gbs:sourceIdentifier>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:sourceMD>
+    <METS:digiprovMD xmlns="info:lc/xmlns/premis-v2" ID="PREMIS1">
+      <METS:mdWrap MDTYPE="PREMIS">
+        <METS:xmlData>
+          <PREMIS:premis version="2.0">
+            <PREMIS:object xsi:type="representation">
+              <PREMIS:objectIdentifier>
+                <PREMIS:objectIdentifierType>barcode</PREMIS:objectIdentifierType>
+                <PREMIS:objectIdentifierValue>NLI_2722767-10</PREMIS:objectIdentifierValue>
+              </PREMIS:objectIdentifier>
+              <PREMIS:significantProperties>
+                <PREMIS:significantPropertiesType>file count</PREMIS:significantPropertiesType>
+                <PREMIS:significantPropertiesValue>74</PREMIS:significantPropertiesValue>
+              </PREMIS:significantProperties>
+              <PREMIS:significantProperties>
+                <PREMIS:significantPropertiesType>page count</PREMIS:significantPropertiesType>
+                <PREMIS:significantPropertiesValue>24</PREMIS:significantPropertiesValue>
+              </PREMIS:significantProperties>
+            </PREMIS:object>
+            <PREMIS:event xmlID="Google_Scan">
+              <PREMIS:eventIdentifier>
+                <PREMIS:eventIdentifierType>Google generated</PREMIS:eventIdentifierType>
+                <PREMIS:eventIdentifierValue>Google_Scan</PREMIS:eventIdentifierValue>
+              </PREMIS:eventIdentifier>
+              <PREMIS:eventType>Scan</PREMIS:eventType>
+              <PREMIS:eventDateTime>2021-07-08T01:28:47</PREMIS:eventDateTime>
+              <PREMIS:eventDetail>Original image capture</PREMIS:eventDetail>
+              <PREMIS:linkingAgentIdentifier>
+                <PREMIS:linkingAgentIdentifierType>AgentID</PREMIS:linkingAgentIdentifierType>
+                <PREMIS:linkingAgentIdentifierValue>Google (Firm)</PREMIS:linkingAgentIdentifierValue>
+              </PREMIS:linkingAgentIdentifier>
+            </PREMIS:event>
+            <PREMIS:event xmlID="Google_Process">
+              <PREMIS:eventIdentifier>
+                <PREMIS:eventIdentifierType>Google generated</PREMIS:eventIdentifierType>
+                <PREMIS:eventIdentifierValue>Google_Process</PREMIS:eventIdentifierValue>
+              </PREMIS:eventIdentifier>
+              <PREMIS:eventType>Process</PREMIS:eventType>
+              <PREMIS:eventDateTime>2021-07-08T01:48:32</PREMIS:eventDateTime>
+              <PREMIS:eventDetail>Refinement and cleaning of raw scanned images using image enhancement techniques</PREMIS:eventDetail>
+              <PREMIS:linkingAgentIdentifier>
+                <PREMIS:linkingAgentIdentifierType>AgentID</PREMIS:linkingAgentIdentifierType>
+                <PREMIS:linkingAgentIdentifierValue>Google (Firm)</PREMIS:linkingAgentIdentifierValue>
+              </PREMIS:linkingAgentIdentifier>
+            </PREMIS:event>
+            <PREMIS:event xmlID="Google_Analyze">
+              <PREMIS:eventIdentifier>
+                <PREMIS:eventIdentifierType>Google generated</PREMIS:eventIdentifierType>
+                <PREMIS:eventIdentifierValue>Google_Analyze</PREMIS:eventIdentifierValue>
+              </PREMIS:eventIdentifier>
+              <PREMIS:eventType>Analyze</PREMIS:eventType>
+              <PREMIS:eventDateTime>2021-07-08T08:57:40</PREMIS:eventDateTime>
+              <PREMIS:eventDetail>Automated quality assessment, extraction of OCR text and metadata, assignment of metadata tags, and page ordering</PREMIS:eventDetail>
+              <PREMIS:linkingAgentIdentifier>
+                <PREMIS:linkingAgentIdentifierType>AgentID</PREMIS:linkingAgentIdentifierType>
+                <PREMIS:linkingAgentIdentifierValue>Google (Firm)</PREMIS:linkingAgentIdentifierValue>
+              </PREMIS:linkingAgentIdentifier>
+            </PREMIS:event>
+            <PREMIS:event xmlID="Google_Convert">
+              <PREMIS:eventIdentifier>
+                <PREMIS:eventIdentifierType>Google generated</PREMIS:eventIdentifierType>
+                <PREMIS:eventIdentifierValue>Google_Convert</PREMIS:eventIdentifierValue>
+              </PREMIS:eventIdentifier>
+              <PREMIS:eventType>Convert</PREMIS:eventType>
+              <PREMIS:eventDateTime>2021-07-15T02:17:34</PREMIS:eventDateTime>
+              <PREMIS:eventDetail>Creation of partner deliverables</PREMIS:eventDetail>
+              <PREMIS:eventOutcomeInformation>
+                <PREMIS:eventOutcomeDetail>
+                  <PREMIS:eventOutcomeDetailNote>Clean</PREMIS:eventOutcomeDetailNote>
+                </PREMIS:eventOutcomeDetail>
+              </PREMIS:eventOutcomeInformation>
+              <PREMIS:linkingAgentIdentifier>
+                <PREMIS:linkingAgentIdentifierType>AgentID</PREMIS:linkingAgentIdentifierType>
+                <PREMIS:linkingAgentIdentifierValue>Google (Firm)</PREMIS:linkingAgentIdentifierValue>
+              </PREMIS:linkingAgentIdentifier>
+            </PREMIS:event>
+            <PREMIS:agent>
+              <PREMIS:agentIdentifier>
+                <PREMIS:agentIdentifierType>LCNAF</PREMIS:agentIdentifierType>
+                <PREMIS:agentIdentifierValue>Google (Firm)</PREMIS:agentIdentifierValue>
+              </PREMIS:agentIdentifier>
+              <PREMIS:agentType>organization</PREMIS:agentType>
+            </PREMIS:agent>
+          </PREMIS:premis>
+        </METS:xmlData>
+      </METS:mdWrap>
+    </METS:digiprovMD>
+  </METS:amdSec>
+  <METS:fileSec>
+    <METS:fileGrp ID="FG1" USE="image">
+      <METS:file ID="IMG00000001" MIMETYPE="image/jp2" SEQ="00000001" CREATED="2021-07-08T00:00:00" SIZE="413789" CHECKSUM="c07ea0999c6e0d42ff55e7e7c734faa4" CHECKSUMTYPE="MD5" OWNERID="116791770-5" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000001">
+        <METS:FLocat xlink:href="00000001.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000002" MIMETYPE="image/jp2" SEQ="00000002" CREATED="2021-07-08T00:00:00" SIZE="281789" CHECKSUM="a6256a6be62c59b10cd70dedf4138201" CHECKSUMTYPE="MD5" OWNERID="116791770-6" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000002">
+        <METS:FLocat xlink:href="00000002.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000003" MIMETYPE="image/jp2" SEQ="00000003" CREATED="2021-07-08T00:00:00" SIZE="417483" CHECKSUM="cb8b40ee3d9c7aa36f1a2b28404bd9fa" CHECKSUMTYPE="MD5" OWNERID="116791770-7" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000003">
+        <METS:FLocat xlink:href="00000003.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000004" MIMETYPE="image/jp2" SEQ="00000004" CREATED="2021-07-08T00:00:00" SIZE="307325" CHECKSUM="2670af0e3af77edbc0b4f1cb58446929" CHECKSUMTYPE="MD5" OWNERID="116791770-8" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000004">
+        <METS:FLocat xlink:href="00000004.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000005" MIMETYPE="image/jp2" SEQ="00000005" CREATED="2021-07-08T00:00:00" SIZE="320381" CHECKSUM="93efc34547ac0f92e58b81ced0306a72" CHECKSUMTYPE="MD5" OWNERID="116791770-9" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000005">
+        <METS:FLocat xlink:href="00000005.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000006" MIMETYPE="image/jp2" SEQ="00000006" CREATED="2021-07-08T00:00:00" SIZE="16635" CHECKSUM="2ab9286db169aa43d0b7cc0dccfba817" CHECKSUMTYPE="MD5" OWNERID="116791770-10" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000006">
+        <METS:FLocat xlink:href="00000006.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000007" MIMETYPE="image/jp2" SEQ="00000007" CREATED="2021-07-08T00:00:00" SIZE="408726" CHECKSUM="6fe53af47a8ae36f2433152c96db77fc" CHECKSUMTYPE="MD5" OWNERID="116791770-11" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000007">
+        <METS:FLocat xlink:href="00000007.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000008" MIMETYPE="image/jp2" SEQ="00000008" CREATED="2021-07-08T00:00:00" SIZE="489900" CHECKSUM="ad6b2aa3fd4641b0239d0a38f5af3e57" CHECKSUMTYPE="MD5" OWNERID="116791770-12" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000008">
+        <METS:FLocat xlink:href="00000008.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000009" MIMETYPE="image/jp2" SEQ="00000009" CREATED="2021-07-08T00:00:00" SIZE="440305" CHECKSUM="f3a13a922fa8e6ab051179c0cbe3f57a" CHECKSUMTYPE="MD5" OWNERID="116791770-13" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000009">
+        <METS:FLocat xlink:href="00000009.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000010" MIMETYPE="image/jp2" SEQ="00000010" CREATED="2021-07-08T00:00:00" SIZE="651633" CHECKSUM="cd51a5c189cf06c8131de54f88834d0c" CHECKSUMTYPE="MD5" OWNERID="116791770-14" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000010">
+        <METS:FLocat xlink:href="00000010.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000011" MIMETYPE="image/jp2" SEQ="00000011" CREATED="2021-07-08T00:00:00" SIZE="475190" CHECKSUM="3183ae3166cd1af614485d43dc9ae111" CHECKSUMTYPE="MD5" OWNERID="116791770-15" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000011">
+        <METS:FLocat xlink:href="00000011.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000012" MIMETYPE="image/jp2" SEQ="00000012" CREATED="2021-07-08T00:00:00" SIZE="643462" CHECKSUM="71c2155c612fc18145b4b5d0f8c152bb" CHECKSUMTYPE="MD5" OWNERID="116791770-16" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000012">
+        <METS:FLocat xlink:href="00000012.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000013" MIMETYPE="image/jp2" SEQ="00000013" CREATED="2021-07-08T00:00:00" SIZE="584201" CHECKSUM="9931623f33a6c18b7151bf96374fa28c" CHECKSUMTYPE="MD5" OWNERID="116791770-17" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000013">
+        <METS:FLocat xlink:href="00000013.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000014" MIMETYPE="image/jp2" SEQ="00000014" CREATED="2021-07-08T00:00:00" SIZE="632434" CHECKSUM="131b72893900387167ef9383888bafe0" CHECKSUMTYPE="MD5" OWNERID="116791770-18" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000014">
+        <METS:FLocat xlink:href="00000014.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000015" MIMETYPE="image/jp2" SEQ="00000015" CREATED="2021-07-08T00:00:00" SIZE="564481" CHECKSUM="f4d8d2a04bc09e02b93647b3c96a78ce" CHECKSUMTYPE="MD5" OWNERID="116791770-19" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000015">
+        <METS:FLocat xlink:href="00000015.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000016" MIMETYPE="image/jp2" SEQ="00000016" CREATED="2021-07-08T00:00:00" SIZE="534638" CHECKSUM="ee2089e4e96f7e92a425601eca57ad36" CHECKSUMTYPE="MD5" OWNERID="116791770-20" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000016">
+        <METS:FLocat xlink:href="00000016.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000017" MIMETYPE="image/jp2" SEQ="00000017" CREATED="2021-07-08T00:00:00" SIZE="492884" CHECKSUM="3823f3f529b15817a05628441c2853a3" CHECKSUMTYPE="MD5" OWNERID="116791770-21" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000017">
+        <METS:FLocat xlink:href="00000017.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000018" MIMETYPE="image/jp2" SEQ="00000018" CREATED="2021-07-08T00:00:00" SIZE="527502" CHECKSUM="b8d19bd90853dc3018dad5a30e7ec62f" CHECKSUMTYPE="MD5" OWNERID="116791770-22" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000018">
+        <METS:FLocat xlink:href="00000018.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000019" MIMETYPE="image/jp2" SEQ="00000019" CREATED="2021-07-08T00:00:00" SIZE="67254" CHECKSUM="1207e8d1634c43063f330ea9341c6604" CHECKSUMTYPE="MD5" OWNERID="116791770-23" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000019">
+        <METS:FLocat xlink:href="00000019.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000020" MIMETYPE="image/jp2" SEQ="00000020" CREATED="2021-07-08T00:00:00" SIZE="14589" CHECKSUM="0dec757715aaaf12faf38f7b2019cfae" CHECKSUMTYPE="MD5" OWNERID="116791770-24" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000020">
+        <METS:FLocat xlink:href="00000020.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000021" MIMETYPE="image/jp2" SEQ="00000021" CREATED="2021-07-08T00:00:00" SIZE="25770" CHECKSUM="7f6e85212bd0bb6d494897a80ea94234" CHECKSUMTYPE="MD5" OWNERID="116791770-25" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000021">
+        <METS:FLocat xlink:href="00000021.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000022" MIMETYPE="image/jp2" SEQ="00000022" CREATED="2021-07-08T00:00:00" SIZE="206384" CHECKSUM="b3d332dca7640f2df297e185bcfc5f38" CHECKSUMTYPE="MD5" OWNERID="116791770-26" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000022">
+        <METS:FLocat xlink:href="00000022.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000023" MIMETYPE="image/jp2" SEQ="00000023" CREATED="2021-07-08T00:00:00" SIZE="297674" CHECKSUM="b3fba071f656e6f5e8ab4f1f37d8a135" CHECKSUMTYPE="MD5" OWNERID="116791770-27" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000023">
+        <METS:FLocat xlink:href="00000023.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="IMG00000024" MIMETYPE="image/jp2" SEQ="00000024" CREATED="2021-07-08T00:00:00" SIZE="388626" CHECKSUM="db8dd79ca7398249e7ac12f74aa393e7" CHECKSUMTYPE="MD5" OWNERID="116791770-28" ADMID="IMAGE_METHOD0 ADD_PAGE_DATA_IMG00000024">
+        <METS:FLocat xlink:href="00000024.jp2" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+    </METS:fileGrp>
+    <METS:fileGrp ID="FG2" USE="OCR">
+      <METS:file ID="TXT00000001" MIMETYPE="text/plain" SEQ="00000001" CREATED="2021-07-08T00:00:00" SIZE="3" CHECKSUM="2adccef21871e39fa0648eefed2866cf" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000001.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000002" MIMETYPE="text/plain" SEQ="00000002" CREATED="2021-07-08T00:00:00" SIZE="1" CHECKSUM="68b329da9893e34099c7d8ad5cb9c940" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000002.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000003" MIMETYPE="text/plain" SEQ="00000003" CREATED="2021-07-08T00:00:00" SIZE="210" CHECKSUM="d6c7a6fc3583389bf064c3a14726f54a" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000003.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000004" MIMETYPE="text/plain" SEQ="00000004" CREATED="2021-07-08T00:00:00" SIZE="156" CHECKSUM="ebdc13b5067e027c47d579a0505e1a3c" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000004.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000005" MIMETYPE="text/plain" SEQ="00000005" CREATED="2021-07-08T00:00:00" SIZE="180" CHECKSUM="1ce1ce3b341f3223582c8519b7259eee" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000005.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000006" MIMETYPE="text/plain" SEQ="00000006" CREATED="2021-07-08T00:00:00" SIZE="26" CHECKSUM="6cd10a0b9179cceba8d6865f6675677a" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000006.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000007" MIMETYPE="text/plain" SEQ="00000007" CREATED="2021-07-08T00:00:00" SIZE="665" CHECKSUM="6963bbc0792b7c7b0b4ad4ed1dfbfd50" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000007.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000008" MIMETYPE="text/plain" SEQ="00000008" CREATED="2021-07-08T00:00:00" SIZE="810" CHECKSUM="5a72304cdf84f2b7875960eacc8ba13c" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000008.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000009" MIMETYPE="text/plain" SEQ="00000009" CREATED="2021-07-08T00:00:00" SIZE="1006" CHECKSUM="a318065e90651924387082909c37d8da" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000009.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000010" MIMETYPE="text/plain" SEQ="00000010" CREATED="2021-07-08T00:00:00" SIZE="325" CHECKSUM="4cdc1146b950ec20651b3ecb6b18969b" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000010.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000011" MIMETYPE="text/plain" SEQ="00000011" CREATED="2021-07-08T00:00:00" SIZE="721" CHECKSUM="50846a7f3a727151cc5dbb4ed1af9bfb" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000011.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000012" MIMETYPE="text/plain" SEQ="00000012" CREATED="2021-07-08T00:00:00" SIZE="987" CHECKSUM="4f9b2ba28010357ec335ec492eebcf7d" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000012.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000013" MIMETYPE="text/plain" SEQ="00000013" CREATED="2021-07-08T00:00:00" SIZE="223" CHECKSUM="3df6ae06a782588c44b7109dac0e0fb4" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000013.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000014" MIMETYPE="text/plain" SEQ="00000014" CREATED="2021-07-08T00:00:00" SIZE="327" CHECKSUM="f5da1d658d626d088f4e98d5bec7c6c0" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000014.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000015" MIMETYPE="text/plain" SEQ="00000015" CREATED="2021-07-08T00:00:00" SIZE="713" CHECKSUM="ba289ce85b88f68f335bb8c1c3d6e702" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000015.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000016" MIMETYPE="text/plain" SEQ="00000016" CREATED="2021-07-08T00:00:00" SIZE="344" CHECKSUM="b833a9b6d16665b176fd64193666b2b1" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000016.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000017" MIMETYPE="text/plain" SEQ="00000017" CREATED="2021-07-08T00:00:00" SIZE="962" CHECKSUM="ea3054aa06f63be865144ee84fbc0683" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000017.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000018" MIMETYPE="text/plain" SEQ="00000018" CREATED="2021-07-08T00:00:00" SIZE="1007" CHECKSUM="abb7e659a905ad0d4f6537f2db34af05" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000018.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000019" MIMETYPE="text/plain" SEQ="00000019" CREATED="2021-07-08T00:00:00" SIZE="471" CHECKSUM="57baaac293b1f72403c7fe8f7983c872" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000019.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000020" MIMETYPE="text/plain" SEQ="00000020" CREATED="2021-07-08T00:00:00" SIZE="4" CHECKSUM="b7e5cc831edd01b9809eaffca1717ea5" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000020.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000021" MIMETYPE="text/plain" SEQ="00000021" CREATED="2021-07-08T00:00:00" SIZE="95" CHECKSUM="8a42e516171930a687b58f866b5de366" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000021.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000022" MIMETYPE="text/plain" SEQ="00000022" CREATED="2021-07-08T00:00:00" SIZE="1" CHECKSUM="68b329da9893e34099c7d8ad5cb9c940" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000022.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000023" MIMETYPE="text/plain" SEQ="00000023" CREATED="2021-07-08T00:00:00" SIZE="1" CHECKSUM="68b329da9893e34099c7d8ad5cb9c940" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000023.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="TXT00000024" MIMETYPE="text/plain" SEQ="00000024" CREATED="2021-07-08T00:00:00" SIZE="19" CHECKSUM="2dc5c3eb914bac6778bc98834bc56a9c" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000024.txt" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+    </METS:fileGrp>
+    <METS:fileGrp ID="FG3" USE="coordOCR">
+      <METS:file ID="HTML00000001" MIMETYPE="text/html" SEQ="00000001" CREATED="2021-07-08T00:00:00" SIZE="1306" CHECKSUM="b8357f017b6a1340061348ecac50401e" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000001.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000002" MIMETYPE="text/html" SEQ="00000002" CREATED="2021-07-08T00:00:00" SIZE="952" CHECKSUM="2e6282ee2f1d36bc69c7b0b85ecd4899" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000002.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000003" MIMETYPE="text/html" SEQ="00000003" CREATED="2021-07-08T00:00:00" SIZE="6957" CHECKSUM="d722c67a40a5d93d3528fc0c2042e54f" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000003.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000004" MIMETYPE="text/html" SEQ="00000004" CREATED="2021-07-08T00:00:00" SIZE="5753" CHECKSUM="e0da0812258dc59f3826a162dea41f77" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000004.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000005" MIMETYPE="text/html" SEQ="00000005" CREATED="2021-07-08T00:00:00" SIZE="6494" CHECKSUM="2e30afb2811edbe63510c2ee97a60a4c" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000005.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000006" MIMETYPE="text/html" SEQ="00000006" CREATED="2021-07-08T00:00:00" SIZE="2019" CHECKSUM="52e36a415d7ede1ae47b35314bd7d1d7" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000006.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000007" MIMETYPE="text/html" SEQ="00000007" CREATED="2021-07-08T00:00:00" SIZE="16473" CHECKSUM="33c83a1a0b4bd07b7607bb624f2b0546" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000007.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000008" MIMETYPE="text/html" SEQ="00000008" CREATED="2021-07-08T00:00:00" SIZE="20642" CHECKSUM="1e1a0bd2b29ff691feeb38fa290402d3" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000008.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000009" MIMETYPE="text/html" SEQ="00000009" CREATED="2021-07-08T00:00:00" SIZE="24495" CHECKSUM="5bf38901164f13122e07b266da1c82ad" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000009.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000010" MIMETYPE="text/html" SEQ="00000010" CREATED="2021-07-08T00:00:00" SIZE="9423" CHECKSUM="72488b68ac728752b0e79e1ecf208cdb" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000010.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000011" MIMETYPE="text/html" SEQ="00000011" CREATED="2021-07-08T00:00:00" SIZE="16530" CHECKSUM="5d8485fac959dcff20104e62affdd1a8" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000011.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000012" MIMETYPE="text/html" SEQ="00000012" CREATED="2021-07-08T00:00:00" SIZE="22501" CHECKSUM="044f5c07fb471081aff20561ec5044ff" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000012.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000013" MIMETYPE="text/html" SEQ="00000013" CREATED="2021-07-08T00:00:00" SIZE="7266" CHECKSUM="1c6dc75ecfbea25f5e544f3447d91215" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000013.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000014" MIMETYPE="text/html" SEQ="00000014" CREATED="2021-07-08T00:00:00" SIZE="8279" CHECKSUM="8230c0471b4fba115cf92e90715ec079" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000014.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000015" MIMETYPE="text/html" SEQ="00000015" CREATED="2021-07-08T00:00:00" SIZE="16026" CHECKSUM="7b6cac6ece6ca485417e6128ce2d2c55" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000015.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000016" MIMETYPE="text/html" SEQ="00000016" CREATED="2021-07-08T00:00:00" SIZE="11215" CHECKSUM="b8fa44cfed822b32c5da53386851a88e" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000016.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000017" MIMETYPE="text/html" SEQ="00000017" CREATED="2021-07-08T00:00:00" SIZE="21848" CHECKSUM="f25b86e493ad15ac89e5ad7ae0d0564b" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000017.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000018" MIMETYPE="text/html" SEQ="00000018" CREATED="2021-07-08T00:00:00" SIZE="22608" CHECKSUM="aca8056af8c1ee4738ca7f094caf64ea" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000018.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000019" MIMETYPE="text/html" SEQ="00000019" CREATED="2021-07-08T00:00:00" SIZE="11376" CHECKSUM="86f5bd7b1ce738008c408283cff6442f" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000019.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000020" MIMETYPE="text/html" SEQ="00000020" CREATED="2021-07-08T00:00:00" SIZE="1591" CHECKSUM="bb2affa77430322f62c4067c2593ae6a" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000020.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000021" MIMETYPE="text/html" SEQ="00000021" CREATED="2021-07-08T00:00:00" SIZE="3638" CHECKSUM="e6e5dfafacbd6192adf3f837066a183e" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000021.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000022" MIMETYPE="text/html" SEQ="00000022" CREATED="2021-07-08T00:00:00" SIZE="954" CHECKSUM="5f48dd533691e1782deb4982a1d1779d" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000022.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000023" MIMETYPE="text/html" SEQ="00000023" CREATED="2021-07-08T00:00:00" SIZE="954" CHECKSUM="7142ed2f23b1681afa95c2e49ed021f1" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000023.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+      <METS:file ID="HTML00000024" MIMETYPE="text/html" SEQ="00000024" CREATED="2021-07-08T00:00:00" SIZE="2358" CHECKSUM="cb59030093b71997d044db372348028b" CHECKSUMTYPE="MD5">
+        <METS:FLocat xlink:href="00000024.html" LOCTYPE="OTHER" OTHERLOCTYPE="SYSTEM"/>
+      </METS:file>
+    </METS:fileGrp>
+  </METS:fileSec>
+  <METS:structMap ID="SM1" TYPE="physical">
+    <METS:div TYPE="volume" ADMID="QUALITY PD1 S1">
+      <METS:div TYPE="page" ORDER="1" ADMID="FRONT_COVER IMAGE_ON_PAGE">
+        <METS:fptr FILEID="IMG00000001"/>
+        <METS:fptr FILEID="TXT00000001"/>
+        <METS:fptr FILEID="HTML00000001"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="2" ADMID="IMAGE_ON_PAGE">
+        <METS:fptr FILEID="IMG00000002"/>
+        <METS:fptr FILEID="TXT00000002"/>
+        <METS:fptr FILEID="HTML00000002"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="3" ADMID="CHAPTER_START IMAGE_ON_PAGE FIRST_CONTENT_CHAPTER_START UNTYPICAL_PAGE">
+        <METS:fptr FILEID="IMG00000003"/>
+        <METS:fptr FILEID="TXT00000003"/>
+        <METS:fptr FILEID="HTML00000003"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="4" ADMID="IMAGE_ON_PAGE UNTYPICAL_PAGE">
+        <METS:fptr FILEID="IMG00000004"/>
+        <METS:fptr FILEID="TXT00000004"/>
+        <METS:fptr FILEID="HTML00000004"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="5" ADMID="TITLE IMAGE_ON_PAGE UNTYPICAL_PAGE">
+        <METS:fptr FILEID="IMG00000005"/>
+        <METS:fptr FILEID="TXT00000005"/>
+        <METS:fptr FILEID="HTML00000005"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="6" ADMID="IMAGE_ON_PAGE UNTYPICAL_PAGE">
+        <METS:fptr FILEID="IMG00000006"/>
+        <METS:fptr FILEID="TXT00000006"/>
+        <METS:fptr FILEID="HTML00000006"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="7" ADMID="IMAGE_ON_PAGE UNTYPICAL_PAGE">
+        <METS:fptr FILEID="IMG00000007"/>
+        <METS:fptr FILEID="TXT00000007"/>
+        <METS:fptr FILEID="HTML00000007"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="8" ADMID="IMAGE_ON_PAGE UNTYPICAL_PAGE">
+        <METS:fptr FILEID="IMG00000008"/>
+        <METS:fptr FILEID="TXT00000008"/>
+        <METS:fptr FILEID="HTML00000008"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="9" ADMID="IMAGE_ON_PAGE UNTYPICAL_PAGE">
+        <METS:fptr FILEID="IMG00000009"/>
+        <METS:fptr FILEID="TXT00000009"/>
+        <METS:fptr FILEID="HTML00000009"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="10" ADMID="IMAGE_ON_PAGE UNTYPICAL_PAGE">
+        <METS:fptr FILEID="IMG00000010"/>
+        <METS:fptr FILEID="TXT00000010"/>
+        <METS:fptr FILEID="HTML00000010"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="11" ADMID="IMAGE_ON_PAGE UNTYPICAL_PAGE">
+        <METS:fptr FILEID="IMG00000011"/>
+        <METS:fptr FILEID="TXT00000011"/>
+        <METS:fptr FILEID="HTML00000011"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="12" ADMID="IMAGE_ON_PAGE UNTYPICAL_PAGE">
+        <METS:fptr FILEID="IMG00000012"/>
+        <METS:fptr FILEID="TXT00000012"/>
+        <METS:fptr FILEID="HTML00000012"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="13" ADMID="IMAGE_ON_PAGE UNTYPICAL_PAGE">
+        <METS:fptr FILEID="IMG00000013"/>
+        <METS:fptr FILEID="TXT00000013"/>
+        <METS:fptr FILEID="HTML00000013"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="14" ADMID="IMAGE_ON_PAGE UNTYPICAL_PAGE">
+        <METS:fptr FILEID="IMG00000014"/>
+        <METS:fptr FILEID="TXT00000014"/>
+        <METS:fptr FILEID="HTML00000014"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="15" ADMID="CHAPTER_START IMAGE_ON_PAGE UNTYPICAL_PAGE">
+        <METS:fptr FILEID="IMG00000015"/>
+        <METS:fptr FILEID="TXT00000015"/>
+        <METS:fptr FILEID="HTML00000015"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="16" ADMID="IMAGE_ON_PAGE UNTYPICAL_PAGE">
+        <METS:fptr FILEID="IMG00000016"/>
+        <METS:fptr FILEID="TXT00000016"/>
+        <METS:fptr FILEID="HTML00000016"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="17" ADMID="IMAGE_ON_PAGE UNTYPICAL_PAGE">
+        <METS:fptr FILEID="IMG00000017"/>
+        <METS:fptr FILEID="TXT00000017"/>
+        <METS:fptr FILEID="HTML00000017"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="18" ADMID="IMAGE_ON_PAGE UNTYPICAL_PAGE">
+        <METS:fptr FILEID="IMG00000018"/>
+        <METS:fptr FILEID="TXT00000018"/>
+        <METS:fptr FILEID="HTML00000018"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="19" ADMID="CHAPTER_START IMAGE_ON_PAGE UNTYPICAL_PAGE">
+        <METS:fptr FILEID="IMG00000019"/>
+        <METS:fptr FILEID="TXT00000019"/>
+        <METS:fptr FILEID="HTML00000019"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="20" ADMID="IMAGE_ON_PAGE">
+        <METS:fptr FILEID="IMG00000020"/>
+        <METS:fptr FILEID="TXT00000020"/>
+        <METS:fptr FILEID="HTML00000020"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="21" ADMID="INDEX IMAGE_ON_PAGE UNTYPICAL_PAGE">
+        <METS:fptr FILEID="IMG00000021"/>
+        <METS:fptr FILEID="TXT00000021"/>
+        <METS:fptr FILEID="HTML00000021"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="22" ADMID="IMAGE_ON_PAGE">
+        <METS:fptr FILEID="IMG00000022"/>
+        <METS:fptr FILEID="TXT00000022"/>
+        <METS:fptr FILEID="HTML00000022"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="23" ADMID="IMAGE_ON_PAGE">
+        <METS:fptr FILEID="IMG00000023"/>
+        <METS:fptr FILEID="TXT00000023"/>
+        <METS:fptr FILEID="HTML00000023"/>
+      </METS:div>
+      <METS:div TYPE="page" ORDER="24" ADMID="BACK_COVER IMAGE_ON_PAGE">
+        <METS:fptr FILEID="IMG00000024"/>
+        <METS:fptr FILEID="TXT00000024"/>
+        <METS:fptr FILEID="HTML00000024"/>
+      </METS:div>
+    </METS:div>
+  </METS:structMap>
+</METS:mets>
