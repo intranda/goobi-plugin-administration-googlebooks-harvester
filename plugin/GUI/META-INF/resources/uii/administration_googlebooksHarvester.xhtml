@@ -1,174 +1,27 @@
-<ui:composition
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-    xmlns:composite="http://xmlns.jcp.org/jsf/composite"
-    xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:f="http://xmlns.jcp.org/jsf/core"
-    xmlns:x="http://myfaces.apache.org/tomahawk"
-    xmlns:intranda="http://xmlns.jcp.org/jsf/composite/composites"
-    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-    xmlns:p="http://primefaces.org/ui">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:x="http://myfaces.apache.org/tomahawk"
+	xmlns:intranda="http://xmlns.jcp.org/jsf/composite/composites"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
 
-    <composite:interface>
-    </composite:interface>
+	<composite:interface>
+	</composite:interface>
 
-    <composite:implementation>
+	<composite:implementation>
 
-        <style>
-.topAligned {
-    vertical-align: top;
-    padding-right: 50px;
-}
-</style>
-
-        <h:outputText
-            styleClass="alert alert-danger block margin-top-most"
-            value="#{msgs.noAccessAllowed} Plugin_Goobi_CataloguePoller"
-            rendered="#{!LoginForm.hasRole('Plugin_Goobi_CataloguePoller')}" />
-
-        <h:panelGroup rendered="#{LoginForm.hasRole('Plugin_Goobi_CataloguePoller')}">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="box box-color box-bordered">
-                        <div class="box-title">
-                            <h3>
-                                <i class="fa fa-plug"></i>
-                                <h:outputText value="#{myPageTitle}" />
-                            </h3>
-                        </div>
-
-                        <div class="box-content">
-                            <h:outputText
-                                style="font-size:14px"
-                                value="#{msgs.plugin_admin_cataloguePoller_lastRun}: #{AdministrationForm.administrationPlugin.cp.lastRun}" />
-                            <h:form styleClass="pull-right">
-                                <h:commandLink
-                                    styleClass="btn margin-right-10"
-                                    action="#{AdministrationForm.administrationPlugin.cp.execute}"
-                                    title="Run now">
-                                    <i class="fa fa-cog margin-right-5" />
-                                    <h:outputText value="#{msgs.plugin_admin_cataloguePoller_runNow}" />
-                                </h:commandLink>
-                            </h:form>
-                            <br />
-                            <br />
-                            <ui:repeat
-                                var="configInfo"
-                                value="#{AdministrationForm.administrationPlugin.cp.configInfo}">
-                                <hr />
-                                <h4>#{configInfo.title}</h4>
-
-                                <table
-                                    class="table table-hover dataTable table-bordered responsive"
-                                    style="margin-top: 10px;">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                <h:outputText value="#{msgs.plugin_admin_cataloguePoller_ruleFilter}" />
-                                            </th>
-                                            <th>
-                                                <h:outputText value="#{msgs.plugin_admin_cataloguePoller_ruleCatalogue}" />
-                                            </th>
-                                            <th>
-                                                <h:outputText value="#{msgs.plugin_admin_cataloguePoller_ruleCatalogueId}" />
-                                            </th>
-                                            <th>
-                                                <h:outputText value="#{msgs.plugin_admin_cataloguePoller_ruleMergeRecords}" />
-                                            </th>
-                                            <th>
-                                                <h:outputText value="#{msgs.plugin_admin_cataloguePoller_ruleSkipFields}" />
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>#{configInfo.filter}</td>
-                                            <td>#{configInfo.configCatalogue}</td>
-                                            <td>#{configInfo.configCatalogueId}</td>
-                                            <td>#{configInfo.configMergeRecords}</td>
-                                            <td>#{configInfo.configSkipFields}</td>
-                                        </tr>
-                                    </tbody>
-
-
-                                </table>
-
-                                <!--                                 <h:dataTable -->
-                                <!--                                     styleClass="table table-hover dataTable table-bordered responsive" -->
-                                <!--                                     value="#{maps}" -->
-                                <!--                                     var="map" -->
-                                <!--                                     style="margin-top:10px;"> -->
-                                <!--                                     <h:column> -->
-                                <!--                                         <f:facet name="header"> -->
-                                <!--                                             <h:outputText value="#{msgs.plugin_admin_cataloguePoller_ruleFilter}" /> -->
-                                <!--                                         </f:facet> -->
-                                <!--                                         <h:outputText value="#{maps['filter']}" /> -->
-                                <!--                                     </h:column> -->
-                                <!--                                     <h:column> -->
-                                <!--                                         <f:facet name="header"> -->
-                                <!--                                             <h:outputText value="#{msgs.plugin_admin_cataloguePoller_ruleCatalogue}" /> -->
-                                <!--                                         </f:facet> -->
-                                <!--                                         <h:outputText value="#{maps['configCatalogue']}" /> -->
-                                <!--                                     </h:column> -->
-                                <!--                                     <h:column> -->
-                                <!--                                         <f:facet name="header"> -->
-                                <!--                                             <h:outputText value="#{msgs.plugin_admin_cataloguePoller_ruleCatalogueId}" /> -->
-                                <!--                                         </f:facet> -->
-                                <!--                                         <h:outputText value="#{maps['configCatalogueId']}" /> -->
-                                <!--                                     </h:column> -->
-                                <!--                                     <h:column> -->
-                                <!--                                         <f:facet name="header"> -->
-                                <!--                                             <h:outputText value="#{msgs.plugin_admin_cataloguePoller_ruleMergeRecords}" /> -->
-                                <!--                                         </f:facet> -->
-                                <!--                                         <h:outputText value="#{maps['configMergeRecords']}" /> -->
-                                <!--                                     </h:column> -->
-                                <!--                                     <h:column> -->
-                                <!--                                         <f:facet name="header"> -->
-                                <!--                                             <h:outputText value="#{msgs.plugin_admin_cataloguePoller_ruleSkipFields}" /> -->
-                                <!--                                         </f:facet> -->
-                                <!--                                         <h:outputText value="#{maps['configSkipFields']}" /> -->
-                                <!--                                     </h:column> -->
-                                <!--                                 </h:dataTable> -->
-                            </ui:repeat>
-
-                        </div>
-
-                        <h:panelGroup rendered="#{AdministrationForm.administrationPlugin.cp.differences!=null and AdministrationForm.administrationPlugin.cp.differences.size() ne 0}">
-                            <div class="box-content">
-                                <h4>
-                                    <h:outputText value="#{msgs.plugin_admin_cataloguePoller_results}" />
-                                </h4>
-                                <ui:repeat
-                                    var="pd"
-                                    value="#{AdministrationForm.administrationPlugin.cp.differences}">
-                                    <hr />
-                                    <h:panelGrid
-                                        columns="2"
-                                        columnClasses="topAligned">
-                                        <h:panelGroup>
-                                            <h:outputText value="#{msgs.prozess}: #{pd.processTitle}" />
-                                            <br />
-                                            <h:outputText value="#{msgs.id}: #{pd.processId}" />
-
-                                        </h:panelGroup>
-                                        <h:panelGroup>
-                                            <ui:repeat
-                                                var="mess"
-                                                value="#{pd.messages}">
-                                                <h:outputText value="#{mess}" />
-                                                <br />
-                                            </ui:repeat>
-                                        </h:panelGroup>
-                                    </h:panelGrid>
-                                </ui:repeat>
-                            </div>
-                        </h:panelGroup>
-                    </div>
-                </div>
-            </div>
-
-        </h:panelGroup>
-
-    </composite:implementation>
+	<style>
+	.topAligned {
+		vertical-align: top;
+		padding-right: 50px;
+	}
+	</style>
+	
+		<h:outputText styleClass="alert alert-info block margin-top-most"
+			value="This plugin was developed by intranda GmbH for the National Library of Israel. It has no graphical user interface." />
+	</composite:implementation>
 
 </ui:composition>
