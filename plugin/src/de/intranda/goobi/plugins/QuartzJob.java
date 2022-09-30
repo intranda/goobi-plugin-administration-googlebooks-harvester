@@ -16,7 +16,6 @@ import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 import org.apache.commons.configuration.XMLConfiguration;
 import org.apache.commons.lang3.StringUtils;
-import org.goobi.beans.LogEntry;
 import org.goobi.beans.Processproperty;
 import org.goobi.beans.Step;
 import org.goobi.production.enums.LogType;
@@ -38,6 +37,7 @@ import de.sub.goobi.config.ConfigPlugins;
 import de.sub.goobi.config.ConfigurationHelper;
 import de.sub.goobi.helper.BeanHelper;
 import de.sub.goobi.helper.CloseStepHelper;
+import de.sub.goobi.helper.Helper;
 import de.sub.goobi.helper.StorageProvider;
 import de.sub.goobi.helper.enums.StepStatus;
 import de.sub.goobi.helper.exceptions.DAOException;
@@ -400,7 +400,7 @@ public class QuartzJob implements Job {
     }
 
     public static List<CatalogueIdentifier> readIdsFromMarc(Path googleMetsFile) throws IOException, JDOMException {
-        List<CatalogueIdentifier> foundIds = new ArrayList<CatalogueIdentifier>();
+        List<CatalogueIdentifier> foundIds = new ArrayList<>();
         try (InputStream metsIn = Files.newInputStream(googleMetsFile)) {
             Document doc = new SAXBuilder().build(metsIn);
             List<Element> idEls = datafield955Xpath.evaluate(doc);
@@ -430,11 +430,7 @@ public class QuartzJob implements Job {
     }
 
     public static void writeLogEntry(org.goobi.beans.Process goobiProcess, String message) {
-        LogEntry entry = new LogEntry();
-        entry.setContent(message);
-        entry.setProcessId(goobiProcess.getId());
-        entry.setType(LogType.ERROR);
-        ProcessManager.saveLogEntry(entry);
+        Helper.addMessageToProcessJournal(goobiProcess.getId(), LogType.ERROR, message, "");
     }
 
     private org.goobi.beans.Process createProcess(String processTitle, XMLConfiguration config) throws DAOException {
@@ -549,7 +545,7 @@ public class QuartzJob implements Job {
                 if (ds.getAllChildren() == null || ds.getAllChildren().isEmpty()) {
                     throw new ImportPluginException(
                             "Could not import record " + usedId.getSearchValue()
-                                    + ". Found anchor file, but no children. Try to import the child record.");
+                            + ". Found anchor file, but no children. Try to import the child record.");
                 }
                 ds = ds.getAllChildren().get(0);
             }
@@ -566,7 +562,7 @@ public class QuartzJob implements Job {
             ds.addMetadata(UserDefinedC);
         } catch (UGHException e1) {
             throw new ImportPluginException("Could not import record " + usedId.getSearchValue()
-                    + ". Usually this means a ruleset mapping is not correct or the record can not be found in the catalogue.");
+            + ". Usually this means a ruleset mapping is not correct or the record can not be found in the catalogue.");
         }
 
         return myRdf;
