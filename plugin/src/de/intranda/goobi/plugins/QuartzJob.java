@@ -20,6 +20,7 @@ import org.goobi.beans.Processproperty;
 import org.goobi.beans.Step;
 import org.goobi.production.enums.LogType;
 import org.goobi.production.enums.PluginType;
+import org.goobi.production.flow.jobs.AbstractGoobiJob;
 import org.goobi.production.plugin.PluginLoader;
 import org.goobi.production.plugin.interfaces.IOpacPlugin;
 import org.jdom2.Document;
@@ -30,8 +31,6 @@ import org.jdom2.filter.Filters;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
-import org.quartz.Job;
-import org.quartz.JobExecutionContext;
 
 import de.sub.goobi.config.ConfigPlugins;
 import de.sub.goobi.config.ConfigurationHelper;
@@ -59,7 +58,8 @@ import ugh.exceptions.UGHException;
 import ugh.exceptions.WriteException;
 
 @Log4j
-public class QuartzJob implements Job {
+public class QuartzJob extends AbstractGoobiJob {
+
     private static XPathFactory xFactory = XPathFactory.instance();
     private static Namespace metsNs = Namespace.getNamespace("METS", "http://www.loc.gov/METS/");
     private static Namespace marcNs = Namespace.getNamespace("marc", "http://www.loc.gov/MARC21/slim");
@@ -76,8 +76,13 @@ public class QuartzJob implements Job {
     private final static long M = 1048576;
 
     @Override
-    public void execute(JobExecutionContext context) {
-        log.debug("Execute job: " + context.getJobDetail().getName() + " - " + context.getRefireCount());
+    public String getJobName() {
+        return "GooglebooksHarvester";
+    }
+
+    @Override
+    public void execute() {
+        log.debug("Execute job: Googlebooks Harvester");
 
         int numberHarvested = 0;
         XMLConfiguration config = ConfigPlugins.getPluginConfig("intranda_administration_googlebooks-harvester");
@@ -545,7 +550,7 @@ public class QuartzJob implements Job {
                 if (ds.getAllChildren() == null || ds.getAllChildren().isEmpty()) {
                     throw new ImportPluginException(
                             "Could not import record " + usedId.getSearchValue()
-                            + ". Found anchor file, but no children. Try to import the child record.");
+                                    + ". Found anchor file, but no children. Try to import the child record.");
                 }
                 ds = ds.getAllChildren().get(0);
             }
@@ -562,7 +567,7 @@ public class QuartzJob implements Job {
             ds.addMetadata(UserDefinedC);
         } catch (UGHException e1) {
             throw new ImportPluginException("Could not import record " + usedId.getSearchValue()
-            + ". Usually this means a ruleset mapping is not correct or the record can not be found in the catalogue.");
+                    + ". Usually this means a ruleset mapping is not correct or the record can not be found in the catalogue.");
         }
 
         return myRdf;
