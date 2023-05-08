@@ -3,10 +3,12 @@ package de.intranda.goobi.plugins;
 import org.goobi.production.enums.PluginType;
 import org.goobi.production.plugin.interfaces.IAdministrationPlugin;
 import org.goobi.production.plugin.interfaces.IPlugin;
+import org.quartz.JobKey;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.SchedulerFactory;
 import org.quartz.impl.StdSchedulerFactory;
+import org.quartz.impl.matchers.GroupMatcher;
 
 import lombok.Data;
 import lombok.extern.log4j.Log4j;
@@ -48,11 +50,13 @@ public class GoogleBooksHarvesterPlugin implements IAdministrationPlugin, IPlugi
             SchedulerFactory schedFact = new StdSchedulerFactory();
             Scheduler sched = schedFact.getScheduler();
             for (String groupName : sched.getJobGroupNames()) {
-                // get all jobs within the group
-                for (Object name : sched.getJobNames(groupName)) {
-                    log.debug("Scheduler job: " + groupName + " - " + name);
+
+                for (JobKey jobKey : sched.getJobKeys(GroupMatcher.jobGroupEquals(groupName))) {
+                    String jobName = jobKey.getName();
+                    log.debug("Scheduler job: " + groupName + " - " + jobName);
                 }
             }
+
         } catch (SchedulerException e) {
             log.error("Error while reading job information", e);
         }
