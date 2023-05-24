@@ -4,23 +4,13 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:x="http://myfaces.apache.org/tomahawk"
-	xmlns:intranda="http://xmlns.jcp.org/jsf/composite/composites"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 	<composite:interface>
 	</composite:interface>
 
 	<composite:implementation>
-
-	<style>
-	.topAligned {
-		vertical-align: top;
-		padding-right: 50px;
-	}
-	</style>
-	
-		<h:outputText styleClass="alert alert-info block margin-top-most"
+		<h:outputText styleClass="alert alert-info d-block"
 			value="#{msgs.plugin_intranda_administration_googlebooks_harvester_no_gui}" />
 	</composite:implementation>
 
