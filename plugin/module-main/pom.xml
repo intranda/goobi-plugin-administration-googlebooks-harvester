@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>de.intranda.goobi.plugins.administration</groupId>
   <artifactId>googlebooks-harvester-main</artifactId>
-  <version>24.01.2</version>
+  <version>24.02</version>
   <properties>
     <jar.name>plugin_intranda_administration_googlebooks-harvester</jar.name>
     <dest.folder>/opt/digiverso/goobi/plugins/administration/</dest.folder>
@@ -10,7 +10,7 @@
   <parent>
     <groupId>de.intranda.goobi.plugins.administration</groupId>
     <artifactId>googlebooks-harvester</artifactId>
-    <version>24.01.2</version>
+    <version>24.02</version>
   </parent>
   <repositories>
     <repository>
