@@ -15,7 +15,7 @@ import org.junit.Test;
 public class XpathTest {
     @Test
     public void testIdentifierXpath() throws IOException, JDOMException {
-        try (DirectoryStream<Path> dirStream = Files.newDirectoryStream(Paths.get("test/resources/metsFiles"))) {
+        try (DirectoryStream<Path> dirStream = Files.newDirectoryStream(Paths.get("src/test/resources/metsFiles"))) {
             for (Path p : dirStream) {
                 System.out.println("reading " + p);
                 List<CatalogueIdentifier> identifers = QuartzJob.readIdsFromMarc(p);
