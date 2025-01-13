@@ -386,7 +386,7 @@ public class QuartzJob extends AbstractGoobiJob {
         try {
             Prefs prefs = goobiProcess.getRegelsatz().getPreferences();
             Fileformat ff = null;
-            ff = getRecordFromCatalogue(prefs, idsFromMarc, "NLI Alma");
+            ff = getRecordFromCatalogue(prefs, idsFromMarc, "NLI Alma googlebooks");
             DigitalDocument digDoc = ff.getDigitalDocument();
             DocStruct physical = digDoc.createDocStruct(prefs.getDocStrctTypeByName("BoundBook"));
             digDoc.setPhysicalDocStruct(physical);
