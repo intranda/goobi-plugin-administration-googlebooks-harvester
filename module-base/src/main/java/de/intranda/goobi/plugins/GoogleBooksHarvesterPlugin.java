@@ -19,15 +19,9 @@ import net.xeoh.plugins.base.annotations.PluginImplementation;
 @Log4j
 public class GoogleBooksHarvesterPlugin implements IAdministrationPlugin, IPlugin {
 
+    private static final long serialVersionUID = -4420759585484306980L;
     private static final String PLUGIN_NAME = "intranda_administration_googlebooks_harvester";
     private static final String GUI = "/uii/administration_googlebooksHarvester.xhtml";
-
-    /**
-     * Constructor for parameter initialisation from config file
-     */
-    public GoogleBooksHarvesterPlugin() {
-
-    }
 
     @Override
     public PluginType getType() {

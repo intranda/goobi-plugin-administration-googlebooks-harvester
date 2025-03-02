@@ -16,7 +16,6 @@ public class ProcessOutputReader implements Runnable {
 
     private InputStream inputStream;
     private StringBuilder sb = new StringBuilder();
-    private Charset charset = Charset.forName("utf-8");
     private boolean keepOutput = true;
 
     public ProcessOutputReader(InputStream inputStream) {
@@ -55,11 +54,9 @@ public class ProcessOutputReader implements Runnable {
 
     private File getFileFromString(String string, File file, boolean append) throws IOException {
 
-        FileWriter writer = null;
-        writer = new FileWriter(file, append);
-        writer.write(string);
-        writer.close();
-
+        try (FileWriter writer = new FileWriter(file, append)) {
+            writer.write(string);
+        }
         return file;
     }
 

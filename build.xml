@@ -3,7 +3,9 @@
 		<exec executable="mvn">
 			<arg value="package"/>
 		</exec>
-		<copy file="module-gui/target/plugin_intranda_administration_googlebooks-harvester-GUI.jar" todir="/opt/digiverso/goobi/plugins/GUI/"/>
-		<copy file="module-main/target/plugin_intranda_administration_googlebooks-harvester.jar" todir="/opt/digiverso/goobi/plugins/administration/"/>
+        <copy file="module-base/target/plugin-administration-googlebooks-harvester-base.jar" todir="/opt/digiverso/goobi/plugins/administration/"/>
+        <copy file="module-gui/target/plugin-administration-googlebooks-harvester-gui.jar" todir="/opt/digiverso/goobi/plugins/GUI/"/>
+        <copy file="module-job/target/plugin-administration-googlebooks-harvester-job.jar" todir="/opt/digiverso/goobi/plugins/GUI/"/>
+        <copy file="module-lib/target/plugin-administration-googlebooks-harvester-lib.jar" todir="/opt/digiverso/goobi/plugins/GUI/"/>
 	</target>
 </project>
