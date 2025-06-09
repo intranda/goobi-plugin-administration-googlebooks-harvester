@@ -453,8 +453,6 @@ public class QuartzJob extends AbstractGoobiJob {
          */
         BeanHelper bHelper = new BeanHelper();
         bHelper.SchritteKopieren(template, processCopy);
-        bHelper.ScanvorlagenKopieren(template, processCopy);
-        bHelper.WerkstueckeKopieren(template, processCopy);
         bHelper.EigenschaftenKopieren(template, processCopy);
 
         Processproperty userDefinedA = new Processproperty();
