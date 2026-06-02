@@ -275,13 +275,19 @@ public class QuartzJob extends AbstractGoobiJob {
 
     private org.goobi.beans.Process downloadAndImportBook(String convertedBook, String processTitle, String id, XMLConfiguration config)
             throws IOException, InterruptedException, DAOException, SwapException {
+        if (!convertedBook.matches("[A-Za-z0-9_.+-]+")) {
+            throw new IOException("Invalid book name from GRIN API: " + convertedBook);
+        }
         org.goobi.beans.Process goobiProcess = createProcess(processTitle, config);
         String scriptDir = config.getString("scriptDir", "/opt/digiverso/goobi/scripts/googlebooks/");
-        Path goobiImagesSourceDir = Paths.get(goobiProcess.getSourceDirectory());
+        Path goobiImagesSourceDir = Paths.get(goobiProcess.getSourceDirectory()).normalize();
         if (!Files.exists(goobiImagesSourceDir)) {
             Files.createDirectories(goobiImagesSourceDir);
         }
-        Path downloadPath = goobiImagesSourceDir.resolve(convertedBook);
+        Path downloadPath = goobiImagesSourceDir.resolve(convertedBook).normalize();
+        if (!downloadPath.startsWith(goobiImagesSourceDir)) {
+            throw new IOException("Path traversal detected in book name: " + convertedBook);
+        }
         ProcessBuilder pb = new ProcessBuilder("/usr/bin/env", "python", "grin_oath.py", "--directory", "NLI", "--resource", convertedBook, "-o",
                 downloadPath.toAbsolutePath().toString());
         pb.directory(new File(scriptDir));
@@ -306,7 +312,10 @@ public class QuartzJob extends AbstractGoobiJob {
 
         //decrypt stuff...
         String outputName = convertedBook.replace(".gpg", "");
-        Path decryptPath = goobiImagesSourceDir.resolve(outputName);
+        Path decryptPath = goobiImagesSourceDir.resolve(outputName).normalize();
+        if (!decryptPath.startsWith(goobiImagesSourceDir)) {
+            throw new IOException("Path traversal detected in decrypted book name: " + outputName);
+        }
         Process gpgProcess =
                 new ProcessBuilder("/usr/bin/gpg", "--pinentry-mode=loopback", "--passphrase", config.getString("passphrase"), "--output",
                         decryptPath.toAbsolutePath().toString(), "-d", downloadPath.toAbsolutePath().toString()).start();
